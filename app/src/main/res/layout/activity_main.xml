@@ -4,15 +4,154 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#edefe3"
     tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bg1" />
+
+    <View
+        android:id="@+id/bg1"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:background="#ccffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+    <ImageButton
+        android:id="@+id/add_item_main_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="40dp"
+        android:background="#ccffffff"
+        android:contentDescription="추가"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/stock_item_main_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_add_item" />
+
+    <ImageButton
+        android:id="@+id/search_item_main_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="#ccffffff"
+        android:layout_marginBottom="40dp"
+        android:contentDescription="검색"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/setting_item_main_btn"
+        app:layout_constraintEnd_toStartOf="@+id/qrSearch_item_main_btn"
+        app:layout_constraintStart_toEndOf="@+id/add_item_main_btn"
+        app:srcCompat="@drawable/ic_search" />
+
+    <ImageButton
+        android:id="@+id/qrSearch_item_main_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="40dp"
+        android:background="#ccffffff"
+        android:contentDescription="qr_검색"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/announcement_item_main_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_qr_code_scanner" />
+
+    <ImageButton
+        android:id="@+id/stock_item_main_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="100dp"
+        android:background="#ccffffff"
+        android:contentDescription="재고"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_warehouse" />
+
+    <ImageButton
+        android:id="@+id/setting_item_main_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="100dp"
+        android:background="#ccffffff"
+        android:contentDescription="어플 설정"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/announcement_item_main_btn"
+        app:layout_constraintStart_toEndOf="@+id/stock_item_main_btn"
+        app:srcCompat="@drawable/ic_setting" />
+
+    <ImageButton
+        android:id="@+id/announcement_item_main_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="100dp"
+        android:background="#ccffffff"
+        android:contentDescription="공지"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_announcement" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="30dp"
+        android:text="Hhub"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/line1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="15dp"
+        android:text="주요메뉴"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/line2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bg1" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bg1"
+        app:layout_constraintEnd_toEndOf="@+id/bg1"
+        app:layout_constraintStart_toStartOf="@+id/bg1"
+        app:layout_constraintTop_toTopOf="@+id/bg1"
+        app:srcCompat="@drawable/InventoryManage" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
