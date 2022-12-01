@@ -11,6 +11,6 @@ data class ProductEntity(
     @ColumnInfo(name = "image") val image : String,
     @ColumnInfo(name = "category") val category: String,
     @ColumnInfo(name = "price") val price : Int,
-    @ColumnInfo(name = "loaction") var loaction : String,//변경가능~
+    @ColumnInfo(name = "loction") var loction : String,//변경가능~
     @ColumnInfo(name = "stock") var stock : Int
 )
