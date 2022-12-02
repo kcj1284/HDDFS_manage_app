@@ -39,7 +39,7 @@
                 android:id="@+id/added_picture"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_margin="40dp"
+                android:layout_margin="60dp"
                 android:background="@drawable/bg_shape"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -74,6 +74,7 @@
                 android:layout_marginTop="5dp"
                 android:hint="MN2CBWBL481W"
                 android:inputType="text"
+                android:background="@null"
                 android:paddingStart="50dp"
                 android:paddingEnd="50dp"
                 android:textSize="20sp"
@@ -106,16 +107,25 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_item_num" />
 
+            <TextView
+                android:id="@+id/tv_item_cat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="카테고리"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/iv_item_cat"
+                app:layout_constraintTop_toTopOf="@+id/iv_item_cat" />
+
             <Spinner
                 android:id="@+id/add_categoty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:contentDescription="카테고리 선택"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_item_cat"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_cat"
-                app:layout_constraintStart_toStartOf="@+id/iv_item_cat"
+                app:layout_constraintEnd_toStartOf="@+id/tv_item_cat"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_cat"
                 tools:ignore="TouchTargetSizeCheck" />
 
@@ -151,6 +161,7 @@
                 android:paddingStart="70dp"
                 android:paddingEnd="70dp"
                 android:textSize="20sp"
+                android:background="@null"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_name"
                 app:layout_constraintHorizontal_bias="0.913"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_name"
@@ -191,6 +202,7 @@
                 android:paddingTop="5dp"
                 android:paddingEnd="100dp"
                 android:textSize="20sp"
+                android:background="@null"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_price"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_price"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_price"
@@ -228,6 +240,7 @@
                 android:paddingStart="80dp"
                 android:paddingEnd="80dp"
                 android:textSize="20sp"
+                android:background="@null"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_location"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_location"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_location"
@@ -267,6 +280,7 @@
                 android:paddingStart="100dp"
                 android:paddingEnd="100dp"
                 android:textSize="20sp"
+                android:background="@null"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_stock"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_stock"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_stock"

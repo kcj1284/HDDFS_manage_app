@@ -110,6 +110,11 @@ class AddProduct : AppCompatActivity() {
 
         }
 
+        binding.addCancleBtn.setOnClickListener{
+            var intentCancle = Intent(this, MainActivity::class.java)
+            startActivity(intentCancle)
+        }
+
         //재고추가버튼
         binding.addCompleteBtn.setOnClickListener {
             insertTodoList()
