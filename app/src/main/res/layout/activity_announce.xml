@@ -159,7 +159,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="45dp"
-        android:text="Android Hhub version_1.3.2 으로 업데이트 ..."
+        android:text="Android Hhub version_1.3.2 으로 업데이트 되었습..."
         android:textColor="#666666"
         app:layout_constraintStart_toStartOf="@+id/announce_04_btn"
         app:layout_constraintTop_toTopOf="@+id/announce_04_btn" />
@@ -170,7 +170,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:text="앱 업데이트"
+        android:text="앱 업데이트 사항 안내"
         android:textStyle="bold"
         android:textSize="16sp"
         android:textColor="@color/black"
