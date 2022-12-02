@@ -20,5 +20,20 @@ class Announce : AppCompatActivity() {
             val intentAnnounce01 = Intent(this, AnnounceContent01::class.java)
             startActivity(intentAnnounce01)
         }
+
+        binding.announce02Btn.setOnClickListener {
+            val intentAnnounce02 = Intent(this, AnnounceContent02::class.java)
+            startActivity(intentAnnounce02)
+        }
+
+        binding.announce03Btn.setOnClickListener {
+            val intentAnnounce03 = Intent(this, AnnounceContent03::class.java)
+            startActivity(intentAnnounce03)
+        }
+
+        binding.announce04Btn.setOnClickListener {
+            val intentAnnounce04 = Intent(this, AnnounceContent04::class.java)
+            startActivity(intentAnnounce04)
+        }
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AnnounceContent01"
+    tools:context=".AnnounceContent04"
     android:background="@color/bg_light">
 
     <View
@@ -42,7 +42,7 @@
         android:layout_marginBottom="50dp"
         android:background="@drawable/bg_shape"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line1" />
 
@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="품절임박/품절 메뉴 안내"
+        android:text="제품 배치도 사용 안내"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="170dp"
-        android:text="김가희"
+        android:text="김다빈"
         android:textColor="#666666"
         android:textSize="11sp"
         android:textStyle="bold"
@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="145dp"
-        android:text="2022.12.01"
+        android:text="2022.12.02"
         android:textColor="#666666"
         android:textSize="11sp"
         android:textStyle="bold"
@@ -133,27 +133,32 @@
         app:layout_constraintStart_toStartOf="@+id/bg1"
         app:layout_constraintTop_toBottomOf="@+id/update_date" />
 
+    <ImageView
+        android:id="@+id/imageLayout"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/bg1"
+        app:layout_constraintStart_toStartOf="@+id/bg1"
+        app:layout_constraintTop_toBottomOf="@+id/line3"
+        app:srcCompat="@drawable/product_position"/>
+
     <TextView
         android:id="@+id/announce_content"
         android:layout_width="300dp"
-        android:layout_height="320dp"
-        android:text="품절에 임박하거나 품절된 제품에 대한 메뉴는 다음과 같이 이용
-                    \n 바랍니다.\n
-                    \n hHub에서 판매되는 제품은 별도로 주문제작으로 표기 된 경우
-                    \n 외에는 직접 재고를 보유하고 당일 또는 익일 발송을 원칙으로
-                    \n 하고 있습니다.
-                    \n 시스템에서 현재 재고가있는 수량만 주문이 가능하고 소진 시
-                    \n 품절로 전환되다 보니, 간혹 재고가 부족하여 원하시는 수량을
-                    \n 주문하지 못하시는 경우가 발생하기도 합니다.\n
-                    \n 또한, 단종 직전인 제품을 미리 알리기 위해 품절 임박한 제품은
-                    \n 최소 2주 전에 확인하여 발주 바랍니다.\n
-                    \n 항상 최고의 시스템 유지를 위해 노력하겠습니다. 감사합니다.
-                        "
+        android:layout_height="150dp"
+        android:text=" 제품은 위의 배치도처럼 A~D, 1~4 로 이루어집니다.\n
+                    \n 제품은 제품의 이름, 제품의 QR코드로 검색이 가능하며 해당 위치
+                    \n에서 제품읇 빠르게 찾을 수 있습니다.\n
+                    \n 제품 등록 시에 제품 위치를 등록할 수 있으며, 제품 리스트에서 수
+                    \n정 또한 가능합니다. \n
+                    \n 더욱이 편리한 서비스를 위해 항상 노력하겠습니다. 감사합니다."
         android:textColor="#666666"
         android:textSize="11sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/bg1"
         app:layout_constraintEnd_toEndOf="@+id/bg1"
         app:layout_constraintStart_toStartOf="@+id/bg1"
-        app:layout_constraintTop_toBottomOf="@+id/line3" />
+        app:layout_constraintTop_toBottomOf="@+id/imageLayout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,27 @@
         android:theme="@style/Theme.HyundaiHub"
         tools:targetApi="31">
         <activity
+            android:name=".AnnounceContent04"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AnnounceContent03"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AnnounceContent02"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AnnounceContent01"
             android:exported="false">
             <meta-data
