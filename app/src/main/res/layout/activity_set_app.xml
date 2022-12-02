@@ -9,7 +9,7 @@
 
     <View
         android:id="@+id/line1"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="2dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="90dp"
@@ -26,6 +26,7 @@
         android:text="어플 설정"
         android:textSize="25sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/line1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,10 +34,10 @@
 
     <View
         android:id="@+id/bg1"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="180dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/button_shape"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +46,7 @@
 
     <View
         android:id="@+id/bg2"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="105dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_shape"
@@ -55,7 +56,7 @@
 
     <View
         android:id="@+id/bg3"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="145dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_shape"
@@ -70,6 +71,7 @@
          android:layout_marginTop="15dp"
         android:text="라이트/ 다크 모드"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/bg1"
         app:layout_constraintTop_toTopOf="@+id/bg1" />
 
@@ -105,6 +107,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="45dp"
         android:text="Android Hhub version_1.3.2 \n최신 버전 입니다."
+        android:textColor="#666666"
         app:layout_constraintStart_toStartOf="@+id/bg2"
         app:layout_constraintTop_toTopOf="@+id/bg2" />
 
@@ -116,6 +119,7 @@
         android:text="앱 업데이트"
         android:textStyle="bold"
         android:textSize="16dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/bg2"
         app:layout_constraintTop_toTopOf="@+id/bg2" />
 
@@ -125,6 +129,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="45dp"
         android:text="Hyundai_IT&amp;E_5 김가희\nHyundai_IT&amp;E_5 김다빈\nHyundai_IT&amp;E_5 김찬중\nHyundai_IT&amp;E_5 박여명"
+        android:textColor="#666666"
         app:layout_constraintStart_toStartOf="@+id/bg3"
         app:layout_constraintTop_toTopOf="@+id/bg3" />
 
@@ -136,6 +141,7 @@
         android:text="개발자들"
         android:textStyle="bold"
         android:textSize="16dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/bg3"
         app:layout_constraintTop_toTopOf="@+id/bg3" />
 

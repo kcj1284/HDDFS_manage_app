@@ -4,15 +4,174 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#edefe3"
     tools:context=".Announce">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="공지사항"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <View
+        android:id="@+id/line1"
+        android:layout_width="350dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="공지 사항"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/line1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_bg1"
+        android:layout_width="350dp"
+        android:layout_height="85dp"
+        android:background="@drawable/button_shape"
+        android:layout_marginTop="10dp"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+    <Button
+        android:id="@+id/btn_bg2"
+        android:layout_width="350dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_shape"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_bg1" />
+
+    <Button
+        android:id="@+id/btn_bg3"
+        android:layout_width="350dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_shape"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_bg2" />
+
+    <Button
+        android:id="@+id/btn_bg4"
+        android:layout_width="350dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_shape"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_bg3" />
+
+    <TextView
+        android:id="@+id/btn1_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="45dp"
+        android:text="제품을 수정하는 방법은 상세 페이지 접속 혹은 ..."
+        android:textColor="#666666"
+        app:layout_constraintStart_toStartOf="@+id/btn_bg1"
+        app:layout_constraintTop_toTopOf="@+id/btn_bg1" />
+
+    <TextView
+        android:id="@+id/btn1_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:text="제품 수정 공지"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/btn_bg1"
+        app:layout_constraintTop_toTopOf="@+id/btn_bg1" />
+
+    <TextView
+        android:id="@+id/btn2_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="45dp"
+        android:text="12월 1일 목요일에 발생했던 QR 인식 오류에 ..."
+        android:textColor="#666666"
+        app:layout_constraintStart_toStartOf="@+id/btn_bg2"
+        app:layout_constraintTop_toTopOf="@+id/btn_bg2" />
+
+    <TextView
+        android:id="@+id/btn2_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:text="QR 인식 오류 복구 완료"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/btn_bg2"
+        app:layout_constraintTop_toTopOf="@+id/btn_bg2" />
+
+    <TextView
+        android:id="@+id/btn3_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="45dp"
+        android:text="위치는 A~D, 1~4로 이루어지며 각각의 칸은 ... "
+        android:textColor="#666666"
+        app:layout_constraintStart_toStartOf="@+id/btn_bg3"
+        app:layout_constraintTop_toTopOf="@+id/btn_bg3" />
+
+    <TextView
+        android:id="@+id/btn3_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:text="제품 위치 안내"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/btn_bg3"
+        app:layout_constraintTop_toTopOf="@+id/btn_bg3" />
+
+    <TextView
+        android:id="@+id/btn4_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="45dp"
+        android:text="Android Hhub version_1.3.2 으로 업데이트 ..."
+        android:textColor="#666666"
+        app:layout_constraintStart_toStartOf="@+id/btn_bg4"
+        app:layout_constraintTop_toTopOf="@+id/btn_bg4" />
+
+    <TextView
+        android:id="@+id/btn4_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:text="앱 업데이트"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/btn_bg4"
+        app:layout_constraintTop_toTopOf="@+id/btn_bg4" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
