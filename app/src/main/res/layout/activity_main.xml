@@ -24,21 +24,22 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="30dp"
         android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bg1" />
 
     <View
         android:id="@+id/bg1"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="200dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
-        android:background="#ccffffff"
+        android:background="@drawable/button_shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line1" />
@@ -49,9 +50,13 @@
         android:layout_height="80dp"
         android:layout_marginStart="35dp"
         android:layout_marginBottom="40dp"
-        android:background="#ccffffff"
+        android:background="@drawable/button_shape"
         android:contentDescription="추가"
         android:scaleType="fitCenter"
+        android:elevation="10dp"
+
+
+
         app:layout_constraintBottom_toTopOf="@+id/stock_item_main_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_add_item" />
@@ -60,10 +65,11 @@
         android:id="@+id/search_item_main_btn"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:background="#ccffffff"
+        android:background="@drawable/button_shape"
         android:layout_marginBottom="40dp"
         android:contentDescription="검색"
         android:scaleType="fitCenter"
+        android:elevation="10dp"
         app:layout_constraintBottom_toTopOf="@+id/setting_main_btn"
         app:layout_constraintEnd_toStartOf="@+id/qrSearch_item_main_btn"
         app:layout_constraintStart_toEndOf="@+id/add_item_main_btn"
@@ -75,9 +81,10 @@
         android:layout_height="80dp"
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="40dp"
-        android:background="#ccffffff"
+        android:background="@drawable/button_shape"
         android:contentDescription="qr_검색"
         android:scaleType="fitCenter"
+        android:elevation="10dp"
         app:layout_constraintBottom_toTopOf="@+id/announcement_item_main_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_qr_code_scanner" />
@@ -88,9 +95,10 @@
         android:layout_height="80dp"
         android:layout_marginStart="35dp"
         android:layout_marginBottom="50dp"
-        android:background="#ccffffff"
+        android:background="@drawable/button_shape"
         android:contentDescription="재고"
         android:scaleType="fitCenter"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_warehouse" />
@@ -100,9 +108,10 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="50dp"
-        android:background="#ccffffff"
+        android:background="@drawable/button_shape"
         android:contentDescription="어플 설정"
         android:scaleType="fitCenter"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/announcement_item_main_btn"
         app:layout_constraintStart_toEndOf="@+id/stock_item_main_btn"
@@ -114,9 +123,10 @@
         android:layout_height="80dp"
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="50dp"
-        android:background="#ccffffff"
+        android:background="@drawable/button_shape"
         android:contentDescription="공지"
         android:scaleType="fitCenter"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_announcement" />
@@ -124,26 +134,30 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="28dp"
         android:text="Hhub"
-        android:textSize="50sp"
+        android:textSize="40sp"
+        android:textColor="#413838"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/line1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.757" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="28dp"
         android:text="주요메뉴"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/line2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bg1" />
+        app:layout_constraintTop_toBottomOf="@+id/bg1"
+        app:layout_constraintVertical_bias="0.731" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="@+id/bg1"
         app:layout_constraintEnd_toEndOf="@+id/bg1"

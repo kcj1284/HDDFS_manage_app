@@ -73,21 +73,25 @@
 
     <Button
         android:id="@+id/light_mode_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Light"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/button_round_light"
+        android:text="light"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/bg1"
         app:layout_constraintEnd_toStartOf="@+id/dark_mode_btn"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/bg1"
         app:layout_constraintTop_toTopOf="@+id/bg1" />
 
     <Button
         android:id="@+id/dark_mode_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/button_round_dark"
         android:text="Dark"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/bg1"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/bg1"
         app:layout_constraintStart_toEndOf="@+id/light_mode_btn"
         app:layout_constraintTop_toTopOf="@+id/bg1" />
 
