@@ -21,6 +21,13 @@
         android:theme="@style/Theme.HyundaiHub"
         tools:targetApi="31">
         <activity
+            android:name=".AnnounceContent01"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Announce"
             android:exported="false">
             <meta-data

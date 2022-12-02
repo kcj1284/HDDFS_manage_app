@@ -33,49 +33,53 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_bg1"
+        android:id="@+id/announce_01_btn"
         android:layout_width="350dp"
         android:layout_height="85dp"
         android:background="@drawable/button_shape"
         android:layout_marginTop="10dp"
         android:stateListAnimator="@null"
+        android:contentDescription="announce_01_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line1" />
 
     <Button
-        android:id="@+id/btn_bg2"
+        android:id="@+id/announce_02_btn"
         android:layout_width="350dp"
         android:layout_height="85dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_shape"
         android:stateListAnimator="@null"
+        android:contentDescription="announce_02_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_bg1" />
+        app:layout_constraintTop_toBottomOf="@+id/announce_01_btn" />
 
     <Button
-        android:id="@+id/btn_bg3"
+        android:id="@+id/announce_03_btn"
         android:layout_width="350dp"
         android:layout_height="85dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_shape"
         android:stateListAnimator="@null"
+        android:contentDescription="announce_03_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_bg2" />
+        app:layout_constraintTop_toBottomOf="@+id/announce_02_btn" />
 
     <Button
-        android:id="@+id/btn_bg4"
+        android:id="@+id/announce_04_btn"
         android:layout_width="350dp"
         android:layout_height="85dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_shape"
         android:stateListAnimator="@null"
+        android:contentDescription="announce_04_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_bg3" />
+        app:layout_constraintTop_toBottomOf="@+id/announce_03_btn" />
 
     <TextView
         android:id="@+id/btn1_content"
@@ -85,8 +89,8 @@
         android:layout_marginTop="45dp"
         android:text="제품을 수정하는 방법은 상세 페이지 접속 혹은 ..."
         android:textColor="#666666"
-        app:layout_constraintStart_toStartOf="@+id/btn_bg1"
-        app:layout_constraintTop_toTopOf="@+id/btn_bg1" />
+        app:layout_constraintStart_toStartOf="@+id/announce_01_btn"
+        app:layout_constraintTop_toTopOf="@+id/announce_01_btn" />
 
     <TextView
         android:id="@+id/btn1_subject"
@@ -96,10 +100,10 @@
         android:layout_marginTop="15dp"
         android:text="제품 수정 공지"
         android:textStyle="bold"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/btn_bg1"
-        app:layout_constraintTop_toTopOf="@+id/btn_bg1" />
+        app:layout_constraintStart_toStartOf="@+id/announce_01_btn"
+        app:layout_constraintTop_toTopOf="@+id/announce_01_btn" />
 
     <TextView
         android:id="@+id/btn2_content"
@@ -109,8 +113,8 @@
         android:layout_marginTop="45dp"
         android:text="12월 1일 목요일에 발생했던 QR 인식 오류에 ..."
         android:textColor="#666666"
-        app:layout_constraintStart_toStartOf="@+id/btn_bg2"
-        app:layout_constraintTop_toTopOf="@+id/btn_bg2" />
+        app:layout_constraintStart_toStartOf="@+id/announce_02_btn"
+        app:layout_constraintTop_toTopOf="@+id/announce_02_btn" />
 
     <TextView
         android:id="@+id/btn2_subject"
@@ -120,10 +124,10 @@
         android:layout_marginTop="15dp"
         android:text="QR 인식 오류 복구 완료"
         android:textStyle="bold"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/btn_bg2"
-        app:layout_constraintTop_toTopOf="@+id/btn_bg2" />
+        app:layout_constraintStart_toStartOf="@+id/announce_02_btn"
+        app:layout_constraintTop_toTopOf="@+id/announce_02_btn" />
 
     <TextView
         android:id="@+id/btn3_content"
@@ -133,8 +137,8 @@
         android:layout_marginTop="45dp"
         android:text="위치는 A~D, 1~4로 이루어지며 각각의 칸은 ... "
         android:textColor="#666666"
-        app:layout_constraintStart_toStartOf="@+id/btn_bg3"
-        app:layout_constraintTop_toTopOf="@+id/btn_bg3" />
+        app:layout_constraintStart_toStartOf="@+id/announce_03_btn"
+        app:layout_constraintTop_toTopOf="@+id/announce_03_btn" />
 
     <TextView
         android:id="@+id/btn3_subject"
@@ -144,10 +148,10 @@
         android:layout_marginTop="15dp"
         android:text="제품 위치 안내"
         android:textStyle="bold"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/btn_bg3"
-        app:layout_constraintTop_toTopOf="@+id/btn_bg3" />
+        app:layout_constraintStart_toStartOf="@+id/announce_03_btn"
+        app:layout_constraintTop_toTopOf="@+id/announce_03_btn" />
 
     <TextView
         android:id="@+id/btn4_content"
@@ -157,8 +161,8 @@
         android:layout_marginTop="45dp"
         android:text="Android Hhub version_1.3.2 으로 업데이트 ..."
         android:textColor="#666666"
-        app:layout_constraintStart_toStartOf="@+id/btn_bg4"
-        app:layout_constraintTop_toTopOf="@+id/btn_bg4" />
+        app:layout_constraintStart_toStartOf="@+id/announce_04_btn"
+        app:layout_constraintTop_toTopOf="@+id/announce_04_btn" />
 
     <TextView
         android:id="@+id/btn4_subject"
@@ -168,10 +172,10 @@
         android:layout_marginTop="15dp"
         android:text="앱 업데이트"
         android:textStyle="bold"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/btn_bg4"
-        app:layout_constraintTop_toTopOf="@+id/btn_bg4" />
+        app:layout_constraintStart_toStartOf="@+id/announce_04_btn"
+        app:layout_constraintTop_toTopOf="@+id/announce_04_btn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
