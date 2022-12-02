@@ -9,32 +9,62 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/bg_light">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
+            <!--        <LinearLayout-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:orientation="vertical"-->
+            <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="상품 추가"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/added_picture"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                android:layout_margin="30dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
 
             <EditText
                 android:id="@+id/add_pid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="제품번호" />
+                android:hint="제품번호"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/added_picture" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/add_picture_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="사진추가"
-
-                />
-
-            <ImageView
-                android:id="@+id/added_picture"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                app:srcCompat="@drawable/ic_add_photo"
+                android:background="@color/white"
+                app:layout_constraintTop_toTopOf="@+id/added_picture"
+                app:layout_constraintBottom_toBottomOf="@+id/added_picture"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 />
 
 
@@ -42,34 +72,76 @@
                 android:id="@+id/add_categoty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_pid" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@+id/added_picture"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="30dp"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="상품 이름"
+                    android:layout_weight="2"
+                    />
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:hint="입력해 씨1발련아"
+
+                    />
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/add_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="제품이름"/>
+                android:hint="제품이름"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_categoty" />
+
             <EditText
                 android:id="@+id/add_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="가격"
-                android:inputType="number" />
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_name" />
 
             <EditText
                 android:id="@+id/add_loction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="물건 위치" />
+                android:hint="물건 위치"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_price" />
 
             <EditText
                 android:id="@+id/add_stock"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="수량"
-                android:inputType="number" />
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_loction" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--        </LinearLayout>-->
     </ScrollView>
 
     <Button

@@ -27,12 +27,10 @@ class PlistFragmentRecyclerViewAdapter(private val productList: List<ProductEnti
             LayoutInflater.from(parent.context),
             parent, false
         )
-        Log.i("하", "잘되나")
         return MyViewHolder(binding, parent.context)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        Log.i("어댑터", "되나?")
         val imageFileName = productList[position].image
         val photoFile = File(
             ///data/user/0/com.hdh.dev/files/image
