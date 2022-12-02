@@ -64,7 +64,7 @@
         android:layout_marginBottom="40dp"
         android:contentDescription="검색"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/setting_item_main_btn"
+        app:layout_constraintBottom_toTopOf="@+id/setting_main_btn"
         app:layout_constraintEnd_toStartOf="@+id/qrSearch_item_main_btn"
         app:layout_constraintStart_toEndOf="@+id/add_item_main_btn"
         app:srcCompat="@drawable/ic_search" />
@@ -96,7 +96,7 @@
         app:srcCompat="@drawable/ic_warehouse" />
 
     <ImageButton
-        android:id="@+id/setting_item_main_btn"
+        android:id="@+id/setting_main_btn"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="50dp"
@@ -196,9 +196,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="설정"
-        app:layout_constraintEnd_toEndOf="@+id/setting_item_main_btn"
-        app:layout_constraintStart_toStartOf="@+id/setting_item_main_btn"
-        app:layout_constraintTop_toBottomOf="@+id/setting_item_main_btn" />
+        app:layout_constraintEnd_toEndOf="@+id/setting_main_btn"
+        app:layout_constraintStart_toStartOf="@+id/setting_main_btn"
+        app:layout_constraintTop_toBottomOf="@+id/setting_main_btn" />
 
     <TextView
         android:layout_width="wrap_content"
