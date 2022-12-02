@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#edefe3"
+    android:background="@color/bg_light"
     tools:context=".MainActivity">
 
     <View
@@ -54,9 +54,6 @@
         android:contentDescription="추가"
         android:scaleType="fitCenter"
         android:elevation="10dp"
-
-
-
         app:layout_constraintBottom_toTopOf="@+id/stock_item_main_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_add_item" />
@@ -137,7 +134,6 @@
         android:layout_marginStart="28dp"
         android:text="Hhub"
         android:textSize="40sp"
-        android:textColor="#413838"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/line1"
         app:layout_constraintStart_toStartOf="parent"
