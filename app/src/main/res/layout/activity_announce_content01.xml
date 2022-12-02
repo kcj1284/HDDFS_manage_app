@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AnnounceContent01"
+    android:background="@color/bg_light">
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="350dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="공지 사항"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/line1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/bg1"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/bg_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+    <TextView
+        android:id="@+id/announce_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="품절임박/품절 메뉴 안내"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bg1"
+        app:layout_constraintStart_toStartOf="@+id/bg1"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="320dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/bg1"
+        app:layout_constraintStart_toStartOf="@+id/bg1"
+        app:layout_constraintTop_toBottomOf="@+id/announce_subject" />
+
+    <TextView
+        android:id="@+id/announce_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="작성자"
+        android:textColor="#666666"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/author_name"
+        app:layout_constraintStart_toStartOf="@+id/bg1"
+        app:layout_constraintTop_toBottomOf="@+id/line2" />
+
+    <TextView
+        android:id="@+id/author_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="170dp"
+        android:text="김가희"
+        android:textColor="#666666"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bg1"
+        app:layout_constraintStart_toStartOf="@+id/announce_author"
+        app:layout_constraintTop_toBottomOf="@+id/line2" />
+
+    <TextView
+        android:id="@+id/announce_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="작성일"
+        android:textColor="#666666"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/author_name"
+        app:layout_constraintStart_toStartOf="@+id/bg1"
+        app:layout_constraintTop_toBottomOf="@+id/announce_author" />
+
+    <TextView
+        android:id="@+id/update_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="145dp"
+        android:text="2022.12.01"
+        android:textColor="#666666"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bg1"
+        app:layout_constraintStart_toStartOf="@+id/announce_date"
+        app:layout_constraintTop_toBottomOf="@+id/author_name" />
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="320dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/bg1"
+        app:layout_constraintStart_toStartOf="@+id/bg1"
+        app:layout_constraintTop_toBottomOf="@+id/update_date" />
+
+    <TextView
+        android:id="@+id/announce_content"
+        android:layout_width="300dp"
+        android:layout_height="320dp"
+        android:text="품절에 임박하거나 품절된 제품에 대한 메뉴는 다음과 같이 이용
+                    \n 바랍니다.\n
+                    \n hHub에서 판매되는 제품은 별도로 주문제작으로 표기 된 경우
+                    \n 외에는 직접 재고를 보유하고 당일 또는 익일 발송을 원칙으로
+                    \n 하고 있습니다.
+                    \n 시스템에서 현재 재고가있는 수량만 주문이 가능하고 소진 시
+                    \n 품절로 전환되다 보니, 간혹 재고가 부족하여 원하시는 수량을
+                    \n 주문하지 못하시는 경우가 발생하기도 합니다.\n
+                    \n 또한, 단종 직전인 제품을 미리 알리기 위해 품절 임박한 제품은
+                    \n 최소 2주 전에 확인하여 발주 바랍니다.\n
+                    \n 항상 최고의 시스템 유지를 위해 노력하겠습니다. 감사합니다.
+                        "
+        android:textColor="#666666"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/bg1"
+        app:layout_constraintEnd_toEndOf="@+id/bg1"
+        app:layout_constraintStart_toStartOf="@+id/bg1"
+        app:layout_constraintTop_toBottomOf="@+id/line3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
