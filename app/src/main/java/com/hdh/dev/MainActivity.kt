@@ -2,12 +2,16 @@ package com.hdh.dev
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import com.google.android.material.navigation.NavigationView
 import com.hdh.dev.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -15,13 +19,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        
-        /*Toolbar toolbar = (Toolbar)findViewById(binding.toolba);
-        setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 왼쪽 상단 버튼 만들기
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.); //왼쪽 상단 버튼 아이콘 지정
-*/
+        //툴바설정
+        setSupportActionBar(binding.toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)  // 왼쪽 버튼 사용 여부 true
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_menu)  // 왼쪽 버튼 이미지 설정
+        supportActionBar!!.setDisplayShowTitleEnabled(false)    // 타이틀 안보이게 하기
+
         binding.addItemMainBtn.setOnClickListener{
             val intentAddProduct = Intent(this, AddProduct::class.java)
             startActivity(intentAddProduct)
@@ -46,17 +50,19 @@ class MainActivity : AppCompatActivity() {
             val intentAnnounce = Intent(this, Announce::class.java)
             startActivity(intentAnnounce)
         }
+
+        binding.navigationView.setNavigationItemSelectedListener(this)
     }
 
-    //왼쪽 스와이프하면 툴바열리기
-    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item!!.itemId){
+    //메뉴 아이콘 누르면 네비게이션바열리기
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
             android.R.id.home->{
                 binding.drawerLayout.openDrawer(GravityCompat.START)
             }
         }
         return super.onOptionsItemSelected(item)
-    }*/
+    }
 
     //뒤로가기 했을 때 네비게이션바닫히기
     override fun onBackPressed() { 
@@ -65,6 +71,44 @@ class MainActivity : AppCompatActivity() {
         } else {
             super.onBackPressed()
         }
+    }
+    
+    //네비게이션바에서 메뉴이동하기
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.add_item_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentAddProduct = Intent(this, AddProduct::class.java)
+                startActivity(intentAddProduct)
+            }
+            R.id.search_item_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                /*val intentSearch = Intent(this, SearchProduct::class.java)
+                startActivity(intentSearch)*/
+            }
+            R.id.qrSearch_item_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                /*val intentQrSearch = Intent(this, QrSearchProduct::class.java)
+                startActivity(intentQrSearch)*/
+            }
+            R.id.stock_item_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentStock = Intent(this, ProductList::class.java)
+                startActivity(intentStock)
+            }
+            R.id.setting_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentSetting = Intent(this, SetApp::class.java)
+                startActivity(intentSetting)
+            }
+            R.id.announcement_item_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentAnnounce = Intent(this, Announce::class.java)
+                startActivity(intentAnnounce)
+            }
+        }
+        binding.drawerLayout.closeDrawers() // 기능을 수행하고 네비게이션을 닫아준다.
+        return false
     }
 
 }
