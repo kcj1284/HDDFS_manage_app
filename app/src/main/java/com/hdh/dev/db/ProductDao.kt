@@ -1,8 +1,10 @@
 package com.hdh.dev.db
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface ProductDao {
@@ -18,4 +20,11 @@ interface ProductDao {
 
     @Insert
     fun insertProduct(product : ProductEntity)
+
+    //수정
+    @Update
+    fun updateProduct(product : ProductEntity)
+
+    @Delete
+    fun deleteProduct(product : ProductEntity)
 }

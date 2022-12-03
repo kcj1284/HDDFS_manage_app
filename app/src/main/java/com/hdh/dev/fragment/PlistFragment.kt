@@ -10,12 +10,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.hdh.dev.OnItemLongClickListener
 import com.hdh.dev.R
 import com.hdh.dev.adapter.PlistFragmentRecyclerViewAdapter
 import com.hdh.dev.databinding.FragmentProductListBinding
 import com.hdh.dev.db.ProductEntity
 
-class PlistFragment(val context : FragmentActivity, val productList: List<ProductEntity>) : Fragment() {
+class PlistFragment(
+    val context : FragmentActivity,
+    val productList: List<ProductEntity>) : Fragment(){
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,7 +31,7 @@ class PlistFragment(val context : FragmentActivity, val productList: List<Produc
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = PlistFragmentRecyclerViewAdapter(productList)
+        val adapter = PlistFragmentRecyclerViewAdapter(productList, context as OnItemLongClickListener)
         val binding = FragmentProductListBinding.inflate(layoutInflater)
 
         view.findViewById<RecyclerView>(R.id.productList_recyclerView).layoutManager = LinearLayoutManager(context)
@@ -36,4 +39,5 @@ class PlistFragment(val context : FragmentActivity, val productList: List<Produc
         //binding.productListRecyclerView.layoutManager = LinearLayoutManager(context)
         //binding.productListRecyclerView.adapter = adapter
     }
+
 }
