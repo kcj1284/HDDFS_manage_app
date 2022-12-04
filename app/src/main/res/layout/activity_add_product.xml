@@ -56,7 +56,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
-                android:background="@drawable/bg_shape"
+                android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/added_picture" />
@@ -81,7 +81,7 @@
                 android:background="@null"
                 android:gravity="center"
                 android:hint="MN2CBWBL481W"
-                android:textColorHint="@color/bg_dark"
+                android:textColorHint="@color/bg_gray"
                 android:textColor="@color/black"
                 android:inputType="text"
                 android:textSize="16sp"
@@ -108,7 +108,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="40dp"
-                android:background="@drawable/bg_shape"
+                android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_item_num" />
@@ -146,7 +146,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="40dp"
-                android:background="@drawable/bg_shape"
+                android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_item_cat" />
@@ -187,7 +187,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="40dp"
-                android:background="@drawable/bg_shape"
+                android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_item_name" />
@@ -228,7 +228,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="40dp"
-                android:background="@drawable/bg_shape"
+                android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_item_price" />
@@ -269,7 +269,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="40dp"
-                android:background="@drawable/bg_shape"
+                android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_item_location" />
