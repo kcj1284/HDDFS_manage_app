@@ -34,10 +34,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val intentSearch = Intent(this, SearchProduct::class.java)
             startActivity(intentSearch)
         }*/
-        /*binding.qrSearchItemMainBtn.setOnClickListener{
-            val intentQrSearch = Intent(this, QrSearchProduct::class.java)
+        binding.qrSearchItemMainBtn.setOnClickListener{
+            val intentQrSearch = Intent(this, QrSearch::class.java)
             startActivity(intentQrSearch)
-        }*/
+        }
         binding.stockItemMainBtn.setOnClickListener{
             val intentStock = Intent(this, ProductList::class.java)
             startActivity(intentStock)
