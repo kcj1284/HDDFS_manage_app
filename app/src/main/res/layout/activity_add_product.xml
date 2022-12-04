@@ -6,27 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".AddProduct">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bg_light">
+        android:background="@color/bg_light"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
             <!--        <LinearLayout-->
             <!--            android:layout_width="match_parent"-->
             <!--            android:layout_height="wrap_content"-->
             <!--            android:orientation="vertical"-->
             <!--            app:layout_constraintTop_toTopOf="parent">-->
-
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="상품 추가"
                 android:textColor="@color/black"
                 android:textSize="24sp"
@@ -39,21 +39,23 @@
                 android:id="@+id/added_picture"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginEnd="60dp"
-                android:background="@drawable/bg_shape"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/border_shape"
+                android:contentDescription="사진 추가"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title"
-                android:contentDescription="사진 추가"/>
+                app:layout_constraintTop_toBottomOf="@+id/title" />
 
             <View
                 android:id="@+id/iv_item_num"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_margin="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/bg_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,11 +63,13 @@
 
             <TextView
                 android:id="@+id/tv_item_num"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:gravity="center"
                 android:text="제품번호"
-                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_num"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_num" />
 
@@ -74,16 +78,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:hint="MN2CBWBL481W"
-                android:inputType="text"
                 android:background="@null"
-                android:paddingStart="50dp"
-                android:paddingEnd="50dp"
-                android:textSize="20sp"
+                android:gravity="center"
+                android:hint="MN2CBWBL481W"
+                android:textColorHint="@color/bg_dark"
+                android:textColor="@color/black"
+                android:inputType="text"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_num"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_num"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_num"
-                />
+                app:layout_constraintTop_toTopOf="@+id/iv_item_num" />
 
             <ImageButton
                 android:id="@+id/add_picture_btn"
@@ -101,9 +105,9 @@
                 android:id="@+id/iv_item_cat"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/bg_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -111,21 +115,24 @@
 
             <TextView
                 android:id="@+id/tv_item_cat"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:gravity="center"
                 android:text="카테고리"
-                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_cat"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_cat" />
 
             <Spinner
                 android:id="@+id/add_categoty"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="150dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginLeft="20dp"
                 android:contentDescription="카테고리 선택"
+                android:textColor="@color/black"
+                android:textColorHint="@color/bg_dark"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_item_cat"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_cat"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_cat"
@@ -136,9 +143,9 @@
                 android:id="@+id/iv_item_name"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/bg_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -146,11 +153,13 @@
 
             <TextView
                 android:id="@+id/tv_item_name"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:gravity="center"
+                android:textColor="@color/black"
                 android:text="제품이름"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_name"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_name" />
 
@@ -159,14 +168,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:hint="싱글 패딩 재킷"
-                android:inputType="text"
-                android:paddingStart="70dp"
-                android:paddingEnd="70dp"
-                android:textSize="20sp"
                 android:background="@null"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:hint="싱글 패딩 재킷"
+                android:textColorHint="@color/bg_dark"
+                android:inputType="text"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_name"
-                app:layout_constraintHorizontal_bias="0.913"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_name"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_name"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -175,9 +184,9 @@
                 android:id="@+id/iv_item_price"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/bg_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -185,13 +194,13 @@
 
             <TextView
                 android:id="@+id/tv_item_price"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
+                android:gravity="center"
+                android:textColor="@color/black"
                 android:text="가격"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_price"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_price" />
 
@@ -199,13 +208,14 @@
                 android:id="@+id/add_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="가격"
-                android:inputType="number"
-                android:paddingStart="100dp"
-                android:paddingTop="5dp"
-                android:paddingEnd="100dp"
-                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:background="@null"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:hint="가격"
+                android:textColorHint="@color/bg_dark"
+                android:inputType="number"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_price"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_price"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_price"
@@ -215,9 +225,9 @@
                 android:id="@+id/iv_item_location"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/bg_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -225,11 +235,13 @@
 
             <TextView
                 android:id="@+id/tv_item_location"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:gravity="center"
+                android:textColor="@color/black"
                 android:text="물건위치"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_location"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_location" />
 
@@ -238,12 +250,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:hint="물건위치"
-                android:inputType="text"
-                android:paddingStart="80dp"
-                android:paddingEnd="80dp"
-                android:textSize="20sp"
                 android:background="@null"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:hint="물건위치"
+                android:textColorHint="@color/bg_dark"
+                android:inputType="text"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_location"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_location"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_location"
@@ -251,11 +264,11 @@
 
             <View
                 android:id="@+id/iv_item_stock"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginStart="30dp"
+                android:layout_width="336dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/bg_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -263,13 +276,13 @@
 
             <TextView
                 android:id="@+id/tv_item_stock"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
+                android:gravity="center"
                 android:text="수량"
-                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_stock"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_stock" />
 
@@ -278,44 +291,49 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:hint="수량"
-                android:inputType="number"
-                android:paddingStart="100dp"
-                android:paddingEnd="100dp"
-                android:textSize="20sp"
                 android:background="@null"
+                android:gravity="center"
+                android:hint="수량"
+                android:textColorHint="@color/bg_dark"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_stock"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_stock"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_stock"
                 tools:ignore="TouchTargetSizeCheck" />
 
+            <Button
+                android:id="@+id/add_cancle_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#000000"
+                android:paddingStart="60dp"
+                android:paddingEnd="60dp"
+                android:text="취소"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintTop_toBottomOf="@+id/iv_item_stock"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/add_complete_btn"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/add_complete_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#DBEA8D"
+                android:paddingStart="60dp"
+                android:paddingEnd="60dp"
+                android:text="등록"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/add_cancle_btn" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
         <!--        </LinearLayout>-->
     </ScrollView>
-
-    <Button
-        android:id="@+id/add_cancle_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="취소"
-        android:paddingStart="50dp"
-        android:paddingEnd="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/add_complete_btn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/add_complete_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="등록"
-        android:paddingStart="50dp"
-        android:paddingEnd="50dp"
-        android:background="#DBEA8D"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/add_cancle_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
