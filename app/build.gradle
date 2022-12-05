@@ -61,4 +61,5 @@ dependencies {
     // qr코드 인식을 할 수 있기해주는 다거짓말이야거밋말이야~ mlkit 라이브러리
     implementation "com.google.mlkit:barcode-scanning:17.0.2"
 
+
 }

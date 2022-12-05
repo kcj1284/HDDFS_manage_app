@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context=".AddProduct">
 
     <ScrollView
@@ -14,8 +15,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
             <!--        <LinearLayout-->
             <!--            android:layout_width="match_parent"-->
             <!--            android:layout_height="wrap_content"-->
@@ -53,8 +53,8 @@
                 android:id="@+id/iv_item_num"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -81,9 +81,9 @@
                 android:background="@null"
                 android:gravity="center"
                 android:hint="MN2CBWBL481W"
-                android:textColorHint="@color/bg_gray"
-                android:textColor="@color/black"
                 android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/bg_gray"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_num"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_num"
@@ -157,8 +157,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:gravity="center"
-                android:textColor="@color/black"
                 android:text="제품이름"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_name"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_name" />
@@ -170,10 +170,10 @@
                 android:layout_marginTop="5dp"
                 android:background="@null"
                 android:gravity="center"
-                android:textColor="@color/black"
                 android:hint="싱글 패딩 재킷"
-                android:textColorHint="@color/bg_dark"
                 android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/bg_dark"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_name"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_name"
@@ -198,8 +198,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:gravity="center"
-                android:textColor="@color/black"
                 android:text="가격"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_price"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_price" />
@@ -211,10 +211,10 @@
                 android:layout_marginTop="5dp"
                 android:background="@null"
                 android:gravity="center"
-                android:textColor="@color/black"
                 android:hint="가격"
-                android:textColorHint="@color/bg_dark"
                 android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="@color/bg_dark"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_price"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_price"
@@ -222,7 +222,7 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
             <View
-                android:id="@+id/iv_item_location"
+                android:id="@+id/iv_item_stock"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginStart="40dp"
@@ -232,47 +232,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_item_price" />
-
-            <TextView
-                android:id="@+id/tv_item_location"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:text="물건위치"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/iv_item_location"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_location" />
-
-            <EditText
-                android:id="@+id/add_loction"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@null"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:hint="물건위치"
-                android:textColorHint="@color/bg_dark"
-                android:inputType="text"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_item_location"
-                app:layout_constraintStart_toEndOf="@+id/tv_item_location"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_location"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <View
-                android:id="@+id/iv_item_stock"
-                android:layout_width="336dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/gray_shape"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_item_location" />
 
             <TextView
                 android:id="@+id/tv_item_stock"
@@ -294,40 +253,262 @@
                 android:background="@null"
                 android:gravity="center"
                 android:hint="수량"
-                android:textColorHint="@color/bg_dark"
                 android:inputType="number"
                 android:textColor="@color/black"
+                android:textColorHint="@color/bg_dark"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_stock"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_stock"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_stock"
                 tools:ignore="TouchTargetSizeCheck" />
 
+            <View
+                android:id="@+id/iv_item_location"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/gray_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_item_stock" />
+
+            <TextView
+                android:id="@+id/tv_item_location"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="물건위치"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/iv_item_location"
+                app:layout_constraintTop_toTopOf="@+id/iv_item_location" />
+
+            <EditText
+                android:id="@+id/add_loction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@null"
+                android:gravity="center"
+                android:hint="물건위치"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/bg_dark"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_item_location"
+                app:layout_constraintStart_toEndOf="@+id/tv_item_location"
+                app:layout_constraintTop_toTopOf="@+id/iv_item_location"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/layout01"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/bg_green"
+                app:cardCornerRadius="3dp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_item_location"
+                app:layout_constraintStart_toEndOf="@+id/tv_item_location"
+                app:layout_constraintTop_toBottomOf="@id/tv_item_location"  >
+
+                <Button
+                    android:id="@+id/layoutBtn01"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@color/bg_green"
+                    android:clickable="false"
+                    android:text="상품배치도 상세보기"
+                    android:textColor="@color/bg_gray"
+                    android:textSize="12sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/layoutDetail01"
+                android:layout_width="310dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFFFFF"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/layout01"
+                app:layout_constraintTop_toBottomOf="@id/layout01">
+
+                <ImageView
+                    android:layout_width="310dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="#FFFFFF"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/product_drawing" />
+
+                <Button
+                    android:id="@+id/btn_A_1"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="49dp"
+                    android:translationY="38dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_A_2"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="49dp"
+                    android:translationY="57dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_A_3"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="49dp"
+                    android:translationY="76dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_A_4"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="49dp"
+                    android:translationY="95dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_B_1"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="125dp"
+                    android:translationY="38dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_B_2"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="125dp"
+                    android:translationY="57dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_B_3"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="125dp"
+                    android:translationY="76dp"
+                    />
+                <Button
+                    android:id="@+id/btn_B_4"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="125dp"
+                    android:translationY="95dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_C_1"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="202dp"
+                    android:translationY="37dp"
+                    />
+                <Button
+                    android:id="@+id/btn_C_2"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="247dp"
+                    android:translationY="37dp"
+                    />
+                <Button
+                    android:id="@+id/btn_C_3"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="202dp"
+                    android:translationY="59dp"
+                    />
+                <Button
+                    android:id="@+id/btn_C_4"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="247dp"
+                    android:translationY="59dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_D_1"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="202dp"
+                    android:translationY="119dp"
+                    />
+                <Button
+                    android:id="@+id/btn_D_2"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="247dp"
+                    android:translationY="119dp"
+                    />
+                <Button
+                    android:id="@+id/btn_D_3"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="202dp"
+                    android:translationY="141dp"
+                    />
+                <Button
+                    android:id="@+id/btn_D_4"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="247dp"
+                    android:translationY="141dp"
+                    />
+
+            </com.google.android.material.card.MaterialCardView>
+
             <Button
                 android:id="@+id/add_cancle_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:background="#000000"
                 android:paddingStart="60dp"
                 android:paddingEnd="60dp"
                 android:text="취소"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp"
                 android:textColor="#FFFFFF"
-                app:layout_constraintTop_toBottomOf="@+id/iv_item_stock"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/add_complete_btn"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutDetail01" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/add_complete_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:background="#DBEA8D"
                 android:paddingStart="60dp"
                 android:paddingEnd="60dp"
                 android:text="등록"
-                android:layout_marginBottom="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/add_cancle_btn" />
