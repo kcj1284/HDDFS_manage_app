@@ -30,10 +30,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val intentAddProduct = Intent(this, AddProduct::class.java)
             startActivity(intentAddProduct)
         }
-        /*binding.searchItemMainBtn.setOnClickListener{
-            val intentSearch = Intent(this, SearchProduct::class.java)
+       binding.searchItemMainBtn.setOnClickListener{
+            val intentSearch = Intent(this, SearchActivity::class.java)
             startActivity(intentSearch)
-        }*/
+        }
         binding.qrSearchItemMainBtn.setOnClickListener{
             val intentQrSearch = Intent(this, QrSearch::class.java)
             startActivity(intentQrSearch)
