@@ -24,12 +24,11 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="100dp"
             android:layout_marginEnd="30dp"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/textView3" />
 
         <View
             android:id="@+id/line2"
@@ -141,17 +140,16 @@
             app:srcCompat="@drawable/ic_announcement" />
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:text="Hhub"
-            android:textSize="40sp"
             android:textColor="@color/bg_gray"
+            android:textSize="40sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/line1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.757" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -172,8 +170,10 @@
             android:layout_height="200dp"
             app:layout_constraintBottom_toBottomOf="@+id/bg1"
             app:layout_constraintEnd_toEndOf="@+id/bg1"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/bg1"
             app:layout_constraintTop_toTopOf="@+id/bg1"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/im_inventory" />
 
         <TextView
@@ -239,6 +239,15 @@
             app:layout_constraintEnd_toEndOf="@+id/announcement_item_main_btn"
             app:layout_constraintStart_toStartOf="@+id/announcement_item_main_btn"
             app:layout_constraintTop_toBottomOf="@+id/announcement_item_main_btn" />
+
+        <TextView
+            android:id="@+id/deparment_branch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="TextView"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView3"
+            app:layout_constraintStart_toEndOf="@+id/textView3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!--navigation drawer-->

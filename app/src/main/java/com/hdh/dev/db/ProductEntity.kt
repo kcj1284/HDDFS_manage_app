@@ -14,5 +14,6 @@ data class ProductEntity(
     @ColumnInfo(name = "category") val category: String,
     @ColumnInfo(name = "price") var price : Int,
     @ColumnInfo(name = "loction") var loction : String,//변경가능~
-    @ColumnInfo(name = "stock") var stock : Int
-)
+    @ColumnInfo(name = "stock") var stock : Int,
+    @ColumnInfo(name = "did") var did : Int
+    )

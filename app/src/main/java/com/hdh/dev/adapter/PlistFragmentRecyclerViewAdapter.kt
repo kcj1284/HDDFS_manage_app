@@ -17,7 +17,7 @@ import java.io.File
 import java.text.DecimalFormat
 
 class PlistFragmentRecyclerViewAdapter(
-    private val productList: List<ProductEntity>,
+    val productList: ArrayList<ProductEntity>,
     private val listener : OnItemLongClickListener) :
     RecyclerView.Adapter<PlistFragmentRecyclerViewAdapter.MyViewHolder>() {
     inner class MyViewHolder(binding: FragmentProductListItemBinding, cont : Context) :
@@ -54,6 +54,7 @@ class PlistFragmentRecyclerViewAdapter(
             intent.putExtra("price", productList[position].price.toString())
             intent.putExtra("location", productList[position].loction)
             intent.putExtra("stock", productList[position].stock.toString())
+            intent.putExtra("did", productList[position].did.toString())
             it.context.startActivity(intent) //아래와 무슨차인지 잘 모르겠네 .!?!
             //holder.context.startActivity(intent)
         }
@@ -68,8 +69,9 @@ class PlistFragmentRecyclerViewAdapter(
                 productList[position].price,
                 productList[position].loction,
                 productList[position].stock,
+                productList[position].did
             )
-            listener.onLongClick(productEntity)
+            listener.onLongClick(position, this)
             false
         }
         val imageFileName = productList[position].image

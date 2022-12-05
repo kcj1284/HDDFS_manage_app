@@ -21,7 +21,7 @@
         android:theme="@style/Theme.HyundaiHub"
         tools:targetApi="33">
         <activity
-            android:name=".SelectDepartment"
+            android:name=".StartActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"

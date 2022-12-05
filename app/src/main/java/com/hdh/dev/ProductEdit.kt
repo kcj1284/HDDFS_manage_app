@@ -51,8 +51,9 @@ class ProductEdit : AppCompatActivity() {
         val price = intent.getStringExtra("price")
         val location = intent.getStringExtra("location")
         val stock = intent.getStringExtra("stock")
+        val did = intent.getStringExtra("did")
 
-        productEntity = ProductEntity(pid!!.toInt(), code!!, name!!, image!!, category!!, price!!.toInt(), location!!, stock!!.toInt())
+        productEntity = ProductEntity(pid!!.toInt(), code!!, name!!, image!!, category!!, price!!.toInt(), location!!, stock!!.toInt(), did!!.toInt())
         //이미지 파일 불러오기위함 !
         val photoFile = File(
             File("${filesDir}/image").apply {

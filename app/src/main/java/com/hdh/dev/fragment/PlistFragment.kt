@@ -18,7 +18,7 @@ import com.hdh.dev.db.ProductEntity
 
 class PlistFragment(
     val context : FragmentActivity,
-    val productList: List<ProductEntity>) : Fragment(){
+    val productList: ArrayList<ProductEntity>) : Fragment(){
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

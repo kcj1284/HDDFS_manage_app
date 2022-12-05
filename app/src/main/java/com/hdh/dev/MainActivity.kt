@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_menu)  // 왼쪽 버튼 이미지 설정
         supportActionBar!!.setDisplayShowTitleEnabled(false)    // 타이틀 안보이게 하기
 
+        val departmentList = arrayOf("강남점", "목동점", "삼성점")
+        binding.deparmentBranch.text = departmentList[StartActivity.DEPARTMENT_INDEX]//어느 지점인지 출력
+
         binding.addItemMainBtn.setOnClickListener{
             val intentAddProduct = Intent(this, AddProduct::class.java)
             startActivity(intentAddProduct)

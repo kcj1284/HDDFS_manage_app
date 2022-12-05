@@ -9,7 +9,7 @@ import com.hdh.dev.fragment.PlistFragment
 
 class ViewpagerFragmentAdapter(
     fragmentActivity: FragmentActivity,
-    categoryList: List<List<ProductEntity>>
+    categoryList: List<ArrayList<ProductEntity>>
     ) : FragmentStateAdapter(fragmentActivity) {
 
     private var fragmentList = ArrayList<PlistFragment>()

@@ -24,6 +24,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import com.hdh.dev.StartActivity.Companion.context_start
 import com.hdh.dev.databinding.ActivityAddProductBinding
 import com.hdh.dev.db.AppDatabase
 import com.hdh.dev.db.ProductDao
@@ -177,6 +178,7 @@ class AddProduct : AppCompatActivity() {
                     binding.addPrice.text.toString().toInt(), // 제품가격
                     binding.addLoction.text.toString(), // 제품위치
                     binding.addStock.text.toString().toInt(), // 제품재고
+                    StartActivity.DEPARTMENT_INDEX
                 ))
                 runOnUiThread {
                     Toast.makeText(this@AddProduct, "추가 완료", Toast.LENGTH_SHORT).show()
