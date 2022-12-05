@@ -16,6 +16,9 @@ interface ProductDao {
     //카테고리 이름대로 물건정보들 가져오기
     @Query("select * from ProductEntity where category = :cname and did = :departmentIndex")
     fun getCategoryProduct(cname : String, departmentIndex : Int) : List<ProductEntity>
+    //검색
+    @Query("select * from ProductEntity where pname = :pname")
+    fun searchProduct(pname : String) : List<ProductEntity>
 
     @Insert
     fun insertProduct(product : ProductEntity)

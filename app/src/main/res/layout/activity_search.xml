@@ -6,60 +6,22 @@
     android:layout_height="match_parent"
     android:background="#edefe3"
     tools:context=".ProductList">
-    <!--
-    <SearchView
-        android:id="@+id/search_view_phone_book"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:iconifiedByDefault="false"/>
-    -->
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         app:iconifiedByDefault="false"
-        app:queryHint="검색어를 입력하시오"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/txtsearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="121dp"
-        android:text="검색식 : "
-        android:textSize="25dp"
+        app:queryHint="검색어를 입력하세요" />
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_view" />
 
-    <TextView
-        android:id="@+id/txtresult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="74dp"
-        android:text="검색결과"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtsearch" />
-
-    <!-- <com.google.android.material.tabs.TabLayout
-         android:id="@+id/productlist_tablayout"
-         android:layout_width="0dp"
-         android:layout_height="wrap_content"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintTop_toTopOf="parent"/>
-     <androidx.viewpager2.widget.ViewPager2
-         android:id="@+id/viewPager"
-         android:layout_width="0dp"
-         android:layout_height="0dp"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/productlist_tablayout" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
