@@ -44,6 +44,7 @@ class ProductEdit : AppCompatActivity() {
 
     private fun getProductInfo(){
         val pid = intent.getStringExtra("pid")
+        val code = intent.getStringExtra("code")
         val image = intent.getStringExtra("image")
         val name = intent.getStringExtra("name")
         val category = intent.getStringExtra("category")
@@ -51,7 +52,7 @@ class ProductEdit : AppCompatActivity() {
         val location = intent.getStringExtra("location")
         val stock = intent.getStringExtra("stock")
 
-        productEntity = ProductEntity(pid!!, name!!, image!!, category!!, price!!.toInt(), location!!, stock!!.toInt())
+        productEntity = ProductEntity(pid!!.toInt(), code!!, name!!, image!!, category!!, price!!.toInt(), location!!, stock!!.toInt())
         //이미지 파일 불러오기위함 !
         val photoFile = File(
             File("${filesDir}/image").apply {
@@ -71,7 +72,6 @@ class ProductEdit : AppCompatActivity() {
         val price_dec = DecimalFormat("#,###")
         val price_str = price_dec.format(price!!.toLong()).toString()
 
-        binding.addPid.text = pid
         binding.addedPicture.setImageURI(photoUri)
         binding.addName.text = name
         binding.editCategoty.text = category

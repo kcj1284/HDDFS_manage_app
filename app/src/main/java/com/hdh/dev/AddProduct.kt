@@ -11,7 +11,6 @@ import android.graphics.ImageDecoder
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
@@ -26,7 +25,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.hdh.dev.databinding.ActivityAddProductBinding
-import com.hdh.dev.databinding.ActivityMainBinding
 import com.hdh.dev.db.AppDatabase
 import com.hdh.dev.db.ProductDao
 import com.hdh.dev.db.ProductEntity
@@ -64,7 +62,7 @@ class AddProduct : AppCompatActivity() {
         //dropbox의 목록을 채우기위한 로직...
 
         binding.addCategoty.adapter = ArrayAdapter(this,android.R.layout.simple_list_item_1, categoryList)
-        
+
         //ArrayAdapter.createFromResource(this, R.array.product_category, R.layout.activity_add_product)
         binding.addCategoty.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
@@ -81,14 +79,14 @@ class AddProduct : AppCompatActivity() {
         //사진추가버튼
         binding.addPictureBtn.setOnClickListener {
             //제품번호 입력안했으면 사진 선택 안되게!
-            if (binding.addPid.text.toString().isBlank()){
+            if (binding.addPcode.text.toString().isBlank()){
                 Toast.makeText(this@AddProduct, "제품번호를 꼭 입력하세요!", Toast.LENGTH_SHORT).show()
             }else{
                 if(!hasPermissions(this)){
                     requestMultiplePermission.launch(permissionList)//permissionList목록들의 권한을 받기
                 }else{
-                    //저장할 파일 이름 -> pid로 이미지 저장
-                    val imageFileName : String = binding.addPid.text.toString()+".jpg"
+                    //저장할 파일 이름 -> pcode로 이미지 저장
+                    val imageFileName : String = binding.addPcode.text.toString()+".jpg"
                     val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                     val photoFile = File(
                         File("${filesDir}/image").apply {
@@ -161,7 +159,7 @@ class AddProduct : AppCompatActivity() {
 
     //재고추가 버튼 눌렀을때 빈칸이 있다면 다 채우라는 메시지띄우고 아니면 db에 저장
     private fun insertTodoList(){
-        if(binding.addPid.text.toString().isBlank() ||
+        if(binding.addPcode.text.toString().isBlank() ||
             binding.addPrice.text.toString().isBlank() ||
             binding.addLoction.text.toString().isBlank() ||
             binding.addStock.text.toString().isBlank()
@@ -171,9 +169,10 @@ class AddProduct : AppCompatActivity() {
             //db저장
             Thread{
                 productDao.insertProduct(ProductEntity(
-                    binding.addPid.text.toString(), //pid
+                    null,
+                    binding.addPcode.text.toString(), //pcode
                     binding.addName.text.toString(), //제품이름
-                    binding.addPid.text.toString() + ".jpg", // 제품이미지
+                    binding.addPcode.text.toString() + ".jpg", // 제품이미지
                     categoryList[CATEGORY_INDEX], // 제품 카테고리
                     binding.addPrice.text.toString().toInt(), // 제품가격
                     binding.addLoction.text.toString(), // 제품위치

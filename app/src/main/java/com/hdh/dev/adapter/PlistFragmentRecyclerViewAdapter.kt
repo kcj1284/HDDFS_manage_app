@@ -46,7 +46,8 @@ class PlistFragmentRecyclerViewAdapter(
         //클릭하면 제품수정할수 있는 activity로
         holder.root.setOnClickListener {
             val intent = Intent(it.context, ProductEdit::class.java)
-            intent.putExtra("pid", productList[position].pid)
+            intent.putExtra("pid", productList[position].pid.toString())
+            intent.putExtra("code", productList[position].pcode)
             intent.putExtra("image", productList[position].image)
             intent.putExtra("category", productList[position].category)
             intent.putExtra("name", productList[position].pname)
@@ -60,6 +61,7 @@ class PlistFragmentRecyclerViewAdapter(
         holder.root.setOnLongClickListener {
             val productEntity : ProductEntity = ProductEntity(
                 productList[position].pid,
+                productList[position].pcode,
                 productList[position].image,
                 productList[position].category,
                 productList[position].pname,
@@ -91,8 +93,6 @@ class PlistFragmentRecyclerViewAdapter(
         val price_str = price_dec.format(productList[position].price).toString()
         holder.tv_pprice.text = "가격 : "+price_str
         holder.tv_pstock.text = "재고수량 : "+productList[position].stock.toString()
-
-
 
     }
 

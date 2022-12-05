@@ -64,7 +64,7 @@
                 app:layout_constraintTop_toTopOf="@+id/iv_item_num" />
 
             <TextView
-                android:id="@+id/add_pid"
+                android:id="@+id/add_pcode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
