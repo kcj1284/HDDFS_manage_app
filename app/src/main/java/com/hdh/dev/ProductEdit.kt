@@ -3,6 +3,7 @@ package com.hdh.dev
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
@@ -29,6 +30,73 @@ class ProductEdit : AppCompatActivity() {
 
         db = AppDatabase.getInstance(this)!!
         productDao = db.getProductDao()
+
+        // 상품 배치도 자세히보기
+        binding.layout01.setOnClickListener {
+            if(binding.layoutDetail01.visibility == View.VISIBLE) {
+                binding.layoutDetail01.visibility = View.GONE
+                binding.layoutBtn01.animate().apply {
+                    duration = 300
+                    rotation(0f)
+                }
+            } else {
+                binding.layoutDetail01.visibility = View.VISIBLE
+                binding.layoutBtn01.animate().apply {
+                    duration = 300
+                    rotation(0f)
+                }
+            }
+        }
+        // 상품 배치도 버튼 클릭 시, view에 값 저장
+        binding.btnA1.setOnClickListener {
+            binding.editLoction.setText("A-1")
+        }
+        binding.btnA2.setOnClickListener {
+            binding.editLoction.setText("A-2")
+        }
+        binding.btnA3.setOnClickListener {
+            binding.editLoction.setText("A-3")
+        }
+        binding.btnA4.setOnClickListener {
+            binding.editLoction.setText("A-4")
+        }
+        binding.btnB1.setOnClickListener {
+            binding.editLoction.setText("B-1")
+        }
+        binding.btnB2.setOnClickListener {
+            binding.editLoction.setText("B-2")
+        }
+        binding.btnB3.setOnClickListener {
+            binding.editLoction.setText("B-3")
+        }
+        binding.btnB4.setOnClickListener {
+            binding.editLoction.setText("B-4")
+        }
+        binding.btnC1.setOnClickListener {
+            binding.editLoction.setText("C-1")
+        }
+        binding.btnC2.setOnClickListener {
+            binding.editLoction.setText("C-2")
+        }
+        binding.btnC3.setOnClickListener {
+            binding.editLoction.setText("C-3")
+        }
+        binding.btnC4.setOnClickListener {
+            binding.editLoction.setText("C-4")
+        }
+        binding.btnD1.setOnClickListener {
+            binding.editLoction.setText("D-1")
+        }
+        binding.btnD2.setOnClickListener {
+            binding.editLoction.setText("D-2")
+        }
+        binding.btnD3.setOnClickListener {
+            binding.editLoction.setText("D-3")
+        }
+        binding.btnD4.setOnClickListener {
+            binding.editLoction.setText("D-4")
+        }
+
 
         getProductInfo()
 
