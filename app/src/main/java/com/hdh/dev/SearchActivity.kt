@@ -1,6 +1,5 @@
 package com.hdh.dev
 
-import android.R
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -21,9 +20,8 @@ class SearchActivity : AppCompatActivity() {
 
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        //menuInflater.inflate(R.menu.,menu);
+        menuInflater.inflate(R.menu.search_menu,menu);
 
         return true
     }
