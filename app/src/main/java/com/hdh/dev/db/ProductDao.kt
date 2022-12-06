@@ -19,7 +19,9 @@ interface ProductDao {
     //검색
     @Query("select * from ProductEntity where pname = :pname")
     fun searchProduct(pname : String) : List<ProductEntity>
-
+    //특정 지점의 제품을 제품코드로 검색
+    @Query("select * from ProductEntity where pcode = :pcode and did = :did")
+    fun getDepartmentProductStock(pcode : String, did : Int) : List<ProductEntity>
     //품절임박제품들가져오기
     @Query("select * from ProductEntity where 0 < stock and stock < 4 and did = :departmentIndex")
     fun getProductStockDown(departmentIndex : Int) : List<ProductEntity>

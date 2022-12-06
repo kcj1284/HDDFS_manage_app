@@ -36,15 +36,15 @@
                 android:id="@+id/added_picture"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/border_shape"
+                android:contentDescription="사진 추가"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title"
-                android:contentDescription="사진 추가"/>
+                app:layout_constraintTop_toBottomOf="@+id/title" />
 
             <View
                 android:id="@+id/iv_item_num"
@@ -81,8 +81,7 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_num"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_num"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_num"
-                />
+                app:layout_constraintTop_toTopOf="@+id/iv_item_num" />
 
             <View
                 android:id="@+id/iv_item_cat"
@@ -112,10 +111,10 @@
                 android:id="@+id/edit_categoty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:enabled="false"
+                android:gravity="center"
                 android:text="상의하의"
                 android:textColor="@color/black"
-                android:gravity="center"
-                android:enabled="false"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_item_cat"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_cat"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_cat"
@@ -150,11 +149,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@null"
                 android:paddingStart="70dp"
                 android:paddingEnd="70dp"
-                android:textSize="16sp"
                 android:textColor="@color/black"
-                android:background="@null"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_name"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_name"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_name"
@@ -199,8 +198,151 @@
                 app:layout_constraintTop_toTopOf="@+id/iv_item_price"
                 tools:ignore="TouchTargetSizeCheck" />
 
+            <LinearLayout
+                android:id="@+id/stock_linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="40dp"
+                android:animateLayoutChanges="true"
+                android:background="@drawable/gray_shape"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_item_price">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_item_stock"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:text="수량"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/edit_stock_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@null"
+                        android:hint="수량"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/bg_dark"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/other_department_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/other_department_branch1"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="" />
+                        <TextView
+                            android:id="@+id/other_department_branch1_stock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@null"
+                            android:hint="수량"
+                            android:inputType="number"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/bg_dark"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/other_department_branch2"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text=" " />
+                        <TextView
+                            android:id="@+id/other_department_branch2_stock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@null"
+                            android:hint="수량"
+                            android:inputType="number"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/bg_dark"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <!--            <View-->
+            <!--                android:id="@+id/iv_item_stock"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="35dp"-->
+            <!--                android:layout_marginStart="40dp"-->
+            <!--                android:layout_marginTop="5dp"-->
+            <!--                android:layout_marginEnd="40dp"-->
+            <!--                android:background="@drawable/gray_shape"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/iv_item_price" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/tv_item_stock"-->
+            <!--                android:layout_width="100dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="5dp"-->
+            <!--                android:gravity="center"-->
+            <!--                android:text="수량"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="16sp"-->
+            <!--                app:layout_constraintStart_toStartOf="@+id/iv_item_stock"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/iv_item_stock" />-->
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/edit_stock_edit"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="5dp"-->
+            <!--                android:background="@null"-->
+            <!--                android:hint="수량"-->
+            <!--                android:inputType="number"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textColorHint="@color/bg_dark"-->
+            <!--                android:textSize="16sp"-->
+            <!--                app:layout_constraintEnd_toEndOf="@+id/iv_item_stock"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/tv_item_stock"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/iv_item_stock"-->
+            <!--                tools:ignore="TouchTargetSizeCheck" />-->
+
             <View
-                android:id="@+id/iv_item_stock"
+                android:id="@+id/iv_item_location"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginStart="40dp"
@@ -209,47 +351,7 @@
                 android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_item_price" />
-
-            <TextView
-                android:id="@+id/tv_item_stock"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:text="수량"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/iv_item_stock"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_stock" />
-
-            <EditText
-                android:id="@+id/edit_stock_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@null"
-                android:hint="수량"
-                android:inputType="number"
-                android:textColor="@color/black"
-                android:textColorHint="@color/bg_dark"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_item_stock"
-                app:layout_constraintStart_toEndOf="@+id/tv_item_stock"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_stock"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <View
-                android:id="@+id/iv_item_location"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/gray_shape"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_item_stock" />
+                app:layout_constraintTop_toBottomOf="@+id/stock_linear_layout" />
 
             <TextView
                 android:id="@+id/tv_item_location"
@@ -280,186 +382,6 @@
                 app:layout_constraintTop_toTopOf="@+id/iv_item_location"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/layout01"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="15dp"
-                android:backgroundTint="@color/bg_green"
-                app:cardCornerRadius="3dp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_item_location"
-                app:layout_constraintStart_toEndOf="@+id/tv_item_location"
-                app:layout_constraintTop_toBottomOf="@id/tv_item_location"  >
-
-                <Button
-                    android:id="@+id/layoutBtn01"
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:background="@color/bg_green"
-                    android:clickable="false"
-                    android:text="상품배치도 상세보기"
-                    android:textColor="@color/bg_gray"
-                    android:textSize="12sp" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/layoutDetail01"
-                android:layout_width="310dp"
-                android:layout_height="180dp"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#FFFFFF"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="@+id/layout01"
-                app:layout_constraintTop_toBottomOf="@id/layout01">
-
-                <ImageView
-                    android:layout_width="310dp"
-                    android:layout_height="180dp"
-                    android:layout_gravity="center_vertical"
-                    android:background="#FFFFFF"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/product_drawing" />
-
-                <Button
-                    android:id="@+id/btn_A_1"
-                    android:layout_width="55dp"
-                    android:layout_height="15dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="49dp"
-                    android:translationY="38dp"
-                    />
-
-                <Button
-                    android:id="@+id/btn_A_2"
-                    android:layout_width="55dp"
-                    android:layout_height="15dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="49dp"
-                    android:translationY="57dp"
-                    />
-
-                <Button
-                    android:id="@+id/btn_A_3"
-                    android:layout_width="55dp"
-                    android:layout_height="15dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="49dp"
-                    android:translationY="76dp"
-                    />
-
-                <Button
-                    android:id="@+id/btn_A_4"
-                    android:layout_width="55dp"
-                    android:layout_height="15dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="49dp"
-                    android:translationY="95dp"
-                    />
-
-                <Button
-                    android:id="@+id/btn_B_1"
-                    android:layout_width="55dp"
-                    android:layout_height="15dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="125dp"
-                    android:translationY="38dp"
-                    />
-
-                <Button
-                    android:id="@+id/btn_B_2"
-                    android:layout_width="55dp"
-                    android:layout_height="15dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="125dp"
-                    android:translationY="57dp"
-                    />
-
-                <Button
-                    android:id="@+id/btn_B_3"
-                    android:layout_width="55dp"
-                    android:layout_height="15dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="125dp"
-                    android:translationY="76dp"
-                    />
-                <Button
-                    android:id="@+id/btn_B_4"
-                    android:layout_width="55dp"
-                    android:layout_height="15dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="125dp"
-                    android:translationY="95dp"
-                    />
-
-                <Button
-                    android:id="@+id/btn_C_1"
-                    android:layout_width="40dp"
-                    android:layout_height="19dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="202dp"
-                    android:translationY="37dp"
-                    />
-                <Button
-                    android:id="@+id/btn_C_2"
-                    android:layout_width="40dp"
-                    android:layout_height="19dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="247dp"
-                    android:translationY="37dp"
-                    />
-                <Button
-                    android:id="@+id/btn_C_3"
-                    android:layout_width="40dp"
-                    android:layout_height="19dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="202dp"
-                    android:translationY="59dp"
-                    />
-                <Button
-                    android:id="@+id/btn_C_4"
-                    android:layout_width="40dp"
-                    android:layout_height="19dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="247dp"
-                    android:translationY="59dp"
-                    />
-
-                <Button
-                    android:id="@+id/btn_D_1"
-                    android:layout_width="40dp"
-                    android:layout_height="19dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="202dp"
-                    android:translationY="119dp"
-                    />
-                <Button
-                    android:id="@+id/btn_D_2"
-                    android:layout_width="40dp"
-                    android:layout_height="19dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="247dp"
-                    android:translationY="119dp"
-                    />
-                <Button
-                    android:id="@+id/btn_D_3"
-                    android:layout_width="40dp"
-                    android:layout_height="19dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="202dp"
-                    android:translationY="141dp"
-                    />
-                <Button
-                    android:id="@+id/btn_D_4"
-                    android:layout_width="40dp"
-                    android:layout_height="19dp"
-                    android:background="#00FFFFFF"
-                    android:translationX="247dp"
-                    android:translationY="141dp"
-                    />
-            </com.google.android.material.card.MaterialCardView>
-
             <Button
                 android:id="@+id/add_cancle_btn"
                 android:layout_width="wrap_content"
@@ -474,7 +396,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/edit_complete_btn"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layoutDetail01"/>
+                app:layout_constraintTop_toBottomOf="@+id/edit_loction" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/edit_complete_btn"

@@ -31,71 +31,81 @@ class ProductEdit : AppCompatActivity() {
         db = AppDatabase.getInstance(this)!!
         productDao = db.getProductDao()
 
-        // 상품 배치도 자세히보기
-        binding.layout01.setOnClickListener {
-            if(binding.layoutDetail01.visibility == View.VISIBLE) {
-                binding.layoutDetail01.visibility = View.GONE
-                binding.layoutBtn01.animate().apply {
-                    duration = 300
-                    rotation(0f)
-                }
-            } else {
-                binding.layoutDetail01.visibility = View.VISIBLE
-                binding.layoutBtn01.animate().apply {
-                    duration = 300
-                    rotation(0f)
-                }
+        binding.tvItemStock.setOnClickListener {
+            if(binding.otherDepartmentLayout.visibility == View.VISIBLE){
+                binding.otherDepartmentLayout.visibility = View.GONE
+                //binding.tvItemStock.animate().setDuration(200).rotation(180f)
+            }else{
+                binding.otherDepartmentLayout.visibility = View.VISIBLE
+                //binding.tvItemStock.animate().setDuration(200).rotation(0f)
             }
         }
-        // 상품 배치도 버튼 클릭 시, view에 값 저장
-        binding.btnA1.setOnClickListener {
-            binding.editLoction.setText("A-1")
-        }
-        binding.btnA2.setOnClickListener {
-            binding.editLoction.setText("A-2")
-        }
-        binding.btnA3.setOnClickListener {
-            binding.editLoction.setText("A-3")
-        }
-        binding.btnA4.setOnClickListener {
-            binding.editLoction.setText("A-4")
-        }
-        binding.btnB1.setOnClickListener {
-            binding.editLoction.setText("B-1")
-        }
-        binding.btnB2.setOnClickListener {
-            binding.editLoction.setText("B-2")
-        }
-        binding.btnB3.setOnClickListener {
-            binding.editLoction.setText("B-3")
-        }
-        binding.btnB4.setOnClickListener {
-            binding.editLoction.setText("B-4")
-        }
-        binding.btnC1.setOnClickListener {
-            binding.editLoction.setText("C-1")
-        }
-        binding.btnC2.setOnClickListener {
-            binding.editLoction.setText("C-2")
-        }
-        binding.btnC3.setOnClickListener {
-            binding.editLoction.setText("C-3")
-        }
-        binding.btnC4.setOnClickListener {
-            binding.editLoction.setText("C-4")
-        }
-        binding.btnD1.setOnClickListener {
-            binding.editLoction.setText("D-1")
-        }
-        binding.btnD2.setOnClickListener {
-            binding.editLoction.setText("D-2")
-        }
-        binding.btnD3.setOnClickListener {
-            binding.editLoction.setText("D-3")
-        }
-        binding.btnD4.setOnClickListener {
-            binding.editLoction.setText("D-4")
-        }
+        getOtherDepartmentStock(StartActivity.DEPARTMENT_INDEX)
+//        // 상품 배치도 자세히보기
+//        binding.layout01.setOnClickListener {
+//            if(binding.layoutDetail01.visibility == View.VISIBLE) {
+//                binding.layoutDetail01.visibility = View.GONE
+//                binding.layoutBtn01.animate().apply {
+//                    duration = 300
+//                    rotation(0f)
+//                }
+//            } else {
+//                binding.layoutDetail01.visibility = View.VISIBLE
+//                binding.layoutBtn01.animate().apply {
+//                    duration = 300
+//                    rotation(0f)
+//                }
+//            }
+//        }
+//        // 상품 배치도 버튼 클릭 시, view에 값 저장
+//        binding.btnA1.setOnClickListener {
+//            binding.editLoction.setText("A-1")
+//        }
+//        binding.btnA2.setOnClickListener {
+//            binding.editLoction.setText("A-2")
+//        }
+//        binding.btnA3.setOnClickListener {
+//            binding.editLoction.setText("A-3")
+//        }
+//        binding.btnA4.setOnClickListener {
+//            binding.editLoction.setText("A-4")
+//        }
+//        binding.btnB1.setOnClickListener {
+//            binding.editLoction.setText("B-1")
+//        }
+//        binding.btnB2.setOnClickListener {
+//            binding.editLoction.setText("B-2")
+//        }
+//        binding.btnB3.setOnClickListener {
+//            binding.editLoction.setText("B-3")
+//        }
+//        binding.btnB4.setOnClickListener {
+//            binding.editLoction.setText("B-4")
+//        }
+//        binding.btnC1.setOnClickListener {
+//            binding.editLoction.setText("C-1")
+//        }
+//        binding.btnC2.setOnClickListener {
+//            binding.editLoction.setText("C-2")
+//        }
+//        binding.btnC3.setOnClickListener {
+//            binding.editLoction.setText("C-3")
+//        }
+//        binding.btnC4.setOnClickListener {
+//            binding.editLoction.setText("C-4")
+//        }
+//        binding.btnD1.setOnClickListener {
+//            binding.editLoction.setText("D-1")
+//        }
+//        binding.btnD2.setOnClickListener {
+//            binding.editLoction.setText("D-2")
+//        }
+//        binding.btnD3.setOnClickListener {
+//            binding.editLoction.setText("D-3")
+//        }
+//        binding.btnD4.setOnClickListener {
+//            binding.editLoction.setText("D-4")
+//        }
 
 
         getProductInfo()
@@ -110,6 +120,25 @@ class ProductEdit : AppCompatActivity() {
         }
     }
 
+    private fun getOtherDepartmentStock(curDepartmentIndex: Int){
+        val departmentList = mutableListOf<String>("강남점", "목동점", "삼성점")
+        val didList = mutableListOf<Int>(0,1,2)
+
+        val pcode = intent.getStringExtra("code")
+
+        departmentList.removeAt(curDepartmentIndex) //지금 백화점 지점을 목록에서 지워주기~
+        didList.removeAt(curDepartmentIndex) // 현 did말고 나머지만 남기기~
+        Thread{
+            val productEntity1 = productDao.getDepartmentProductStock(pcode!!, didList[0])
+            val productEntity2 = productDao.getDepartmentProductStock(pcode!!, didList[1])
+            runOnUiThread {
+                binding.otherDepartmentBranch1.text = departmentList[0]
+                binding.otherDepartmentBranch1Stock.text = if(productEntity1.size == 0) "아직 입고가 안됐어요" else productEntity1[0].stock.toString()
+                binding.otherDepartmentBranch2.text = departmentList[1]
+                binding.otherDepartmentBranch2Stock.text = if(productEntity2.size == 0) "아직 입고가 안됐어요" else productEntity2[0].stock.toString()
+            }
+        }.start()
+    }
     private fun getProductInfo(){
         val pid = intent.getStringExtra("pid")
         val code = intent.getStringExtra("code")
