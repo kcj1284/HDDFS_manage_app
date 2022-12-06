@@ -64,7 +64,7 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener{
         val searchQuery = "%$query%"
         Thread {
             Log.d("gahee", "검색함수들어옴")
-            productList = productDao.searchProduct(searchQuery) as ArrayList<ProductEntity>
+            productList = productDao.searchProduct(searchQuery,StartActivity.DEPARTMENT_INDEX) as ArrayList<ProductEntity>
             if(productList.size==0){
                 Log.d("gahee", "검색결과없음")
             }else{
