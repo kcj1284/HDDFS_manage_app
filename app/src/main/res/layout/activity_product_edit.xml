@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context=".AddProduct">
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bg_light">
+        android:background="@color/bg_light"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -21,10 +23,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="상품정보수정"
                 android:textColor="@color/black"
                 android:textSize="24sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -34,9 +37,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginEnd="60dp"
-                android:background="@drawable/bg_shape"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/border_shape"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -47,32 +50,35 @@
                 android:id="@+id/iv_item_num"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_margin="30dp"
-                android:background="@drawable/bg_shape"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/added_picture" />
 
             <TextView
                 android:id="@+id/tv_item_num"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:gravity="center"
                 android:text="제품번호"
-                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_num"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_num" />
 
             <TextView
-                android:id="@+id/add_pcode"
+                android:id="@+id/edit_pcode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:hint="MN2CBWBL481W"
                 android:background="@null"
-                android:paddingStart="50dp"
-                android:paddingEnd="50dp"
-                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_num"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_num"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_num"
@@ -82,59 +88,60 @@
                 android:id="@+id/iv_item_cat"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/bg_shape"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_item_num" />
 
             <TextView
                 android:id="@+id/tv_item_cat"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:layout_marginStart="20dp"
+                android:gravity="center"
                 android:text="카테고리"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_item_cat"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_cat"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_cat" />
 
             <TextView
                 android:id="@+id/edit_categoty"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="150dp"
-                android:layout_marginEnd="30dp"
                 android:text="상의하의"
+                android:textColor="@color/black"
                 android:gravity="center"
                 android:enabled="false"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_item_cat"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_cat"
+                app:layout_constraintStart_toEndOf="@+id/tv_item_cat"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_cat" />
 
             <View
                 android:id="@+id/iv_item_name"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/bg_shape"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_item_cat" />
 
             <TextView
                 android:id="@+id/tv_item_name"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:gravity="center"
                 android:text="제품이름"
-                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_name"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_name" />
 
@@ -143,13 +150,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:hint="싱글 패딩 재킷"
                 android:paddingStart="70dp"
                 android:paddingEnd="70dp"
-                android:textSize="20sp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
                 android:background="@null"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_name"
-                app:layout_constraintHorizontal_bias="0.913"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_name"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_name"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -158,23 +164,23 @@
                 android:id="@+id/iv_item_price"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/bg_shape"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_item_name" />
 
             <TextView
                 android:id="@+id/tv_item_price"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
+                android:gravity="center"
                 android:text="가격"
-                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_price"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_price" />
 
@@ -182,77 +188,38 @@
                 android:id="@+id/edit_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="가격"
-                android:inputType="number"
-                android:paddingStart="100dp"
-                android:paddingTop="5dp"
-                android:paddingEnd="100dp"
-                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:background="@null"
+                android:gravity="center"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_price"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_price"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_price"
                 tools:ignore="TouchTargetSizeCheck" />
 
             <View
-                android:id="@+id/iv_item_location"
+                android:id="@+id/iv_item_stock"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/bg_shape"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/gray_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_item_price" />
 
             <TextView
-                android:id="@+id/tv_item_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="물건위치"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@+id/iv_item_location"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_location" />
-
-            <EditText
-                android:id="@+id/edit_loction"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:hint="물건위치"
-                android:inputType="text"
-                android:paddingStart="80dp"
-                android:paddingEnd="80dp"
-                android:textSize="20sp"
-                android:background="@null"
-                app:layout_constraintEnd_toEndOf="@+id/iv_item_location"
-                app:layout_constraintStart_toEndOf="@+id/tv_item_location"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_location"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <View
-                android:id="@+id/iv_item_stock"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/bg_shape"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_item_location" />
-
-            <TextView
                 android:id="@+id/tv_item_stock"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
+                android:gravity="center"
                 android:text="수량"
-                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/iv_item_stock"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_stock" />
 
@@ -261,44 +228,270 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@null"
                 android:hint="수량"
                 android:inputType="number"
-                android:paddingStart="100dp"
-                android:paddingEnd="100dp"
-                android:textSize="20sp"
-                android:background="@null"
+                android:textColor="@color/black"
+                android:textColorHint="@color/bg_dark"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_item_stock"
                 app:layout_constraintStart_toEndOf="@+id/tv_item_stock"
                 app:layout_constraintTop_toTopOf="@+id/iv_item_stock"
                 tools:ignore="TouchTargetSizeCheck" />
 
+            <View
+                android:id="@+id/iv_item_location"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/gray_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_item_stock" />
+
+            <TextView
+                android:id="@+id/tv_item_location"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="물건위치"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/iv_item_location"
+                app:layout_constraintTop_toTopOf="@+id/iv_item_location" />
+
+            <EditText
+                android:id="@+id/edit_loction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@null"
+                android:gravity="center"
+                android:hint="물건위치"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/bg_dark"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_item_location"
+                app:layout_constraintStart_toEndOf="@+id/tv_item_location"
+                app:layout_constraintTop_toTopOf="@+id/iv_item_location"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/layout01"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/bg_green"
+                app:cardCornerRadius="3dp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_item_location"
+                app:layout_constraintStart_toEndOf="@+id/tv_item_location"
+                app:layout_constraintTop_toBottomOf="@id/tv_item_location"  >
+
+                <Button
+                    android:id="@+id/layoutBtn01"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@color/bg_green"
+                    android:clickable="false"
+                    android:text="상품배치도 상세보기"
+                    android:textColor="@color/bg_gray"
+                    android:textSize="12sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/layoutDetail01"
+                android:layout_width="310dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFFFFF"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/layout01"
+                app:layout_constraintTop_toBottomOf="@id/layout01">
+
+                <ImageView
+                    android:layout_width="310dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="#FFFFFF"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/product_drawing" />
+
+                <Button
+                    android:id="@+id/btn_A_1"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="49dp"
+                    android:translationY="38dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_A_2"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="49dp"
+                    android:translationY="57dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_A_3"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="49dp"
+                    android:translationY="76dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_A_4"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="49dp"
+                    android:translationY="95dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_B_1"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="125dp"
+                    android:translationY="38dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_B_2"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="125dp"
+                    android:translationY="57dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_B_3"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="125dp"
+                    android:translationY="76dp"
+                    />
+                <Button
+                    android:id="@+id/btn_B_4"
+                    android:layout_width="55dp"
+                    android:layout_height="15dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="125dp"
+                    android:translationY="95dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_C_1"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="202dp"
+                    android:translationY="37dp"
+                    />
+                <Button
+                    android:id="@+id/btn_C_2"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="247dp"
+                    android:translationY="37dp"
+                    />
+                <Button
+                    android:id="@+id/btn_C_3"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="202dp"
+                    android:translationY="59dp"
+                    />
+                <Button
+                    android:id="@+id/btn_C_4"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="247dp"
+                    android:translationY="59dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_D_1"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="202dp"
+                    android:translationY="119dp"
+                    />
+                <Button
+                    android:id="@+id/btn_D_2"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="247dp"
+                    android:translationY="119dp"
+                    />
+                <Button
+                    android:id="@+id/btn_D_3"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="202dp"
+                    android:translationY="141dp"
+                    />
+                <Button
+                    android:id="@+id/btn_D_4"
+                    android:layout_width="40dp"
+                    android:layout_height="19dp"
+                    android:background="#00FFFFFF"
+                    android:translationX="247dp"
+                    android:translationY="141dp"
+                    />
+            </com.google.android.material.card.MaterialCardView>
+
+            <Button
+                android:id="@+id/add_cancle_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="#000000"
+                android:paddingStart="60dp"
+                android:paddingEnd="60dp"
+                android:text="취소"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/edit_complete_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutDetail01"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/edit_complete_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="#DBEA8D"
+                android:paddingStart="60dp"
+                android:paddingEnd="60dp"
+                android:text="수정하기"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/add_cancle_btn" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
         <!--        </LinearLayout>-->
     </ScrollView>
 
-    <Button
-        android:id="@+id/add_cancle_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="취소"
-        android:paddingStart="50dp"
-        android:paddingEnd="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/edit_complete_btn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/edit_complete_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="수정하기"
-        android:paddingStart="50dp"
-        android:paddingEnd="50dp"
-        android:background="#DBEA8D"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/add_cancle_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
