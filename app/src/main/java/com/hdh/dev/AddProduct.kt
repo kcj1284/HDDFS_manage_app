@@ -10,6 +10,7 @@ import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
@@ -21,17 +22,14 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.google.android.libraries.barhopper.RecognitionOptions.QR_CODE
-import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.zxing.BarcodeFormat
-import com.google.zxing.integration.android.IntentIntegrator.QR_CODE
 import com.google.zxing.qrcode.QRCodeWriter
 import com.hdh.dev.databinding.ActivityAddProductBinding
 import com.hdh.dev.db.AppDatabase
 import com.hdh.dev.db.ProductDao
 import com.hdh.dev.db.ProductEntity
-import com.journeyapps.barcodescanner.BarcodeEncoder
 import java.io.File
+import java.io.FileOutputStream
 
 class AddProduct : AppCompatActivity() {
 
@@ -184,11 +182,13 @@ class AddProduct : AppCompatActivity() {
             val intentCancle = Intent(this, MainActivity::class.java)
             startActivity(intentCancle)
         }
-
         //재고추가버튼
         binding.addCompleteBtn.setOnClickListener {
+            imageExternalSave()
             insertTodoList()
         }
+
+
     }//end onCreate..
 
     //사진찍고 돌아와서 수행할 메소드(자동실행)
@@ -255,53 +255,51 @@ class AddProduct : AppCompatActivity() {
             }.start()
         }
 
-        fun createQRCode(){
-            val qrCode = QRCodeWriter()
-            val bitMtx = qrCode.encode(binding.addName.text.toString(),
-                BarcodeFormat.QR_CODE,
-                500,
-                500
-            )
-            val bitmap: Bitmap = Bitmap.createBitmap(bitMtx.width, bitMtx.height, Bitmap.Config.RGB_565)
-            for(i in 0 .. bitMtx.width-1){
-                for(j in 0 .. bitMtx.height-1){
-                    var color = 0
-                    if(bitMtx.get(i, j)){
-                        color = Color.BLACK
-                    }else{
-                        color = Color.WHITE
-                    }
-                    bitmap.setPixel(i, j, color)
+
+    }
+
+    private fun imageExternalSave(): Boolean {
+
+        val qrCode = QRCodeWriter()
+        Log.d("pcode", binding.addPcode.text.toString())
+        val bitMtx = qrCode.encode(binding.addPcode.text.toString(),
+            BarcodeFormat.QR_CODE,
+            1000,
+            1000
+        )
+        //bitmap 생성
+        val bitmap: Bitmap = Bitmap.createBitmap(bitMtx.width, bitMtx.height, Bitmap.Config.RGB_565)
+        for(i in 0 .. bitMtx.width-1){
+            for(j in 0 .. bitMtx.height-1){
+                var color = 0
+                if(bitMtx.get(i, j)){
+                    color = Color.BLACK
+                }else{
+                    color = Color.WHITE
                 }
+                bitmap.setPixel(i, j, color)
             }
-
-
-
         }
 
-//        val partyRoomName = roomName.text.toString()
-//        if(partyRoomName.isBlank() || todoList.childCount == 0 || restoreList.childCount == 0){
-//            Toast.makeText(this@AddCheckListActivity, "항목 채워라", Toast.LENGTH_SHORT).show()
-//        }else{
-//            val insertList = ArrayList<RoomEntity>()
-//            for(i in 0 until todoList.childCount){
-//                val workList = todoList.getChildAt(i).findViewById<EditText>(R.id.do_work).text.toString()
-//                val dataRow = RoomEntity(roomname = partyRoomName, type = 0, list = workList, quantity = -1)
-//                insertList.add(dataRow)
-//            }
-//            for(i in 0 until restoreList.childCount){
-//                val dataRow = RoomEntity(roomname = partyRoomName, type = 1, list = restoreList.getChildAt(i).findViewById<EditText>(R.id.do_work).text.toString(), quantity = 1)
-//                insertList.add(dataRow)
-//            }
-//
-//            Thread{
-//                roomDao.insertTodoList(insertList)
-//                runOnUiThread {
-//                    Toast.makeText(this@AddCheckListActivity, "잘 들어갔어요", Toast.LENGTH_SHORT).show()
-//                    finish()
-//                }
-//            }.start()
-//        }
+        val state = Environment.getExternalStorageState()
+        if (Environment.MEDIA_MOUNTED == state) {
+
+            val fileName = "qr_" + binding.addPcode.text.toString() + ".png"
+            val file = File("${filesDir}/qr_image", fileName)
+            if (file.exists()) file.delete()
+
+            try {
+                val out = FileOutputStream(file)
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
+                out.flush()
+                out.close()
+
+                return true
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+        return false
     }
 
 }
