@@ -2,10 +2,13 @@ package com.hdh.dev
 
 import android.app.SearchManager
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -55,9 +58,24 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener{
     }
 
     override fun onLongClick(position: Int, adapter: PlistFragmentRecyclerViewAdapter) {
-        Thread{
-
-        }
+        val builder : AlertDialog.Builder = AlertDialog.Builder(this)
+        builder.setTitle("상품삭제")
+        builder.setMessage("정말 삭제하시겠습니까?")
+        builder.setNegativeButton("취소", null)
+        builder.setPositiveButton("삭제", object : DialogInterface.OnClickListener{
+            override fun onClick(p0: DialogInterface?, p1: Int) {
+                Thread{
+                    productDao.deleteProduct(adapter.productList[position])//db에서 먼저 제품 지우고
+                    adapter.productList.removeAt(position)//adapter에 서 가지고있는 list에서도 빼주기
+                    runOnUiThread {
+                        adapter.notifyDataSetChanged()
+                        Toast.makeText(this@SearchActivity, "삭제완료", Toast.LENGTH_SHORT).show()
+                        //onRestart()//이런식으로 가면 버전낮은 애들은 팅긴다는데... 추가 방안을 찾아보자
+                    }
+                }.start()
+            }
+        })
+        builder.show()
     }
 
     private fun search(query : String){

@@ -13,7 +13,7 @@ class SearchResult : AppCompatActivity() {
         binding = ActivitySearchResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val result = intent.getStringExtra("msg")?:"상품이 존재하지 않습니다."
+        val result = intent.getStringExtra("pcode")?:"상품이 존재하지 않습니다."
         setUI(result)
     }
     private fun setUI(result: String) {

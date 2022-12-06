@@ -14,6 +14,9 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.hdh.dev.databinding.ActivityQrSearchBinding
 import com.google.common.util.concurrent.ListenableFuture
+import com.hdh.dev.db.AppDatabase
+import com.hdh.dev.db.ProductDao
+import com.hdh.dev.db.ProductEntity
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -21,6 +24,9 @@ class QrSearch : AppCompatActivity() {
 
     private lateinit var binding: ActivityQrSearchBinding
     private lateinit var cameraProviderFuture : ListenableFuture<ProcessCameraProvider>
+    private lateinit var db : AppDatabase
+    private lateinit var productDao : ProductDao
+    private lateinit var product : ProductEntity
 
     private val PERMISSIONS_REQUEST_CODE = 1
     private val PERMISSIONS_REQUIRED = arrayOf(Manifest.permission.CAMERA)
@@ -36,6 +42,9 @@ class QrSearch : AppCompatActivity() {
         binding = ActivityQrSearchBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        db = AppDatabase.getInstance(this)!!
+        productDao = db.getProductDao()
 
         if (!hasPermissions(this)) {
             // 카메라 권한을 요청합니다.
@@ -95,12 +104,33 @@ class QrSearch : AppCompatActivity() {
 
         //Analyzer를 설정합니다.
         imageAnalysis.setAnalyzer(cameraExecutor, QRCodeAnalyzer(object : OnDetectListener {
-            override fun onDetect(msg: String) {
+            override fun onDetect(pcode: String) {
                 if (!isDetected) {
                     isDetected = true // 데이터가 감지가 되었으므로 true로 바꾸어줍니다.
-                    val intent = Intent(this@QrSearch, SearchResult::class.java)
-                    intent.putExtra("msg", msg)
-                    startActivity(intent)
+                    /*val intent = Intent(this@QrSearch, SearchResult::class.java)*/
+                    Thread {
+                        //결과(pcode)로 상품정보 불러오기
+                        product = productDao.getDepartmentProductStock2(
+                            pcode,
+                            StartActivity.DEPARTMENT_INDEX
+                        ) as ProductEntity
+
+                        val intent = Intent(this@QrSearch, ProductEdit::class.java)
+                        intent.putExtra("pid", product.pid.toString())
+                        intent.putExtra("pcode", product.pcode)
+                        intent.putExtra("image", product.image)
+                        intent.putExtra("category", product.category)
+                        intent.putExtra("name", product.pname)
+                        intent.putExtra("price", product.price.toString())
+                        intent.putExtra("location", product.loction)
+                        intent.putExtra("stock", product.stock.toString())
+                        intent.putExtra("did", product.did.toString())
+                        //End
+                        startActivity(intent)
+                    }.start()
+                    // intent.putExtra("msg", msg)
+                    //검색한 상품정보 상품상세(수정)탭에 넘기기
+
                 }
             }
         }))

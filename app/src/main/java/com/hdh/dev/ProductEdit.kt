@@ -134,8 +134,10 @@ class ProductEdit : AppCompatActivity() {
             runOnUiThread {
                 binding.otherDepartmentBranch1.text = departmentList[0]
                 binding.otherDepartmentBranch1Stock.text = if(productEntity1.size == 0) "아직 입고가 안됐어요" else productEntity1[0].stock.toString()
+                //binding.otherDepartmentBranch1Stock.text = if(productEntity1 == null) "아직 입고가 안됐어요" else productEntity1.stock.toString()
                 binding.otherDepartmentBranch2.text = departmentList[1]
                 binding.otherDepartmentBranch2Stock.text = if(productEntity2.size == 0) "아직 입고가 안됐어요" else productEntity2[0].stock.toString()
+                //binding.otherDepartmentBranch2Stock.text = if(productEntity2 == null) "아직 입고가 안됐어요" else productEntity2.stock.toString()
             }
         }.start()
     }

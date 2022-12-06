@@ -86,13 +86,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.search_item_menu_btn->{
                 Log.d("gahee","버튼눌림")
-                /*val intentSearch = Intent(this, SearchProduct::class.java)
-                startActivity(intentSearch)*/
+                val intentSearch = Intent(this, SearchActivity::class.java)
+                startActivity(intentSearch)
             }
             R.id.qrSearch_item_menu_btn->{
                 Log.d("gahee","버튼눌림")
-                /*val intentQrSearch = Intent(this, QrSearchProduct::class.java)
-                startActivity(intentQrSearch)*/
+                val intentQrSearch = Intent(this, QrSearch::class.java)
+                startActivity(intentQrSearch)
             }
             R.id.stock_item_menu_btn->{
                 Log.d("gahee","버튼눌림")

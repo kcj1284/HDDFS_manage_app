@@ -16,19 +16,20 @@ interface ProductDao {
     //카테고리 이름대로 물건정보들 가져오기
     @Query("select * from ProductEntity where category = :cname and did = :departmentIndex")
     fun getCategoryProduct(cname : String, departmentIndex : Int) : List<ProductEntity>
-    //검색
-//    @Query("select * from ProductEntity where pname = :pname")
-//    fun searchProduct(pname : String) : List<ProductEntity>
+
     //특정 지점의 제품을 제품코드로 검색
     @Query("select * from ProductEntity where pcode = :pcode and did = :did")
     fun getDepartmentProductStock(pcode : String, did : Int) : List<ProductEntity>
+    //가희(테스트)
+    @Query("select * from ProductEntity where pcode = :pcode and did = :did")
+    fun getDepartmentProductStock2(pcode : String, did : Int) : ProductEntity
     //품절임박제품들가져오기
     @Query("select * from ProductEntity where 0 < stock and stock < 4 and did = :departmentIndex")
     fun getProductStockDown(departmentIndex : Int) : List<ProductEntity>
     //품절제품가져오기
     @Query("select * from ProductEntity where stock == 0 and did = :departmentIndex")
     fun getProductStockZero(departmentIndex : Int) : List<ProductEntity>
-
+    //검색
     @Query("select * from ProductEntity where pname like :searchQuery and did = :departmentIndex")
     fun searchProduct(searchQuery : String, departmentIndex : Int) : List<ProductEntity>
     
