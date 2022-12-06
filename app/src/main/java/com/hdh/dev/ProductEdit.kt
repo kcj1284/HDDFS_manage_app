@@ -124,7 +124,7 @@ class ProductEdit : AppCompatActivity() {
         val departmentList = mutableListOf<String>("강남점", "목동점", "삼성점")
         val didList = mutableListOf<Int>(0,1,2)
 
-        val pcode = intent.getStringExtra("code")
+        val pcode = intent.getStringExtra("pcode")
 
         departmentList.removeAt(curDepartmentIndex) //지금 백화점 지점을 목록에서 지워주기~
         didList.removeAt(curDepartmentIndex) // 현 did말고 나머지만 남기기~
@@ -141,7 +141,7 @@ class ProductEdit : AppCompatActivity() {
     }
     private fun getProductInfo(){
         val pid = intent.getStringExtra("pid")
-        val code = intent.getStringExtra("code")
+        val pcode = intent.getStringExtra("pcode")
         val image = intent.getStringExtra("image")
         val name = intent.getStringExtra("name")
         val category = intent.getStringExtra("category")
@@ -150,7 +150,7 @@ class ProductEdit : AppCompatActivity() {
         val stock = intent.getStringExtra("stock")
         val did = intent.getStringExtra("did")
 
-        productEntity = ProductEntity(pid!!.toInt(), code!!, name!!, image!!, category!!, price!!.toInt(), location!!, stock!!.toInt(), did!!.toInt())
+        productEntity = ProductEntity(pid!!.toInt(), pcode!!, name!!, image!!, category!!, price!!.toInt(), location!!, stock!!.toInt(), did!!.toInt())
         //이미지 파일 불러오기위함 !
         val photoFile = File(
             File("${filesDir}/image").apply {
@@ -170,6 +170,7 @@ class ProductEdit : AppCompatActivity() {
         val price_dec = DecimalFormat("#,###")
         val price_str = price_dec.format(price!!.toLong()).toString()
 
+        binding.editPcode.text = pcode
         binding.addedPicture.setImageURI(photoUri)
         binding.addName.text = name
         binding.editCategoty.text = category

@@ -47,7 +47,7 @@ class PlistFragmentRecyclerViewAdapter(
         holder.root.setOnClickListener {
             val intent = Intent(it.context, ProductEdit::class.java)
             intent.putExtra("pid", productList[position].pid.toString())
-            intent.putExtra("code", productList[position].pcode)
+            intent.putExtra("pcode", productList[position].pcode)
             intent.putExtra("image", productList[position].image)
             intent.putExtra("category", productList[position].category)
             intent.putExtra("name", productList[position].pname)

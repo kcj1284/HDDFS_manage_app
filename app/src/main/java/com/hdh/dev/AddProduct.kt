@@ -7,7 +7,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.graphics.ImageDecoder
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,19 +15,22 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.hdh.dev.StartActivity.Companion.context_start
+import com.google.android.libraries.barhopper.RecognitionOptions.QR_CODE
+import com.google.mlkit.vision.barcode.common.Barcode
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.integration.android.IntentIntegrator.QR_CODE
+import com.google.zxing.qrcode.QRCodeWriter
 import com.hdh.dev.databinding.ActivityAddProductBinding
 import com.hdh.dev.db.AppDatabase
 import com.hdh.dev.db.ProductDao
 import com.hdh.dev.db.ProductEntity
+import com.journeyapps.barcodescanner.BarcodeEncoder
 import java.io.File
 
 class AddProduct : AppCompatActivity() {
@@ -47,8 +49,9 @@ class AddProduct : AppCompatActivity() {
     //할당을 안하면 null이므로 유의!
     private lateinit var bitmap : Bitmap//아마도 미리보기
     private var photoUri: Uri? = null//원본 사진이 저장되는 Uri
+    private var qrphotoUri: Uri? = null//원본 사진이 저장되는 Uri
 
-    val categoryList = arrayOf("상의", "하의", "잡화")
+    private val categoryList = arrayOf("상의", "하의", "잡화")
     private var CATEGORY_INDEX = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -178,7 +181,7 @@ class AddProduct : AppCompatActivity() {
         }
 
         binding.addCancleBtn.setOnClickListener{
-            var intentCancle = Intent(this, MainActivity::class.java)
+            val intentCancle = Intent(this, MainActivity::class.java)
             startActivity(intentCancle)
         }
 
@@ -250,6 +253,48 @@ class AddProduct : AppCompatActivity() {
                     finish()
                 }
             }.start()
+        }
+
+        fun createQRCode(){
+            val qrCode = QRCodeWriter()
+            val bitMtx = qrCode.encode(binding.addName.text.toString(),
+                BarcodeFormat.QR_CODE,
+                500,
+                500
+            )
+            val bitmap: Bitmap = Bitmap.createBitmap(bitMtx.width, bitMtx.height, Bitmap.Config.RGB_565)
+            for(i in 0 .. bitMtx.width-1){
+                for(j in 0 .. bitMtx.height-1){
+                    var color = 0
+                    if(bitMtx.get(i, j)){
+                        color = Color.BLACK
+                    }else{
+                        color = Color.WHITE
+                    }
+                    bitmap.setPixel(i, j, color)
+                }
+            }
+
+            //저장할 파일 이름 -> pname로 이미지 저장
+            val imageFileName : String = "qr_"+binding.addPcode.text.toString()+".png"
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            val photoFile = File(
+                File("${filesDir}/qr_image").apply {
+                    if(!this.exists()){
+                        this.mkdirs()
+                    }
+                },imageFileName
+
+            )
+
+            qrphotoUri = FileProvider.getUriForFile(
+                this,
+                "com.hdh.dev.fileprovider", //인증
+                photoFile // 파일 저장될 경로 + 파일 이름
+            )
+
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, qrphotoUri)//이런식으로 intent에 Uri줘서 알아서 저장하게하면 미리보기 비트맵이 안오는것 같음
+
         }
 
 //        val partyRoomName = roomName.text.toString()
