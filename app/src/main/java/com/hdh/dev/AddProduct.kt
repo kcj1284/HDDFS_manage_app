@@ -275,25 +275,7 @@ class AddProduct : AppCompatActivity() {
                 }
             }
 
-            //저장할 파일 이름 -> pname로 이미지 저장
-            val imageFileName : String = "qr_"+binding.addPcode.text.toString()+".png"
-            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            val photoFile = File(
-                File("${filesDir}/qr_image").apply {
-                    if(!this.exists()){
-                        this.mkdirs()
-                    }
-                },imageFileName
 
-            )
-
-            qrphotoUri = FileProvider.getUriForFile(
-                this,
-                "com.hdh.dev.fileprovider", //인증
-                photoFile // 파일 저장될 경로 + 파일 이름
-            )
-
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, qrphotoUri)//이런식으로 intent에 Uri줘서 알아서 저장하게하면 미리보기 비트맵이 안오는것 같음
 
         }
 
