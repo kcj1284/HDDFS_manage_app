@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.hdh.dev.adapter.PlistFragmentRecyclerViewAdapter
@@ -18,10 +19,11 @@ import com.hdh.dev.db.ProductDao
 import com.hdh.dev.db.ProductEntity
 
 
-class SearchActivity : AppCompatActivity() {
+class SearchActivity : AppCompatActivity() , OnItemLongClickListener{
     private lateinit var binding: ActivitySearchBinding
     private lateinit var db : AppDatabase
     private lateinit var productDao : ProductDao
+    private lateinit var productList : ArrayList<ProductEntity>
     private lateinit var adapter : PlistFragmentRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,19 +54,33 @@ class SearchActivity : AppCompatActivity() {
 
     }
 
-    private fun search(pname : String){
-        val productList = ArrayList<ArrayList<ProductEntity>>()
-        Thread {
-            Log.d("gahee", "검색함수들어옴")
-            productList.add(productDao.searchProduct(pname) as ArrayList<ProductEntity>)
-            Log.d("gahee", productList[0].toString())
-        }.start()
-        createFragmentAdapter(productList)
+    override fun onLongClick(position: Int, adapter: PlistFragmentRecyclerViewAdapter) {
+        Thread{
+
+        }
     }
 
-    private fun createFragmentAdapter(productList : List<ArrayList<ProductEntity>>){
+    private fun search(query : String){
+        val searchQuery = "%$query%"
+        Thread {
+            Log.d("gahee", "검색함수들어옴")
+            productList = productDao.searchProduct(searchQuery) as ArrayList<ProductEntity>
+            if(productList.size==0){
+                Log.d("gahee", "검색결과없음")
+            }else{
+                setRecyclerView(productList)
+                Log.d("gahee", productList[0].toString())
+            }
+
+        }.start()
+
+    }
+
+    private fun setRecyclerView(productList : ArrayList<ProductEntity>){
         runOnUiThread {
-          //adapter = PlistFragmentRecyclerViewAdapter(productList)
+            adapter = PlistFragmentRecyclerViewAdapter(productList,this) // ❷ 어댑터 객체 할당
+            binding.recyclerView.adapter = adapter // 리사이클러뷰 어댑터로 위에서 만든 어댑터 설정
+            binding.recyclerView.layoutManager = LinearLayoutManager(this) // 레이아웃 매니저 설정
         }
     }
 }

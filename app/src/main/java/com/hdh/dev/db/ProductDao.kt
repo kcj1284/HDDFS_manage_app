@@ -17,8 +17,8 @@ interface ProductDao {
     @Query("select * from ProductEntity where category = :cname and did = :departmentIndex")
     fun getCategoryProduct(cname : String, departmentIndex : Int) : List<ProductEntity>
     //검색
-    @Query("select * from ProductEntity where pname = :pname")
-    fun searchProduct(pname : String) : List<ProductEntity>
+//    @Query("select * from ProductEntity where pname = :pname")
+//    fun searchProduct(pname : String) : List<ProductEntity>
     //특정 지점의 제품을 제품코드로 검색
     @Query("select * from ProductEntity where pcode = :pcode and did = :did")
     fun getDepartmentProductStock(pcode : String, did : Int) : List<ProductEntity>
@@ -29,6 +29,9 @@ interface ProductDao {
     @Query("select * from ProductEntity where stock == 0 and did = :departmentIndex")
     fun getProductStockZero(departmentIndex : Int) : List<ProductEntity>
 
+    @Query("select * from ProductEntity where pname like :searchQuery")
+    fun searchProduct(searchQuery : String) : List<ProductEntity>
+    
     @Insert
     fun insertProduct(product : ProductEntity)
 
