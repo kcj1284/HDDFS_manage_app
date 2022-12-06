@@ -17,8 +17,8 @@ interface ProductDao {
     @Query("select * from ProductEntity where category = :cname and did = :departmentIndex")
     fun getCategoryProduct(cname : String, departmentIndex : Int) : List<ProductEntity>
     //검색
-    @Query("select * from ProductEntity where pname = :pname")
-    fun searchProduct(pname : String) : List<ProductEntity>
+    @Query("select * from ProductEntity where pname like :searchQuery")
+    fun searchProduct(searchQuery : String) : List<ProductEntity>
 
     @Insert
     fun insertProduct(product : ProductEntity)
