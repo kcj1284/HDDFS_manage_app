@@ -37,12 +37,19 @@ class ProductList : AppCompatActivity() , OnItemLongClickListener{
 
     private fun getProductList(){
         Thread{
-            val categoryList = listOf<String>("상의", "하의", "잡화")//ArrayList(productDao.getCategoryList())
+            val categoryList = listOf<String>("상의", "하의", "잡화", "품절임박", "품절제품")//ArrayList(productDao.getCategoryList())
             val productList = ArrayList<ArrayList<ProductEntity>>()
-            categoryList.forEach {
-                productList.add(productDao.getCategoryProduct(it, StartActivity.DEPARTMENT_INDEX) as ArrayList<ProductEntity>)
+
+            //상의,하의,잡화 카테고리들가져오기
+            for(i in 0..2){
+                productList.add(productDao.getCategoryProduct(categoryList[i], StartActivity.DEPARTMENT_INDEX) as ArrayList<ProductEntity>)
             }
-            Log.i("하하하", productList[0].toString())
+            //품절임박제품들 가져오기
+            productList.add(productDao.getProductStockDown(StartActivity.DEPARTMENT_INDEX) as ArrayList<ProductEntity>)
+            //품절제품들 가져오기
+            productList.add(productDao.getProductStockZero(StartActivity.DEPARTMENT_INDEX) as ArrayList<ProductEntity>)
+
+            //총 5개의 물건 ArrayList가 들어감
             createFragmentAdapter(categoryList, productList)
         }.start()
     }
