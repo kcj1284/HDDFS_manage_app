@@ -61,19 +61,11 @@ class AddProduct : AppCompatActivity() {
         productDao = db.getProductDao()
 
         // 상품 배치도 자세히보기
-        binding.layout01.setOnClickListener {
-            if(binding.layoutDetail01.visibility == View.VISIBLE) {
-                binding.layoutDetail01.visibility = View.GONE
-                binding.layoutBtn01.animate().apply {
-                    duration = 300
-                    rotation(0f)
-                }
+        binding.addLoctionBtn.setOnClickListener {
+            if(binding.layout01.visibility == View.VISIBLE) {
+                binding.layout01.visibility = View.GONE
             } else {
-                binding.layoutDetail01.visibility = View.VISIBLE
-                binding.layoutBtn01.animate().apply {
-                    duration = 300
-                    rotation(0f)
-                }
+                binding.layout01.visibility = View.VISIBLE
             }
         }
         // 상품 배치도 버튼 클릭 시, view에 값 저장
