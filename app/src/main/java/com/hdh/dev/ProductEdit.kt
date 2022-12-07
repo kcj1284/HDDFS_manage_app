@@ -51,6 +51,15 @@ class ProductEdit : AppCompatActivity() {
         binding.addCancleBtn.setOnClickListener {
             finish()
         }
+
+        // qr코드 자세히보기
+        binding.addqrImagebtn.setOnClickListener {
+            if(binding.layout01.visibility == View.VISIBLE) {
+                binding.layout01.visibility = View.GONE
+            } else {
+                binding.layout01.visibility = View.VISIBLE
+            }
+        }
     }
 
     private fun getOtherDepartmentStock(curDepartmentIndex: Int){
