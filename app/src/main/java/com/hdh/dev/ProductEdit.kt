@@ -41,73 +41,6 @@ class ProductEdit : AppCompatActivity() {
             }
         }
         getOtherDepartmentStock(StartActivity.DEPARTMENT_INDEX)
-//        // 상품 배치도 자세히보기
-//        binding.layout01.setOnClickListener {
-//            if(binding.layoutDetail01.visibility == View.VISIBLE) {
-//                binding.layoutDetail01.visibility = View.GONE
-//                binding.layoutBtn01.animate().apply {
-//                    duration = 300
-//                    rotation(0f)
-//                }
-//            } else {
-//                binding.layoutDetail01.visibility = View.VISIBLE
-//                binding.layoutBtn01.animate().apply {
-//                    duration = 300
-//                    rotation(0f)
-//                }
-//            }
-//        }
-//        // 상품 배치도 버튼 클릭 시, view에 값 저장
-//        binding.btnA1.setOnClickListener {
-//            binding.editLoction.setText("A-1")
-//        }
-//        binding.btnA2.setOnClickListener {
-//            binding.editLoction.setText("A-2")
-//        }
-//        binding.btnA3.setOnClickListener {
-//            binding.editLoction.setText("A-3")
-//        }
-//        binding.btnA4.setOnClickListener {
-//            binding.editLoction.setText("A-4")
-//        }
-//        binding.btnB1.setOnClickListener {
-//            binding.editLoction.setText("B-1")
-//        }
-//        binding.btnB2.setOnClickListener {
-//            binding.editLoction.setText("B-2")
-//        }
-//        binding.btnB3.setOnClickListener {
-//            binding.editLoction.setText("B-3")
-//        }
-//        binding.btnB4.setOnClickListener {
-//            binding.editLoction.setText("B-4")
-//        }
-//        binding.btnC1.setOnClickListener {
-//            binding.editLoction.setText("C-1")
-//        }
-//        binding.btnC2.setOnClickListener {
-//            binding.editLoction.setText("C-2")
-//        }
-//        binding.btnC3.setOnClickListener {
-//            binding.editLoction.setText("C-3")
-//        }
-//        binding.btnC4.setOnClickListener {
-//            binding.editLoction.setText("C-4")
-//        }
-//        binding.btnD1.setOnClickListener {
-//            binding.editLoction.setText("D-1")
-//        }
-//        binding.btnD2.setOnClickListener {
-//            binding.editLoction.setText("D-2")
-//        }
-//        binding.btnD3.setOnClickListener {
-//            binding.editLoction.setText("D-3")
-//        }
-//        binding.btnD4.setOnClickListener {
-//            binding.editLoction.setText("D-4")
-//        }
-
-
         getProductInfo()
 
         binding.editCompleteBtn.setOnClickListener {
@@ -161,11 +94,23 @@ class ProductEdit : AppCompatActivity() {
                 }
             },image
         )
+        val qr_photoFile = File(
+            File("${filesDir}/qr_image").apply {
+                if(!this.exists()){
+                    this.mkdirs()
+                }
+            },image
+        )
 
         val photoUri = FileProvider.getUriForFile(
             this,
             "com.hdh.dev.fileprovider", //인증
             photoFile // 파일 저장될 경로 + 파일 이름
+        )
+        val qr_photoUri = FileProvider.getUriForFile(
+            this,
+            "com.hdh.dev.fileprovider", //인증
+            qr_photoFile // 파일 저장될 경로 + 파일 이름
         )
 
         //가격 , 찍기
@@ -179,6 +124,7 @@ class ProductEdit : AppCompatActivity() {
         binding.editPrice.hint = price_str
         binding.editLoction.hint = location
         binding.editStockEdit.hint = stock
+        binding.qrPicture.setImageURI(qr_photoUri)
     }//end getProductInfo..
 
     private fun ischanged(){

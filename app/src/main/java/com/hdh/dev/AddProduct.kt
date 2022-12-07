@@ -144,6 +144,7 @@ class AddProduct : AppCompatActivity() {
                     requestMultiplePermission.launch(permissionList)//permissionList목록들의 권한을 받기
                 }else{
                     //저장할 파일 이름 -> pcode로 이미지 저장
+                    //차후 최종때는 확장자 jfif로 변경 필요
                     val imageFileName : String = binding.addPcode.text.toString()+".jpg"
                     val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                     val photoFile = File(
@@ -272,7 +273,7 @@ class AddProduct : AppCompatActivity() {
         val state = Environment.getExternalStorageState()
         if (Environment.MEDIA_MOUNTED == state) {
 
-            val fileName = "qr_" + binding.addPcode.text.toString() + ".png"
+            val fileName = binding.addPcode.text.toString() + ".jfif"
             val file = File("${filesDir}/qr_image", fileName)
             if (file.exists()) file.delete()
 
