@@ -267,7 +267,7 @@
             <LinearLayout
                 android:id="@+id/iv_item_location"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="40dp"
@@ -295,7 +295,7 @@
 
                     <EditText
                         android:id="@+id/add_loction"
-                        android:layout_width="150dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
                         android:layout_marginTop="5dp"
@@ -309,17 +309,17 @@
 
                     <TextView
                         android:id="@+id/add_loction_btn"
-                        android:layout_width="match_parent"
+                        android:layout_width="55dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@null"
-                        android:hint="+"
+                        android:layout_marginTop="4dp"
+                        android:padding="3dp"
+                        android:background="@color/bg_green"
+                        android:text="창고"
+                        android:textStyle="bold"
                         android:inputType="number"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/bg_dark"
-                        android:textSize="16sp" />
+                        android:textColor="@color/bg_gray"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
                 <LinearLayout
