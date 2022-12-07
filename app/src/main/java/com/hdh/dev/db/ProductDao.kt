@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import com.hdh.dev.ProductList
 
 @Dao
 interface ProductDao {
@@ -35,6 +36,9 @@ interface ProductDao {
     
     @Insert
     fun insertProduct(product : ProductEntity)
+
+    @Insert
+    fun insertProductList(productList : List<ProductEntity>)
 
     //수정
     @Update
