@@ -47,7 +47,6 @@ class AddProduct : AppCompatActivity() {
     //할당을 안하면 null이므로 유의!
     private lateinit var bitmap : Bitmap//아마도 미리보기
     private var photoUri: Uri? = null//원본 사진이 저장되는 Uri
-    private var qrphotoUri: Uri? = null//원본 사진이 저장되는 Uri
 
     private val categoryList = arrayOf("상의", "하의", "잡화")
     private var CATEGORY_INDEX = 0
@@ -246,14 +245,11 @@ class AddProduct : AppCompatActivity() {
                 }
             }.start()
         }
-
-
     }
 
     private fun imageExternalSave(): Boolean {
 
         val qrCode = QRCodeWriter()
-        Log.d("pcode", binding.addPcode.text.toString())
         val bitMtx = qrCode.encode(binding.addPcode.text.toString(),
             BarcodeFormat.QR_CODE,
             1000,
@@ -293,5 +289,4 @@ class AddProduct : AppCompatActivity() {
         }
         return false
     }
-
 }

@@ -135,11 +135,9 @@ class QrSearch : AppCompatActivity() {
                             runOnUiThread {
                                 binding.errorText.text = "상품이 존재하지 않습니다."
                             }
-
+                            isDetected = false
                             //Toast.makeText(this@QrSearch,"상품이 존재하지 않습니다.",Toast.LENGTH_LONG)
                         }
-
-
 
                     }.start()
                     // intent.putExtra("msg", msg)
