@@ -23,6 +23,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
@@ -300,9 +301,27 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         return false
     }
 
+    //메뉴 아이콘 누르면 네비게이션바열리기
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            android.R.id.home->{
+                binding.drawerLayout.openDrawer(GravityCompat.START)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    //뒤로가기 했을 때 네비게이션바닫히기
+    override fun onBackPressed() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
     //네비게이션바에서 메뉴이동하기
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        Log.d("gahee","버튼이눌렷다아아아아 $item")
         when(item.itemId){
             R.id.add_item_menu_btn->{
                 Log.d("gahee","버튼눌림")

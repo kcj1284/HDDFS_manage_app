@@ -15,16 +15,23 @@
     android:layout_height="match_parent">
 
 
-    <ScrollView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/bg_light"
-        >
+        tools:ignore="MissingConstraints" />
+
+    <ScrollView
+        android:layout_width="414dp"
+        android:layout_height="803dp"
+        android:background="@color/bg_light"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
             <!--        <LinearLayout-->
             <!--            android:layout_width="match_parent"-->
             <!--            android:layout_height="wrap_content"-->
@@ -32,12 +39,6 @@
             <!--            app:layout_constraintTop_toTopOf="parent">-->
 
             <!--툴바추가 s-->
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/bg_light"
-                tools:ignore="MissingConstraints" />
             <!--툴바추가 e-->
 
             <TextView
@@ -45,15 +46,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="60dp"
                 android:text="상품 추가"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                 />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/added_picture"
@@ -283,7 +282,6 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
 
-
             <LinearLayout
                 android:id="@+id/iv_item_location"
                 android:layout_width="match_parent"
@@ -332,16 +330,17 @@
                         android:layout_width="55dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:padding="3dp"
                         android:background="@color/bg_green"
-                        android:text="창고"
-                        android:textStyle="bold"
                         android:inputType="number"
+                        android:padding="3dp"
+                        android:text="창고"
                         android:textAlignment="center"
                         android:textColor="@color/bg_gray"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/layout01"
                     android:layout_width="match_parent"
@@ -358,8 +357,8 @@
                             android:layout_width="310dp"
                             android:layout_height="180dp"
                             android:layout_gravity="center_vertical"
-                            android:background="#FFFFFF"
                             android:layout_margin="10dp"
+                            android:background="#FFFFFF"
                             android:src="@drawable/product_drawing" />
 
                         <Button
@@ -368,8 +367,7 @@
                             android:layout_height="15dp"
                             android:background="#00FFFFFF"
                             android:translationX="-282dp"
-                            android:translationY="48dp"
-                            />
+                            android:translationY="48dp" />
 
                         <Button
                             android:id="@+id/btn_A_2"
@@ -377,8 +375,7 @@
                             android:layout_height="15dp"
                             android:background="#00FFFFFF"
                             android:translationX="-337dp"
-                            android:translationY="67dp"
-                            />
+                            android:translationY="67dp" />
 
                         <Button
                             android:id="@+id/btn_A_3"
@@ -386,8 +383,7 @@
                             android:layout_height="15dp"
                             android:background="#00FFFFFF"
                             android:translationX="-392dp"
-                            android:translationY="86dp"
-                            />
+                            android:translationY="86dp" />
 
                         <Button
                             android:id="@+id/btn_A_4"
@@ -395,8 +391,7 @@
                             android:layout_height="15dp"
                             android:background="#00FFFFFF"
                             android:translationX="-447dp"
-                            android:translationY="105dp"
-                            />
+                            android:translationY="105dp" />
 
                         <Button
                             android:id="@+id/btn_B_1"
@@ -404,8 +399,7 @@
                             android:layout_height="15dp"
                             android:background="#00FFFFFF"
                             android:translationX="-424dp"
-                            android:translationY="48dp"
-                            />
+                            android:translationY="48dp" />
 
                         <Button
                             android:id="@+id/btn_B_2"
@@ -413,8 +407,7 @@
                             android:layout_height="15dp"
                             android:background="#00FFFFFF"
                             android:translationX="-479dp"
-                            android:translationY="67dp"
-                            />
+                            android:translationY="67dp" />
 
                         <Button
                             android:id="@+id/btn_B_3"
@@ -422,16 +415,15 @@
                             android:layout_height="15dp"
                             android:background="#00FFFFFF"
                             android:translationX="-534dp"
-                            android:translationY="86dp"
-                            />
+                            android:translationY="86dp" />
+
                         <Button
                             android:id="@+id/btn_B_4"
                             android:layout_width="55dp"
                             android:layout_height="15dp"
                             android:background="#00FFFFFF"
                             android:translationX="-589dp"
-                            android:translationY="105dp"
-                            />
+                            android:translationY="105dp" />
 
                         <Button
                             android:id="@+id/btn_C_1"
@@ -439,32 +431,31 @@
                             android:layout_height="19dp"
                             android:background="#00FFFFFF"
                             android:translationX="-566dp"
-                            android:translationY="47dp"
-                            />
+                            android:translationY="47dp" />
+
                         <Button
                             android:id="@+id/btn_C_2"
                             android:layout_width="40dp"
                             android:layout_height="19dp"
                             android:background="#00FFFFFF"
                             android:translationX="-561dp"
-                            android:translationY="47dp"
-                            />
+                            android:translationY="47dp" />
+
                         <Button
                             android:id="@+id/btn_C_3"
                             android:layout_width="40dp"
                             android:layout_height="19dp"
                             android:background="#00FFFFFF"
                             android:translationX="-647dp"
-                            android:translationY="70dp"
-                            />
+                            android:translationY="70dp" />
+
                         <Button
                             android:id="@+id/btn_C_4"
                             android:layout_width="40dp"
                             android:layout_height="19dp"
                             android:background="#00FFFFFF"
                             android:translationX="-641dp"
-                            android:translationY="70dp"
-                            />
+                            android:translationY="70dp" />
 
                         <Button
                             android:id="@+id/btn_D_1"
@@ -472,32 +463,31 @@
                             android:layout_height="19dp"
                             android:background="#00FFFFFF"
                             android:translationX="-727dp"
-                            android:translationY="129dp"
-                            />
+                            android:translationY="129dp" />
+
                         <Button
                             android:id="@+id/btn_D_2"
                             android:layout_width="40dp"
                             android:layout_height="19dp"
                             android:background="#00FFFFFF"
                             android:translationX="-722dp"
-                            android:translationY="129dp"
-                            />
+                            android:translationY="129dp" />
+
                         <Button
                             android:id="@+id/btn_D_3"
                             android:layout_width="40dp"
                             android:layout_height="19dp"
                             android:background="#00FFFFFF"
                             android:translationX="-807dp"
-                            android:translationY="153dp"
-                            />
+                            android:translationY="153dp" />
+
                         <Button
                             android:id="@+id/btn_D_4"
                             android:layout_width="40dp"
                             android:layout_height="19dp"
                             android:background="#00FFFFFF"
                             android:translationX="-802dp"
-                            android:translationY="153dp"
-                            />
+                            android:translationY="153dp" />
 
                     </LinearLayout>
                 </LinearLayout>
