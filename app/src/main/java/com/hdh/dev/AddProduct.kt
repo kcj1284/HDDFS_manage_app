@@ -194,7 +194,7 @@ class AddProduct : AppCompatActivity() {
     //사진찍고 돌아와서 수행할 메소드(자동실행)
     private fun openActivityResultLauncher(): ActivityResultLauncher<Intent>{
         val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-            result: ActivityResult ->
+                result: ActivityResult ->
 
             if(result.resultCode == Activity.RESULT_OK && result.data != null){
                 Toast.makeText(this@AddProduct, "카메라 잘 찍었습니다.", Toast.LENGTH_SHORT).show()
@@ -232,7 +232,7 @@ class AddProduct : AppCompatActivity() {
             binding.addPrice.text.toString().isBlank() ||
             binding.addLoction.text.toString().isBlank() ||
             binding.addStock.text.toString().isBlank()
-            ){
+        ){
             Toast.makeText(this@AddProduct, "항목을 모두 채워주세요", Toast.LENGTH_SHORT).show()
         }else{
             //db저장
