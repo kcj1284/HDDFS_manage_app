@@ -10,524 +10,531 @@
     android:fitsSystemWindows="true"
     tools:context=".AddProduct">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/bg_light"
-        tools:ignore="MissingConstraints" />
+        android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="414dp"
-        android:layout_height="803dp"
-        android:background="@color/bg_light"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/toolbar">
-            <!--        <LinearLayout-->
-            <!--            android:layout_width="match_parent"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:orientation="vertical"-->
-            <!--            app:layout_constraintTop_toTopOf="parent">-->
+            android:background="@color/bg_light"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
-            <!--툴바추가 s-->
-            <!--툴바추가 e-->
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/bg_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="상품 추가"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/added_picture"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/border_shape"
-                android:contentDescription="사진 추가"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title" />
+                android:layout_height="wrap_content">
+                <!--        <LinearLayout-->
+                <!--            android:layout_width="match_parent"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            android:orientation="vertical"-->
+                <!--            app:layout_constraintTop_toTopOf="parent">-->
 
-            <View
-                android:id="@+id/iv_item_num"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/gray_shape"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/added_picture" />
+                <!--툴바추가 s-->
+                <!--툴바추가 e-->
 
-            <TextView
-                android:id="@+id/tv_item_num"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:text="제품번호"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/iv_item_num"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_num" />
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="상품 추가"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/add_pcode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@null"
-                android:gravity="center"
-                android:hint="MN2CBWBL481W"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:textColorHint="@color/bg_gray"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_item_num"
-                app:layout_constraintStart_toEndOf="@+id/tv_item_num"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_num" />
-
-            <ImageButton
-                android:id="@+id/add_picture_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:contentDescription="사진추가"
-                app:layout_constraintBottom_toBottomOf="@+id/added_picture"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/added_picture"
-                app:srcCompat="@drawable/ic_add_photo" />
-
-            <View
-                android:id="@+id/iv_item_cat"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/gray_shape"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_item_num" />
-
-            <TextView
-                android:id="@+id/tv_item_cat"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:text="카테고리"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/iv_item_cat"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_cat" />
-
-            <Spinner
-                android:id="@+id/add_categoty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:contentDescription="카테고리 선택"
-                android:textColor="@color/black"
-                android:textColorHint="@color/bg_dark"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_item_cat"
-                app:layout_constraintEnd_toEndOf="@+id/iv_item_cat"
-                app:layout_constraintStart_toEndOf="@+id/tv_item_cat"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_cat"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <View
-                android:id="@+id/iv_item_name"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/gray_shape"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_item_cat" />
-
-            <TextView
-                android:id="@+id/tv_item_name"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:text="제품이름"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/iv_item_name"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_name" />
-
-            <EditText
-                android:id="@+id/add_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@null"
-                android:gravity="center"
-                android:hint="싱글 패딩 재킷"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:textColorHint="@color/bg_dark"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_item_name"
-                app:layout_constraintStart_toEndOf="@+id/tv_item_name"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_name"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <View
-                android:id="@+id/iv_item_price"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/gray_shape"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_item_name" />
-
-            <TextView
-                android:id="@+id/tv_item_price"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:text="가격"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/iv_item_price"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_price" />
-
-            <EditText
-                android:id="@+id/add_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@null"
-                android:gravity="center"
-                android:hint="가격"
-                android:inputType="number"
-                android:textColor="@color/black"
-                android:textColorHint="@color/bg_dark"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_item_price"
-                app:layout_constraintStart_toEndOf="@+id/tv_item_price"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_price"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <View
-                android:id="@+id/iv_item_stock"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/gray_shape"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_item_price" />
-
-            <TextView
-                android:id="@+id/tv_item_stock"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:text="수량"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/iv_item_stock"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_stock" />
-
-            <EditText
-                android:id="@+id/add_stock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@null"
-                android:gravity="center"
-                android:hint="수량"
-                android:inputType="number"
-                android:textColor="@color/black"
-                android:textColorHint="@color/bg_dark"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_item_stock"
-                app:layout_constraintStart_toEndOf="@+id/tv_item_stock"
-                app:layout_constraintTop_toTopOf="@+id/iv_item_stock"
-                tools:ignore="TouchTargetSizeCheck" />
-
-
-            <LinearLayout
-                android:id="@+id/iv_item_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="40dp"
-                android:animateLayoutChanges="true"
-                android:background="@drawable/gray_shape"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_item_stock">
-
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/added_picture"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="0dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/border_shape"
+                    android:contentDescription="사진 추가"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title" />
 
-                    <TextView
-                        android:id="@+id/tv_item_location"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        android:text="물건 위치"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
+                <View
+                    android:id="@+id/iv_item_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/gray_shape"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/added_picture" />
 
-                    <EditText
-                        android:id="@+id/add_loction"
-                        android:layout_width="140dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@null"
-                        android:hint="물건 위치"
-                        android:inputType="number"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/bg_dark"
-                        android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/tv_item_num"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="제품번호"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/iv_item_num"
+                    app:layout_constraintTop_toTopOf="@+id/iv_item_num" />
 
-                    <TextView
-                        android:id="@+id/add_loction_btn"
-                        android:layout_width="55dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:background="@color/bg_green"
-                        android:inputType="number"
-                        android:padding="3dp"
-                        android:text="창고"
-                        android:textAlignment="center"
-                        android:textColor="@color/bg_gray"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/add_pcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="MN2CBWBL481W"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/bg_gray"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_item_num"
+                    app:layout_constraintStart_toEndOf="@+id/tv_item_num"
+                    app:layout_constraintTop_toTopOf="@+id/iv_item_num" />
 
-                </LinearLayout>
+                <ImageButton
+                    android:id="@+id/add_picture_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:contentDescription="사진추가"
+                    app:layout_constraintBottom_toBottomOf="@+id/added_picture"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/added_picture"
+                    app:srcCompat="@drawable/ic_add_photo" />
+
+                <View
+                    android:id="@+id/iv_item_cat"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/gray_shape"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_item_num" />
+
+                <TextView
+                    android:id="@+id/tv_item_cat"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="카테고리"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/iv_item_cat"
+                    app:layout_constraintTop_toTopOf="@+id/iv_item_cat" />
+
+                <Spinner
+                    android:id="@+id/add_categoty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:contentDescription="카테고리 선택"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/bg_dark"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_item_cat"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_item_cat"
+                    app:layout_constraintStart_toEndOf="@+id/tv_item_cat"
+                    app:layout_constraintTop_toTopOf="@+id/iv_item_cat"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <View
+                    android:id="@+id/iv_item_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/gray_shape"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_item_cat" />
+
+                <TextView
+                    android:id="@+id/tv_item_name"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="제품이름"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/iv_item_name"
+                    app:layout_constraintTop_toTopOf="@+id/iv_item_name" />
+
+                <EditText
+                    android:id="@+id/add_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="싱글 패딩 재킷"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/bg_dark"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_item_name"
+                    app:layout_constraintStart_toEndOf="@+id/tv_item_name"
+                    app:layout_constraintTop_toTopOf="@+id/iv_item_name"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <View
+                    android:id="@+id/iv_item_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/gray_shape"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_item_name" />
+
+                <TextView
+                    android:id="@+id/tv_item_price"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="가격"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/iv_item_price"
+                    app:layout_constraintTop_toTopOf="@+id/iv_item_price" />
+
+                <EditText
+                    android:id="@+id/add_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="가격"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/bg_dark"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_item_price"
+                    app:layout_constraintStart_toEndOf="@+id/tv_item_price"
+                    app:layout_constraintTop_toTopOf="@+id/iv_item_price"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <View
+                    android:id="@+id/iv_item_stock"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/gray_shape"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_item_price" />
+
+                <TextView
+                    android:id="@+id/tv_item_stock"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="수량"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/iv_item_stock"
+                    app:layout_constraintTop_toTopOf="@+id/iv_item_stock" />
+
+                <EditText
+                    android:id="@+id/add_stock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="수량"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/bg_dark"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_item_stock"
+                    app:layout_constraintStart_toEndOf="@+id/tv_item_stock"
+                    app:layout_constraintTop_toTopOf="@+id/iv_item_stock"
+                    tools:ignore="TouchTargetSizeCheck" />
+
 
                 <LinearLayout
-                    android:id="@+id/layout01"
+                    android:id="@+id/iv_item_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="40dp"
+                    android:animateLayoutChanges="true"
+                    android:background="@drawable/gray_shape"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_item_stock">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
 
-                        <ImageView
-                            android:id="@+id/layoutDetail01"
-                            android:layout_width="310dp"
-                            android:layout_height="180dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_margin="10dp"
-                            android:background="#FFFFFF"
-                            android:src="@drawable/product_drawing" />
+                        <TextView
+                            android:id="@+id/tv_item_location"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:text="물건 위치"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
 
-                        <Button
-                            android:id="@+id/btn_A_1"
+                        <EditText
+                            android:id="@+id/add_loction"
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@null"
+                            android:hint="물건 위치"
+                            android:inputType="number"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/bg_dark"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/add_loction_btn"
                             android:layout_width="55dp"
-                            android:layout_height="15dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-282dp"
-                            android:translationY="48dp" />
-
-                        <Button
-                            android:id="@+id/btn_A_2"
-                            android:layout_width="55dp"
-                            android:layout_height="15dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-337dp"
-                            android:translationY="67dp" />
-
-                        <Button
-                            android:id="@+id/btn_A_3"
-                            android:layout_width="55dp"
-                            android:layout_height="15dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-392dp"
-                            android:translationY="86dp" />
-
-                        <Button
-                            android:id="@+id/btn_A_4"
-                            android:layout_width="55dp"
-                            android:layout_height="15dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-447dp"
-                            android:translationY="105dp" />
-
-                        <Button
-                            android:id="@+id/btn_B_1"
-                            android:layout_width="55dp"
-                            android:layout_height="15dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-424dp"
-                            android:translationY="48dp" />
-
-                        <Button
-                            android:id="@+id/btn_B_2"
-                            android:layout_width="55dp"
-                            android:layout_height="15dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-479dp"
-                            android:translationY="67dp" />
-
-                        <Button
-                            android:id="@+id/btn_B_3"
-                            android:layout_width="55dp"
-                            android:layout_height="15dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-534dp"
-                            android:translationY="86dp" />
-
-                        <Button
-                            android:id="@+id/btn_B_4"
-                            android:layout_width="55dp"
-                            android:layout_height="15dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-589dp"
-                            android:translationY="105dp" />
-
-                        <Button
-                            android:id="@+id/btn_C_1"
-                            android:layout_width="40dp"
-                            android:layout_height="19dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-566dp"
-                            android:translationY="47dp" />
-
-                        <Button
-                            android:id="@+id/btn_C_2"
-                            android:layout_width="40dp"
-                            android:layout_height="19dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-561dp"
-                            android:translationY="47dp" />
-
-                        <Button
-                            android:id="@+id/btn_C_3"
-                            android:layout_width="40dp"
-                            android:layout_height="19dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-647dp"
-                            android:translationY="70dp" />
-
-                        <Button
-                            android:id="@+id/btn_C_4"
-                            android:layout_width="40dp"
-                            android:layout_height="19dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-641dp"
-                            android:translationY="70dp" />
-
-                        <Button
-                            android:id="@+id/btn_D_1"
-                            android:layout_width="40dp"
-                            android:layout_height="19dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-727dp"
-                            android:translationY="129dp" />
-
-                        <Button
-                            android:id="@+id/btn_D_2"
-                            android:layout_width="40dp"
-                            android:layout_height="19dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-722dp"
-                            android:translationY="129dp" />
-
-                        <Button
-                            android:id="@+id/btn_D_3"
-                            android:layout_width="40dp"
-                            android:layout_height="19dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-807dp"
-                            android:translationY="153dp" />
-
-                        <Button
-                            android:id="@+id/btn_D_4"
-                            android:layout_width="40dp"
-                            android:layout_height="19dp"
-                            android:background="#00FFFFFF"
-                            android:translationX="-802dp"
-                            android:translationY="153dp" />
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@color/bg_green"
+                            android:inputType="number"
+                            android:padding="3dp"
+                            android:text="창고"
+                            android:textAlignment="center"
+                            android:textColor="@color/bg_gray"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout01"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/layoutDetail01"
+                                android:layout_width="310dp"
+                                android:layout_height="180dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_margin="10dp"
+                                android:background="#FFFFFF"
+                                android:src="@drawable/product_drawing" />
+
+                            <Button
+                                android:id="@+id/btn_A_1"
+                                android:layout_width="55dp"
+                                android:layout_height="15dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-282dp"
+                                android:translationY="48dp" />
+
+                            <Button
+                                android:id="@+id/btn_A_2"
+                                android:layout_width="55dp"
+                                android:layout_height="15dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-337dp"
+                                android:translationY="67dp" />
+
+                            <Button
+                                android:id="@+id/btn_A_3"
+                                android:layout_width="55dp"
+                                android:layout_height="15dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-392dp"
+                                android:translationY="86dp" />
+
+                            <Button
+                                android:id="@+id/btn_A_4"
+                                android:layout_width="55dp"
+                                android:layout_height="15dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-447dp"
+                                android:translationY="105dp" />
+
+                            <Button
+                                android:id="@+id/btn_B_1"
+                                android:layout_width="55dp"
+                                android:layout_height="15dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-424dp"
+                                android:translationY="48dp" />
+
+                            <Button
+                                android:id="@+id/btn_B_2"
+                                android:layout_width="55dp"
+                                android:layout_height="15dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-479dp"
+                                android:translationY="67dp" />
+
+                            <Button
+                                android:id="@+id/btn_B_3"
+                                android:layout_width="55dp"
+                                android:layout_height="15dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-534dp"
+                                android:translationY="86dp" />
+
+                            <Button
+                                android:id="@+id/btn_B_4"
+                                android:layout_width="55dp"
+                                android:layout_height="15dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-589dp"
+                                android:translationY="105dp" />
+
+                            <Button
+                                android:id="@+id/btn_C_1"
+                                android:layout_width="40dp"
+                                android:layout_height="19dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-566dp"
+                                android:translationY="47dp" />
+
+                            <Button
+                                android:id="@+id/btn_C_2"
+                                android:layout_width="40dp"
+                                android:layout_height="19dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-561dp"
+                                android:translationY="47dp" />
+
+                            <Button
+                                android:id="@+id/btn_C_3"
+                                android:layout_width="40dp"
+                                android:layout_height="19dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-647dp"
+                                android:translationY="70dp" />
+
+                            <Button
+                                android:id="@+id/btn_C_4"
+                                android:layout_width="40dp"
+                                android:layout_height="19dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-641dp"
+                                android:translationY="70dp" />
+
+                            <Button
+                                android:id="@+id/btn_D_1"
+                                android:layout_width="40dp"
+                                android:layout_height="19dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-727dp"
+                                android:translationY="129dp" />
+
+                            <Button
+                                android:id="@+id/btn_D_2"
+                                android:layout_width="40dp"
+                                android:layout_height="19dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-722dp"
+                                android:translationY="129dp" />
+
+                            <Button
+                                android:id="@+id/btn_D_3"
+                                android:layout_width="40dp"
+                                android:layout_height="19dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-807dp"
+                                android:translationY="153dp" />
+
+                            <Button
+                                android:id="@+id/btn_D_4"
+                                android:layout_width="40dp"
+                                android:layout_height="19dp"
+                                android:background="#00FFFFFF"
+                                android:translationX="-802dp"
+                                android:translationY="153dp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
 
 
-            <Button
-                android:id="@+id/add_cancle_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="#000000"
-                android:paddingStart="60dp"
-                android:paddingEnd="60dp"
-                android:text="취소"
-                android:textColor="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/add_complete_btn"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_item_location" />
+                <Button
+                    android:id="@+id/add_cancle_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="#000000"
+                    android:paddingStart="60dp"
+                    android:paddingEnd="60dp"
+                    android:text="취소"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/add_complete_btn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_item_location" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/add_complete_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="#DBEA8D"
-                android:paddingStart="60dp"
-                android:paddingEnd="60dp"
-                android:text="등록"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add_cancle_btn" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/add_complete_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="#DBEA8D"
+                    android:paddingStart="60dp"
+                    android:paddingEnd="60dp"
+                    android:text="등록"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/add_cancle_btn" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <!--        </LinearLayout>-->
-    </ScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--        </LinearLayout>-->
+        </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <!--navigation drawer-->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"
