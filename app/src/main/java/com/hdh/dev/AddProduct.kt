@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -22,6 +23,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import com.google.android.material.navigation.NavigationView
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
 import com.hdh.dev.databinding.ActivityAddProductBinding
@@ -31,7 +33,7 @@ import com.hdh.dev.db.ProductEntity
 import java.io.File
 import java.io.FileOutputStream
 
-class AddProduct : AppCompatActivity() {
+class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding : ActivityAddProductBinding
     private lateinit var db : AppDatabase
@@ -58,6 +60,13 @@ class AddProduct : AppCompatActivity() {
 
         db = AppDatabase.getInstance(this)!!
         productDao = db.getProductDao()
+
+        //툴바설정
+        setSupportActionBar(binding.toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)  // 왼쪽 버튼 사용 여부 true
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_menu)  // 왼쪽 버튼 이미지 설정
+        supportActionBar!!.setDisplayShowTitleEnabled(true)    // 타이틀 보이게 하기
+        binding.navigationView.setNavigationItemSelectedListener(this)
 
         // 상품 배치도 자세히보기
         binding.addLoctionBtn.setOnClickListener {
@@ -288,6 +297,45 @@ class AddProduct : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+        return false
+    }
+
+    //네비게이션바에서 메뉴이동하기
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        Log.d("gahee","버튼이눌렷다아아아아 $item")
+        when(item.itemId){
+            R.id.add_item_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentAddProduct = Intent(this, AddProduct::class.java)
+                startActivity(intentAddProduct)
+            }
+            R.id.search_item_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentSearch = Intent(this, SearchActivity::class.java)
+                startActivity(intentSearch)
+            }
+            R.id.qrSearch_item_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentQrSearch = Intent(this, QrSearch::class.java)
+                startActivity(intentQrSearch)
+            }
+            R.id.stock_item_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentStock = Intent(this, ProductList::class.java)
+                startActivity(intentStock)
+            }
+            R.id.setting_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentSetting = Intent(this, SetApp::class.java)
+                startActivity(intentSetting)
+            }
+            R.id.announcement_item_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentAnnounce = Intent(this, Announce::class.java)
+                startActivity(intentAnnounce)
+            }
+        }
+        binding.drawerLayout.closeDrawers() // 기능을 수행하고 네비게이션을 닫아준다.
         return false
     }
 }

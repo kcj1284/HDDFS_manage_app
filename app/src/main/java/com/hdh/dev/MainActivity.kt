@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val intentAddProduct = Intent(this, AddProduct::class.java)
             startActivity(intentAddProduct)
         }
-       binding.searchItemMainBtn.setOnClickListener{
+        binding.searchItemMainBtn.setOnClickListener{
             val intentSearch = Intent(this, SearchActivity::class.java)
             startActivity(intentSearch)
         }
@@ -71,14 +71,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     //뒤로가기 했을 때 네비게이션바닫히기
-    override fun onBackPressed() { 
+    override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
     }
-    
+
     //네비게이션바에서 메뉴이동하기
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
