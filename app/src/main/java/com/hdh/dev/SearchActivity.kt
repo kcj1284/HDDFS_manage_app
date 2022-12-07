@@ -5,8 +5,11 @@ import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.View.OnKeyListener
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -38,6 +41,7 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener{
 
         val sv = binding.searchView
         sv.isSubmitButtonEnabled = true
+
         sv.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             // 검색 버튼 누를 때 호출
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -101,4 +105,5 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener{
             binding.recyclerView.layoutManager = LinearLayoutManager(this) // 레이아웃 매니저 설정
         }
     }
+
 }

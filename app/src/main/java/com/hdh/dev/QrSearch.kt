@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
@@ -26,7 +27,7 @@ class QrSearch : AppCompatActivity() {
     private lateinit var cameraProviderFuture : ListenableFuture<ProcessCameraProvider>
     private lateinit var db : AppDatabase
     private lateinit var productDao : ProductDao
-    private lateinit var product : ProductEntity
+    private lateinit var product : List<ProductEntity>
 
     private val PERMISSIONS_REQUEST_CODE = 1
     private val PERMISSIONS_REQUIRED = arrayOf(Manifest.permission.CAMERA)
@@ -110,26 +111,38 @@ class QrSearch : AppCompatActivity() {
                     /*val intent = Intent(this@QrSearch, SearchResult::class.java)*/
                     Thread {
                         //결과(pcode)로 상품정보 불러오기
-                        product = productDao.getDepartmentProductStock2(
+                        product = productDao.getDepartmentProductStock(
                             pcode,
                             StartActivity.DEPARTMENT_INDEX
-                        ) as ProductEntity
+                        ) as List<ProductEntity>
 
-                        val intent = Intent(this@QrSearch, ProductEdit::class.java)
-                        intent.putExtra("pid", product.pid.toString())
-                        intent.putExtra("pcode", product.pcode)
-                        intent.putExtra("image", product.image)
-                        intent.putExtra("category", product.category)
-                        intent.putExtra("name", product.pname)
-                        intent.putExtra("price", product.price.toString())
-                        intent.putExtra("location", product.loction)
-                        intent.putExtra("stock", product.stock.toString())
-                        intent.putExtra("did", product.did.toString())
-                        //End
-                        startActivity(intent)
+                        if(product.size>0){
+                            //검색한 상품정보 상품상세(수정)탭에 넘기기
+                            val intent = Intent(this@QrSearch, ProductEdit::class.java)
+                            intent.putExtra("pid", product[0].pid.toString())
+                            intent.putExtra("pcode", product[0].pcode)
+                            intent.putExtra("image", product[0].image)
+                            intent.putExtra("category", product[0].category)
+                            intent.putExtra("name", product[0].pname)
+                            intent.putExtra("price", product[0].price.toString())
+                            intent.putExtra("location", product[0].loction)
+                            intent.putExtra("stock", product[0].stock.toString())
+                            intent.putExtra("did", product[0].did.toString())
+                            //End
+                            startActivity(intent)
+                        }else{
+                            Log.d("gahee","물품이없습니다")
+                            runOnUiThread {
+                                binding.errorText.text = "상품이 존재하지 않습니다."
+                            }
+
+                            //Toast.makeText(this@QrSearch,"상품이 존재하지 않습니다.",Toast.LENGTH_LONG)
+                        }
+
+
+
                     }.start()
                     // intent.putExtra("msg", msg)
-                    //검색한 상품정보 상품상세(수정)탭에 넘기기
 
                 }
             }

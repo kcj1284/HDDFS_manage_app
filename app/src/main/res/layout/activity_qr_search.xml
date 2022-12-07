@@ -48,16 +48,28 @@
     </androidx.camera.view.PreviewView>
 
     <TextView
+        android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="안내선 안에 QR코드 및 바코드를 맞추시면 \n자동으로 인식됩니다.
-\n\n제품 바코드를 인식하면 어플에서\n 제품을 검색할 수 있습니다."
-        android:gravity="center"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:padding="40dp"
         android:background="#B3FFFFFF"
+        android:gravity="center"
+        android:padding="40dp"
+        android:text="안내선 안에 QR코드 및 바코드를 맞추시면 \n자동으로 인식됩니다.
+\n\n제품 바코드를 인식하면 어플에서\n 제품을 검색할 수 있습니다."
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barcode_preview" />
+
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#FF0000"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barcode_preview" />

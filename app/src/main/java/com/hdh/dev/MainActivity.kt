@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val departmentList = arrayOf("강남점", "목동점", "삼성점")
         binding.deparmentBranch.text = departmentList[StartActivity.DEPARTMENT_INDEX]//어느 지점인지 출력
+        //binding.navigationView.branch.text = departmentList[StartActivity.DEPARTMENT_INDEX]
 
         binding.addItemMainBtn.setOnClickListener{
             val intentAddProduct = Intent(this, AddProduct::class.java)
