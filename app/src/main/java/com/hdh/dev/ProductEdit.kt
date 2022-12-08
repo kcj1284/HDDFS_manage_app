@@ -102,6 +102,7 @@ class ProductEdit : AppCompatActivity() {
                     this.mkdirs()
                 }
             },image
+
         )
         val qr_photoFile = File(
             File("${filesDir}/qr_image").apply {
