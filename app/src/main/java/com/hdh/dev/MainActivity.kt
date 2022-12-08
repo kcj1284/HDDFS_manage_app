@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar!!.setDisplayShowTitleEnabled(false)    // 타이틀 안보이게 하기
         binding.navigationView.setNavigationItemSelectedListener(this)
 
-        val departmentList = arrayOf("강남점", "목동점", "삼성점")
+        val departmentList = arrayOf("강남점", "목동점", "삼성점","관리자모드")
         binding.deparmentBranch.text = departmentList[StartActivity.DEPARTMENT_INDEX]//어느 지점인지 출력
 
         //네비게이션 헤더

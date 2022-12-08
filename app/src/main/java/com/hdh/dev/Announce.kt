@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
@@ -27,11 +28,11 @@ class Announce : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         supportActionBar!!.setDisplayShowTitleEnabled(true)    // 타이틀 안보이게 하기
         binding.navigationView.setNavigationItemSelectedListener(this)
 
-        val departmentList = arrayOf("강남점", "목동점", "삼성점")
-        //네비게이션 헤더
-        val header = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
-        header.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
-
+        val departmentList = arrayOf("강남점", "목동점", "삼성점","관리자모드")
+        binding.announceId.text = departmentList[StartActivity.DEPARTMENT_INDEX]//어느 지점인지 출력
+        if (binding.announceId.text == "관리자모드") {
+            binding.announceAdd.visibility = View.VISIBLE
+        }
 
         binding.announce01Btn.setOnClickListener{
             val intentAnnounce01 = Intent(this, AnnounceContent::class.java)
