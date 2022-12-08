@@ -20,8 +20,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/announce_detail_did"
+        android:layout_width="70dp"
+        android:layout_height="25dp"
+        android:gravity="center"
+        android:background="@color/bg_green"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="50dp"
+        android:text=""
+        android:visibility="gone"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/announce_detail_scrollview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/announce_content_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/announce_detail_delete"
+        android:layout_width="70dp"
+        android:layout_height="25dp"
+        android:gravity="center"
+        android:background="@color/bg_green"
+        android:layout_marginStart="130dp"
+        android:visibility="gone"
+        android:text="삭제하기"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/announce_detail_scrollview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/announce_content_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
-        android:id="@+id/announce_content_ScrollView"
+        android:id="@+id/announce_detail_scrollview"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="30dp"
@@ -35,11 +66,12 @@
         app:layout_constraintTop_toBottomOf="@+id/announce_content_title">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/announce_content_subject"
+                android:id="@+id/announce_detail_subject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -59,10 +91,10 @@
                 android:background="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/announce_content_subject" />
+                app:layout_constraintTop_toBottomOf="@+id/announce_detail_subject" />
 
             <TextView
-                android:id="@+id/announce_content"
+                android:id="@+id/announce_detail_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="30dp"
@@ -77,9 +109,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/line2" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </ScrollView>
 

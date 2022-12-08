@@ -28,9 +28,11 @@ class SetApp : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
         binding.navigationView.setNavigationItemSelectedListener(this) //네비게이션뷰 리스너 등록
 
         val departmentList = arrayOf("무역센터점", "목동점", "천호점","관리자모드")
+
         //네비게이션 헤더에 지점명 출력
         val headerTxt = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
         headerTxt.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
+
         //네비게이션 헤더에 지점사진 출력
         val headerImg = binding.navigationView.getHeaderView(0).findViewById<ImageView>(R.id.iv_image)
         when(StartActivity.DEPARTMENT_INDEX) {

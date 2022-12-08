@@ -7,19 +7,43 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
+import com.hdh.dev.adapter.AnnounceRecyclerViewAdapter
 import com.hdh.dev.databinding.ActivityAnnounceBinding
+import com.hdh.dev.db.AnnounceDao
+import com.hdh.dev.db.AnnounceEntity
+import com.hdh.dev.db.AppDatabase
+import java.security.AllPermission
 
 class Announce : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityAnnounceBinding
+    private lateinit var db : AppDatabase
+    private lateinit var announceDao: AnnounceDao
+    private lateinit var announceList: ArrayList<AnnounceEntity>
+    private lateinit var adapter: AnnounceRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         binding = ActivityAnnounceBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
+        // 공지 추가 버튼
+        binding.announceAdd.setOnClickListener {
+            val intentAddAnnounce = Intent(this, AnnounceAddActivity::class.java)
+            startActivity(intentAddAnnounce)
+        }
+
+        // 공지
+        db = AppDatabase.getInstance(this)!!
+        announceDao = db.AnnounceDao()
+        getAllAnnounceList()
+
 
         //툴바설정
         setSupportActionBar(binding.toolbar)
@@ -34,13 +58,14 @@ class Announce : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
             binding.announceAdd.visibility = View.VISIBLE
         }
 
-        binding.announce01Btn.setOnClickListener{
-            val intentAnnounce01 = Intent(this, AnnounceContent::class.java)
+/*        binding.announceContentBtn.setOnClickListener{
+            val intentAnnouncannounce_recyclerViewe01 = Intent(this, AnnounceContent::class.java)
             intentAnnounce01.putExtra("order", 1)
             startActivity(intentAnnounce01)
-        }
+        }*/
 
-        binding.announce02Btn.setOnClickListener {
+
+/*        binding.announce02Btn.setOnClickListener {
             val intentAnnounce02 = Intent(this, AnnounceContent::class.java)
             intentAnnounce02.putExtra("order", 2)
             startActivity(intentAnnounce02)
@@ -56,8 +81,36 @@ class Announce : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
             val intentAnnounce04 = Intent(this, AnnounceContent::class.java)
             intentAnnounce04.putExtra("order", 4)
             startActivity(intentAnnounce04)
+        }*/
+    }
+
+    // 모든 announceList 가져오기
+    private fun getAllAnnounceList() {
+        Thread {
+            announceList = ArrayList(announceDao.getAnnounceList())
+            setRecyclerView()
+        }.start()
+    }
+
+    // 리사이클러뷰
+    private fun setRecyclerView() {
+        runOnUiThread {
+            adapter = AnnounceRecyclerViewAdapter(announceList)
+            binding.announceRecyclerView.adapter = adapter
+            binding.announceRecyclerView.layoutManager = LinearLayoutManager(this)
+            adapter.setOnItemClickListener(object : AnnounceRecyclerViewAdapter.OnItemClickListener{
+                override fun onItemClick(v: View, announce: AnnounceEntity, pos : Int) {
+                    Intent(this@Announce, AnnounceDetailActivity::class.java).apply {
+                        putExtra("announce", announce)
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    }.run { startActivity(this) }
+
+                }
+
+            })
         }
     }
+
 
     //메뉴 아이콘 누르면 네비게이션바열리기
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -120,5 +173,10 @@ class Announce : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         }
         binding.drawerLayout.closeDrawers() // 기능을 수행하고 네비게이션을 닫아준다.
         return false
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        getAllAnnounceList()
     }
 }
