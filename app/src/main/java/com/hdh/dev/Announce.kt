@@ -75,6 +75,11 @@ class Announce : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         Log.d("gahee","버튼이눌렷다아아아아 $item")
         when(item.itemId){
+            R.id.home_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentHome = Intent(this, MainActivity::class.java)
+                startActivity(intentHome)
+            }
             R.id.add_item_menu_btn->{
                 Log.d("gahee","버튼눌림")
                 val intentAddProduct = Intent(this, AddProduct::class.java)

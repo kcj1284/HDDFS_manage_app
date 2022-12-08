@@ -150,6 +150,11 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener, Navigation
     //네비게이션바에서 메뉴이동하기
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
+            R.id.home_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentHome = Intent(this, MainActivity::class.java)
+                startActivity(intentHome)
+            }
             R.id.add_item_menu_btn->{
                 val intentAddProduct = Intent(this, AddProduct::class.java)
                 startActivity(intentAddProduct)

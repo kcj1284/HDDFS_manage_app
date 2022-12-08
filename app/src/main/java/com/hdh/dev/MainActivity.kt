@@ -32,6 +32,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.deparmentBranch.text = departmentList[StartActivity.DEPARTMENT_INDEX]//어느 지점인지 출력
         //binding.navigationView.branch.text = departmentList[StartActivity.DEPARTMENT_INDEX]
 
+        val header = binding.navigationView.getHeaderView(0)
+
         binding.addItemMainBtn.setOnClickListener{
             val intentAddProduct = Intent(this, AddProduct::class.java)
             startActivity(intentAddProduct)
@@ -82,6 +84,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     //네비게이션바에서 메뉴이동하기
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
+            R.id.home_menu_btn->{
+                Log.d("gahee","버튼눌림")
+                val intentHome = Intent(this, MainActivity::class.java)
+                startActivity(intentHome)
+            }
             R.id.add_item_menu_btn->{
                 Log.d("gahee","버튼눌림")
                 val intentAddProduct = Intent(this, AddProduct::class.java)
