@@ -1,24 +1,20 @@
 package com.hdh.dev
 
-import android.content.AbstractThreadedSyncAdapter
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.hdh.dev.adapter.PlistFragmentRecyclerViewAdapter
 import com.hdh.dev.adapter.ViewpagerFragmentAdapter
-import com.hdh.dev.databinding.ActivityAddProductBinding
-import com.hdh.dev.databinding.ActivityMainBinding
 import com.hdh.dev.databinding.ActivityProductListBinding
 import com.hdh.dev.db.AppDatabase
 import com.hdh.dev.db.ProductDao
@@ -103,7 +99,6 @@ class ProductList : AppCompatActivity() , OnItemLongClickListener, NavigationVie
                     runOnUiThread {
                         adapter.notifyDataSetChanged()
                         Toast.makeText(this@ProductList, "삭제완료", Toast.LENGTH_SHORT).show()
-                        //onRestart()//이런식으로 가면 버전낮은 애들은 팅긴다는데... 추가 방안을 찾아보자
                     }
                 }.start()
             }
@@ -131,47 +126,37 @@ class ProductList : AppCompatActivity() , OnItemLongClickListener, NavigationVie
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
         }
     }
 
     //네비게이션바에서 메뉴이동하기
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        Log.d("gahee","버튼이눌렷다아아아아 $item")
         when(item.itemId){
             R.id.home_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentHome = Intent(this, MainActivity::class.java)
                 startActivity(intentHome)
             }
             R.id.add_item_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentAddProduct = Intent(this, AddProduct::class.java)
                 startActivity(intentAddProduct)
             }
             R.id.search_item_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentSearch = Intent(this, SearchActivity::class.java)
                 startActivity(intentSearch)
             }
             R.id.qrSearch_item_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentQrSearch = Intent(this, QrSearch::class.java)
                 startActivity(intentQrSearch)
             }
             R.id.stock_item_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentStock = Intent(this, ProductList::class.java)
                 startActivity(intentStock)
             }
             R.id.setting_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentSetting = Intent(this, SetApp::class.java)
                 startActivity(intentSetting)
             }
             R.id.announcement_item_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentAnnounce = Intent(this, Announce::class.java)
                 startActivity(intentAnnounce)
             }

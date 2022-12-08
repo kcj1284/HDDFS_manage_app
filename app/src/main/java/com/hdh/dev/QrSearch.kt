@@ -4,17 +4,16 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
-import com.hdh.dev.databinding.ActivityQrSearchBinding
 import com.google.common.util.concurrent.ListenableFuture
+import com.hdh.dev.databinding.ActivityQrSearchBinding
 import com.hdh.dev.db.AppDatabase
 import com.hdh.dev.db.ProductDao
 import com.hdh.dev.db.ProductEntity
@@ -82,10 +81,10 @@ class QrSearch : AppCompatActivity() {
             val cameraProvider = cameraProviderFuture.get()
 
             val preview = getPreview()
-            val imageAnalysis = getImageAnalysis() // ❷
+            val imageAnalysis = getImageAnalysis()
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
-            cameraProvider.bindToLifecycle(this, cameraSelector,preview,imageAnalysis) // ❸
+            cameraProvider.bindToLifecycle(this, cameraSelector,preview,imageAnalysis)
 
         }, ContextCompat.getMainExecutor(this))
     }
@@ -130,16 +129,16 @@ class QrSearch : AppCompatActivity() {
                             intent.putExtra("did", product[0].did.toString())
                             //End
                             startActivity(intent)
-                        }else{
-                            Log.d("gahee","물품이없습니다")
+                        }
+                        //해당하는 상품이 없을 때
+                        else{
                             runOnUiThread {
                                 binding.errorText.text = "상품이 존재하지 않습니다."
                             }
-                            isDetected = false
+                            isDetected = false  //QR코드분석 재실시를 위해 false처리
                         }
 
                     }.start()
-                    // intent.putExtra("msg", msg)
 
                 }
             }

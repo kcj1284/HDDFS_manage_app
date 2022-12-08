@@ -81,6 +81,7 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener, Navigation
 
     }
 
+    //검색결과에서 상품 길게눌렀을 때 삭제
     override fun onLongClick(position: Int, adapter: PlistFragmentRecyclerViewAdapter) {
         val builder : AlertDialog.Builder = AlertDialog.Builder(this)
         builder.setTitle("상품삭제")
@@ -94,7 +95,6 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener, Navigation
                     runOnUiThread {
                         adapter.notifyDataSetChanged()
                         Toast.makeText(this@SearchActivity, "삭제완료", Toast.LENGTH_SHORT).show()
-                        //onRestart()//이런식으로 가면 버전낮은 애들은 팅긴다는데... 추가 방안을 찾아보자
                     }
                 }.start()
             }
@@ -151,9 +151,7 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener, Navigation
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
-        }/* else {
-            super.onBackPressed()
-        }*/
+        }
     }
 
     //네비게이션바에서 메뉴이동하기

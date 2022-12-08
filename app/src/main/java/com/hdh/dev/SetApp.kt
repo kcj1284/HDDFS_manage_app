@@ -1,12 +1,11 @@
 package com.hdh.dev
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
@@ -63,8 +62,6 @@ class SetApp : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
         }
     }
 
