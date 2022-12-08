@@ -2,16 +2,15 @@ package com.hdh.dev
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.hdh.dev.databinding.ActivitySelectDepartmentBinding
 import com.hdh.dev.db.AppDatabase
 import com.hdh.dev.db.DepartmentDao
 import com.hdh.dev.db.DepartmentEntity
-import com.hdh.dev.db.ProductDao
 
 class StartActivity : AppCompatActivity() {
 
@@ -42,6 +41,14 @@ class StartActivity : AppCompatActivity() {
                 p3: Long
             ) {
                 DEPARTMENT_INDEX = position
+                //선택 지점에 따라 배경이미지 바꾸기
+                val bgImg = binding.ivBg
+                when(DEPARTMENT_INDEX){
+                    0 -> bgImg.setImageDrawable(getResources().getDrawable(R.drawable.startbg))
+                    1 ->  bgImg.setImageDrawable(getResources().getDrawable(R.drawable.startbg1))
+                    2 ->  bgImg.setImageDrawable(getResources().getDrawable(R.drawable.startbg2))
+                    3 ->  bgImg.setImageDrawable(getResources().getDrawable(R.drawable.startbg3))
+                }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("Not yet implemented")
