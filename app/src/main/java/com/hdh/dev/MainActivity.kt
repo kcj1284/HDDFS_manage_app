@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -30,9 +31,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val departmentList = arrayOf("강남점", "목동점", "삼성점")
         binding.deparmentBranch.text = departmentList[StartActivity.DEPARTMENT_INDEX]//어느 지점인지 출력
-        //binding.navigationView.branch.text = departmentList[StartActivity.DEPARTMENT_INDEX]
 
-        val header = binding.navigationView.getHeaderView(0)
+        //네비게이션 헤더
+        val header = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
+        header.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
+
 
         binding.addItemMainBtn.setOnClickListener{
             val intentAddProduct = Intent(this, AddProduct::class.java)

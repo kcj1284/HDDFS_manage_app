@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
@@ -25,6 +26,11 @@ class SetApp : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_menu)  // 왼쪽 버튼 이미지 설정
         supportActionBar!!.setDisplayShowTitleEnabled(true)    // 타이틀 보이게 하기
         binding.navigationView.setNavigationItemSelectedListener(this)
+
+        val departmentList = arrayOf("강남점", "목동점", "삼성점")
+        //네비게이션 헤더
+        val header = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
+        header.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
 
 
         binding.lightModeBtn.setOnClickListener{

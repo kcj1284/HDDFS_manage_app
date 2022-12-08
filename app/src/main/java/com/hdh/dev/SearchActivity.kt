@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.View.*
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -53,6 +54,11 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener, Navigation
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_menu)  // 왼쪽 버튼 이미지 설정
         supportActionBar!!.setDisplayShowTitleEnabled(true)    // 타이틀
         binding.navigationView.setNavigationItemSelectedListener(this)
+
+        val departmentList = arrayOf("강남점", "목동점", "삼성점")
+        //네비게이션 헤더
+        val header = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
+        header.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
 
         sv.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             // 검색 버튼 누를 때 호출
