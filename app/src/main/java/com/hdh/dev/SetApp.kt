@@ -64,6 +64,8 @@ class SetApp : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
         }
     }
 

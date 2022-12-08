@@ -67,13 +67,6 @@
             android:name=".SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".SearchResult"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".QrSearch"
             android:exported="false">
             <meta-data
