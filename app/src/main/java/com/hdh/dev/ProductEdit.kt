@@ -112,6 +112,7 @@ class ProductEdit : AppCompatActivity() {
             },image
         )
 
+
         val photoUri = FileProvider.getUriForFile(
             this,
             "com.hdh.dev.fileprovider", //인증
