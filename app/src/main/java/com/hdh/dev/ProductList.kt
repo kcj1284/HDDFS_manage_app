@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -44,11 +45,18 @@ class ProductList : AppCompatActivity() , OnItemLongClickListener, NavigationVie
         supportActionBar!!.setDisplayShowTitleEnabled(true)    // 타이틀 보이게 하기
         binding.navigationView.setNavigationItemSelectedListener(this)
 
-        val departmentList = arrayOf("강남점", "목동점", "삼성점")
-        //네비게이션 헤더
-        val header = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
-        header.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
+        val departmentList = arrayOf("무역센터점", "목동점", "천호점","관리자모드")
 
+        //네비게이션 헤더에 지점명 출력
+        val headerTxt = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
+        headerTxt.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
+        //네비게이션 헤더에 지점사진 출력
+        val headerImg = binding.navigationView.getHeaderView(0).findViewById<ImageView>(R.id.iv_image)
+        when(StartActivity.DEPARTMENT_INDEX) {
+            1 -> headerImg.setImageDrawable(getResources().getDrawable(R.drawable.mokdong))
+            2 -> headerImg.setImageDrawable(getResources().getDrawable(R.drawable.cheonho))
+            3 -> headerImg.setImageDrawable(getResources().getDrawable(R.mipmap.ic_launcher_round))
+        }
         getProductList()
     }
 

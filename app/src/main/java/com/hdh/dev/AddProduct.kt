@@ -15,10 +15,7 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -70,10 +67,17 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         supportActionBar!!.setDisplayShowTitleEnabled(true)    // 타이틀 보이게 하기
         binding.navigationView.setNavigationItemSelectedListener(this)
 
-        val departmentList = arrayOf("강남점", "목동점", "삼성점")
-        //네비게이션 헤더
-        val header = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
-        header.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
+        val departmentList = arrayOf("무역센터점", "목동점", "천호점","관리자모드")
+        //네비게이션 헤더에 지점명 출력
+        val headerTxt = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
+        headerTxt.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
+        //네비게이션 헤더에 지점사진 출력
+        val headerImg = binding.navigationView.getHeaderView(0).findViewById<ImageView>(R.id.iv_image)
+        when(StartActivity.DEPARTMENT_INDEX) {
+            1 -> headerImg.setImageDrawable(getResources().getDrawable(R.drawable.mokdong))
+            2 -> headerImg.setImageDrawable(getResources().getDrawable(R.drawable.cheonho))
+            3 -> headerImg.setImageDrawable(getResources().getDrawable(R.mipmap.ic_launcher_round))
+        }
 
         // 상품 배치도 자세히보기
         binding.addLoctionBtn.setOnClickListener {

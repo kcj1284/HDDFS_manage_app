@@ -13,7 +13,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/gangnam" />
 
     <TextView
         android:id="@+id/branch"

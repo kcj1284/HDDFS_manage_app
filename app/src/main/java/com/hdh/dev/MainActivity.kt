@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -27,15 +28,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)  // 왼쪽 버튼 사용 여부 true
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_menu)  // 왼쪽 버튼 이미지 설정
         supportActionBar!!.setDisplayShowTitleEnabled(false)    // 타이틀 안보이게 하기
-        binding.navigationView.setNavigationItemSelectedListener(this)
+        binding.navigationView.setNavigationItemSelectedListener(this)  //네비게이션뷰 리스너 등록
 
-        val departmentList = arrayOf("강남점", "목동점", "삼성점","관리자모드")
+        val departmentList = arrayOf("무역센터점", "목동점", "천호점","관리자모드")
         binding.deparmentBranch.text = departmentList[StartActivity.DEPARTMENT_INDEX]//어느 지점인지 출력
 
-        //네비게이션 헤더
-        val header = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
-        header.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
-
+        //네비게이션 헤더에 지점명 출력
+        val headerTxt = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
+        headerTxt.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
+        //네비게이션 헤더에 지점사진 출력
+        val headerImg = binding.navigationView.getHeaderView(0).findViewById<ImageView>(R.id.iv_image)
+        when(StartActivity.DEPARTMENT_INDEX){
+            1 ->  headerImg.setImageDrawable(getResources().getDrawable(R.drawable.mokdong))
+            2 ->  headerImg.setImageDrawable(getResources().getDrawable(R.drawable.cheonho))
+            3 ->  headerImg.setImageDrawable(getResources().getDrawable(R.mipmap.ic_launcher_round))
+        }
 
         binding.addItemMainBtn.setOnClickListener{
             val intentAddProduct = Intent(this, AddProduct::class.java)
@@ -88,37 +95,30 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.home_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentHome = Intent(this, MainActivity::class.java)
                 startActivity(intentHome)
             }
             R.id.add_item_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentAddProduct = Intent(this, AddProduct::class.java)
                 startActivity(intentAddProduct)
             }
             R.id.search_item_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentSearch = Intent(this, SearchActivity::class.java)
                 startActivity(intentSearch)
             }
             R.id.qrSearch_item_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentQrSearch = Intent(this, QrSearch::class.java)
                 startActivity(intentQrSearch)
             }
             R.id.stock_item_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentStock = Intent(this, ProductList::class.java)
                 startActivity(intentStock)
             }
             R.id.setting_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentSetting = Intent(this, SetApp::class.java)
                 startActivity(intentSetting)
             }
             R.id.announcement_item_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentAnnounce = Intent(this, Announce::class.java)
                 startActivity(intentAnnounce)
             }

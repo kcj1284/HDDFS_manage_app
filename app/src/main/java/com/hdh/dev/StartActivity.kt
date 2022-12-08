@@ -30,7 +30,7 @@ class StartActivity : AppCompatActivity() {
 
         context_start = this// App내에서 전역적으로 사용할 변수를 위한 Context 초기화
 
-        val departmentList = arrayOf("강남점", "목동점", "삼성점", "관리자모드")
+        val departmentList = arrayOf("무역센터점", "목동점", "천호점", "관리자모드")
         singletonDepartmentEntity()
 
         binding.selectDepartment.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, departmentList)

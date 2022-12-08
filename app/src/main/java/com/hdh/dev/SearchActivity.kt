@@ -1,16 +1,12 @@
 package com.hdh.dev
 
-import android.app.SearchManager
-import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.KeyEvent
-import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.view.View.*
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -18,11 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.tabs.TabLayoutMediator
 import com.hdh.dev.adapter.PlistFragmentRecyclerViewAdapter
-import com.hdh.dev.adapter.ViewpagerFragmentAdapter
 import com.hdh.dev.databinding.ActivitySearchBinding
 import com.hdh.dev.db.AppDatabase
 import com.hdh.dev.db.ProductDao
@@ -52,26 +45,33 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener, Navigation
         setSupportActionBar(binding.toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)  // 왼쪽 버튼 사용 여부 true
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_menu)  // 왼쪽 버튼 이미지 설정
-        supportActionBar!!.setDisplayShowTitleEnabled(true)    // 타이틀
-        binding.navigationView.setNavigationItemSelectedListener(this)
+        supportActionBar!!.setDisplayShowTitleEnabled(true)    // 타이틀 보이게 하기
+        binding.navigationView.setNavigationItemSelectedListener(this)  //네비게이션뷰 리스너 등록
 
-        val departmentList = arrayOf("강남점", "목동점", "삼성점")
-        //네비게이션 헤더
-        val header = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
-        header.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
+        val departmentList = arrayOf("무역센터점", "목동점", "천호점","관리자모드")
+        //네비게이션 헤더에 지점명 출력
+        val headerTxt = binding.navigationView.getHeaderView(0).findViewById<TextView>(R.id.branch)
+        headerTxt.setText(departmentList[StartActivity.DEPARTMENT_INDEX])
+        //네비게이션 헤더에 지점사진 출력
+        val headerImg = binding.navigationView.getHeaderView(0).findViewById<ImageView>(R.id.iv_image)
+        when(StartActivity.DEPARTMENT_INDEX) {
+            1 -> headerImg.setImageDrawable(getResources().getDrawable(R.drawable.mokdong))
+            2 -> headerImg.setImageDrawable(getResources().getDrawable(R.drawable.cheonho))
+            3 -> headerImg.setImageDrawable(getResources().getDrawable(R.mipmap.ic_launcher_round))
+        }
 
+        //SearchView에 리스너 등록
         sv.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             // 검색 버튼 누를 때 호출
             override fun onQueryTextSubmit(query: String?): Boolean {
-                Log.d("gahee",query!!)
-                search(query)
-
+                if(query != null) {
+                    search(query)
+                }
                 return true
             }
 
+            // 검색창에서 글자가 변경이 일어날 때마다 호출
             override fun onQueryTextChange(query: String?): Boolean {
-
-                // 검색창에서 글자가 변경이 일어날 때마다 호출
                 if(query != null){
                     search(query)
                 }
@@ -102,24 +102,27 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener, Navigation
         builder.show()
     }
 
+    //검색어를 입력받아서 DB에서 검색한 다음 결과를 보여주는 함수
     private fun search(query : String){
-        val searchQuery = "%$query%"
+        val searchQuery = "%$query%"    //부분검색 가능하게 쿼리에 와일드카드주기
+        //DB작업이므로 스레드로 작업
         Thread {
-            Log.d("gahee", "검색함수들어옴")
-            productList = productDao.searchProduct(searchQuery,StartActivity.DEPARTMENT_INDEX) as ArrayList<ProductEntity>
+           productList = productDao.searchProduct(searchQuery,StartActivity.DEPARTMENT_INDEX) as ArrayList<ProductEntity>
+            //검색 결과 없을 때
             if(productList.size==0){
-                Log.d("gahee", "검색결과없음")
                 runOnUiThread {
-                    binding.tvNoResult.visibility = VISIBLE
-                    binding.recyclerView.visibility = INVISIBLE
+                    binding.tvNoResult.visibility = VISIBLE     //검색결과 없다는 텍스트뷰 보여지게 하기
+                    binding.recyclerView.visibility = INVISIBLE    //검색결과 리사이클러뷰 안보여지게 하기
                 }
+            //검색 결과 있을 때
             }else{
+                //UI작업을 위해 UI스레드
                 runOnUiThread {
-                    binding.tvNoResult.visibility = INVISIBLE
-                    binding.recyclerView.visibility = VISIBLE
+                    binding.tvNoResult.visibility = INVISIBLE   //검색결과 없다는 텍스트뷰 안보여지게 하기
+                    binding.recyclerView.visibility = VISIBLE   //검색결과 리사이클러뷰 보여지게 하기
                 }
+                //검색결과띄우는 리사이클러뷰에 상품목록 보내기
                 setRecyclerView(productList)
-                Log.d("gahee", productList[0].toString())
             }
 
         }.start()
@@ -128,7 +131,7 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener, Navigation
 
     private fun setRecyclerView(productList : ArrayList<ProductEntity>){
         runOnUiThread {
-            adapter = PlistFragmentRecyclerViewAdapter(productList,this) // ❷ 어댑터 객체 할당
+            adapter = PlistFragmentRecyclerViewAdapter(productList,this) // 어댑터 객체 할당
             binding.recyclerView.adapter = adapter // 리사이클러뷰 어댑터로 위에서 만든 어댑터 설정
             binding.recyclerView.layoutManager = LinearLayoutManager(this) // 레이아웃 매니저 설정
         }
@@ -148,16 +151,15 @@ class SearchActivity : AppCompatActivity() , OnItemLongClickListener, Navigation
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
+        }/* else {
             super.onBackPressed()
-        }
+        }*/
     }
 
     //네비게이션바에서 메뉴이동하기
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.home_menu_btn->{
-                Log.d("gahee","버튼눌림")
                 val intentHome = Intent(this, MainActivity::class.java)
                 startActivity(intentHome)
             }
