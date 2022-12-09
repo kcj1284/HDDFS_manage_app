@@ -28,6 +28,9 @@ class AnnounceAddActivity : AppCompatActivity() {
         binding.announceAddCompleteBtn.setOnClickListener {
             insertAnnounce()
         }
+        binding.announceAddCancleBtn.setOnClickListener{
+            finish()
+        }
     }
 
     /* 공지 추가 함수 */
