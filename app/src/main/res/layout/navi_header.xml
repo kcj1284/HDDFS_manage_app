@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/bg_green">
+    android:paddingBottom="30dp"
+    android:background="@color/bg_hd_green">
 
     <ImageView
         android:id="@+id/iv_image"
@@ -22,14 +23,17 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:text = "지점명"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"/>
 
         <TextView
         android:id="@+id/tv_hello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:text="안녕하세요!"
+            android:textColor="#FFFFFF"
         android:textSize="14sp"/>
 
 </LinearLayout>

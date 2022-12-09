@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light"
+    android:background="@color/bg_hd"
     tools:context=".AnnounceAddActivity">
 
     <TextView
@@ -83,11 +83,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="#000000"
+                android:textColor="#FFFFFF"
+                android:background="@color/bg_hd_green"
                 android:paddingStart="60dp"
                 android:paddingEnd="60dp"
                 android:text="취소"
-                android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/announce_add_complete_btn"
                 app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +98,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:background="#DBEA8D"
+                android:background="@color/bg_hd_beige"
+                android:textColor="#000000"
                 android:paddingStart="60dp"
                 android:paddingEnd="60dp"
                 android:text="등록"

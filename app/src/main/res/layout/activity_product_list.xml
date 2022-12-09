@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light"
+    android:background="@color/bg_hd"
     android:fitsSystemWindows="true"
     tools:context=".ProductList">
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +17,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bg_light"
+        android:background="@color/bg_hd_green"
+        app:titleTextColor="#FFFFFF"
         tools:ignore="MissingConstraints" />
     <!--툴바추가 e-->
 
@@ -44,8 +45,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/bg_light"
+        android:background="@color/bg_hd"
         app:itemTextColor="@color/bg_dark"
+        app:itemHorizontalPadding="20dp"
         app:headerLayout="@layout/navi_header"
         app:menu="@menu/main_navigationmenu" />
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light"
+    android:background="@color/bg_hd"
     android:fitsSystemWindows="true"
     tools:context=".Announce">
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +17,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bg_light"
+        android:background="@color/bg_hd_green"
+        app:titleTextColor="#FFFFFF"
         tools:ignore="MissingConstraints" />
     <!--툴바추가 e-->
 
@@ -85,42 +86,6 @@
             app:layout_constraintBottom_toTopOf="@+id/btn_add"
             app:layout_constraintTop_toBottomOf="@+id/tv_total_product" />
 
-        <!--<androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/announce_content_btn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/announce_subject"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="품절임박/품절 메뉴 안내"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/btn1_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="20dp"
-                android:text="품절에 임박하거나 품절된 제품에 대한 메뉴는 다음   ..."
-                android:textColor="#666666"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/announce_subject" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>-->
-
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -130,8 +95,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/bg_light"
+        android:background="@color/bg_hd"
         app:itemTextColor="@color/bg_dark"
+        app:itemHorizontalPadding="20dp"
         app:headerLayout="@layout/navi_header"
         app:menu="@menu/main_navigationmenu" />
 </androidx.drawerlayout.widget.DrawerLayout>

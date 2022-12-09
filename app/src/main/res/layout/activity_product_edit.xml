@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_hd"
     android:animateLayoutChanges="true"
     tools:context=".AddProduct">
 
@@ -11,7 +12,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bg_light"
+        android:background="@color/bg_hd"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="-16dp">
 
@@ -385,12 +386,12 @@
                         android:layout_marginTop="3dp"
                         android:layout_marginStart="80dp"
                         android:padding="3dp"
-                        android:background="@color/bg_green"
+                        android:background="@color/bg_hd_beige"
                         android:text="이미지 확인"
                         android:textStyle="bold"
                         android:inputType="number"
                         android:textAlignment="center"
-                        android:textColor="@color/bg_gray"
+                        android:textColor="#000000"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -424,7 +425,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="#000000"
+                android:background="@color/bg_hd_darkgreen"
                 android:paddingStart="60dp"
                 android:paddingEnd="60dp"
                 android:text="취소"
@@ -440,7 +441,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="#DBEA8D"
+                android:background="@color/bg_hd_beige"
                 android:paddingStart="60dp"
                 android:paddingEnd="60dp"
                 android:text="수정하기"

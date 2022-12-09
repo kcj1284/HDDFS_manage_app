@@ -14,4 +14,9 @@
     <color name="bg_llightgray">#FFFFFF</color>
     <color name="bg_green">#DBEA8D</color>
     <color name="bg_dark_shadow">#33666666</color>
+    <color name="bg_hd">#F5F5F5</color>
+    <color name="bg_hd_green">#00635A</color>
+    <color name="bg_hd_darkgreen">#1A3C40</color>
+    <color name="bg_hd_beige">#F0DCC5</color>
+    <color name="bg_hd_lightbeige">#EDE6DB</color>
 </resources>

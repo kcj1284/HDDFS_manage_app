@@ -6,7 +6,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light"
+    android:background="@color/bg_hd"
     android:fitsSystemWindows="true"
     tools:context=".SetApp">
 
@@ -20,162 +20,178 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/bg_light"
+            android:layout_marginBottom="20dp"
+            app:titleTextColor="#FFFFFF"
+            android:background="@color/bg_hd_green"
             tools:ignore="MissingConstraints" />
         <!--툴바추가 e-->
 
-        <View
-            android:id="@+id/line1"
-            android:layout_width="350dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
-            android:background="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv1" />
+        <ScrollView
+            android:id="@+id/setup_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="70dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <TextView
-            android:id="@+id/tv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="어플 설정"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/line1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-        <View
-            android:id="@+id/bg1"
-            android:layout_width="350dp"
-            android:layout_height="180dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/button_shape"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line1" />
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="350dp"
+                    android:layout_height="2dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="#666666"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv1" />
 
-        <View
-            android:id="@+id/bg2"
-            android:layout_width="350dp"
-            android:layout_height="105dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_shape"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bg1" />
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="어플 설정"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/line1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-        <View
-            android:id="@+id/bg3"
-            android:layout_width="350dp"
-            android:layout_height="145dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_shape"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bg2" />
+                <View
+                    android:id="@+id/bg1"
+                    android:layout_width="350dp"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/button_shape"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/line1" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:text="라이트/ 다크 모드"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/bg1"
-            app:layout_constraintTop_toTopOf="@+id/bg1" />
+                <View
+                    android:id="@+id/bg2"
+                    android:layout_width="350dp"
+                    android:layout_height="105dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_shape"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bg1" />
 
-        <Button
-            android:id="@+id/dark_mode_btn"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/button_round_dark"
-            android:text="Dark"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/bg1"
-            app:layout_constraintEnd_toEndOf="@+id/bg1"
-            app:layout_constraintStart_toEndOf="@+id/light_mode_btn"
-            app:layout_constraintTop_toTopOf="@+id/bg1"
-            app:layout_constraintVertical_bias="0.662" />
+                <View
+                    android:id="@+id/bg3"
+                    android:layout_width="350dp"
+                    android:layout_height="145dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_shape"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bg2" />
 
-        <Button
-            android:id="@+id/light_mode_btn"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/button_round_light"
-            android:text="light"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/bg1"
-            app:layout_constraintEnd_toStartOf="@+id/dark_mode_btn"
-            app:layout_constraintStart_toStartOf="@+id/bg1"
-            app:layout_constraintTop_toTopOf="@+id/bg1" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="라이트/ 다크 모드"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/bg1"
+                    app:layout_constraintTop_toTopOf="@+id/bg1" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="45dp"
-            android:text="Android Hhub version_1.3.2 \n최신 버전 입니다."
-            android:textColor="#666666"
-            app:layout_constraintStart_toStartOf="@+id/bg2"
-            app:layout_constraintTop_toTopOf="@+id/bg2" />
+                <Button
+                    android:id="@+id/dark_mode_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/button_round_dark"
+                    android:text="Dark"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/bg1"
+                    app:layout_constraintEnd_toEndOf="@+id/bg1"
+                    app:layout_constraintStart_toEndOf="@+id/light_mode_btn"
+                    app:layout_constraintTop_toTopOf="@+id/bg1"
+                    app:layout_constraintVertical_bias="0.662" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:text="앱 업데이트"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/bg2"
-            app:layout_constraintTop_toTopOf="@+id/bg2" />
+                <Button
+                    android:id="@+id/light_mode_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/button_round_light"
+                    android:text="light"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/bg1"
+                    app:layout_constraintEnd_toStartOf="@+id/dark_mode_btn"
+                    app:layout_constraintStart_toStartOf="@+id/bg1"
+                    app:layout_constraintTop_toTopOf="@+id/bg1" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="45dp"
-            android:text="Hyundai_IT&amp;E_5 김가희\nHyundai_IT&amp;E_5 김다빈\nHyundai_IT&amp;E_5 김찬중\nHyundai_IT&amp;E_5 박여명"
-            android:textColor="#666666"
-            app:layout_constraintStart_toStartOf="@+id/bg3"
-            app:layout_constraintTop_toTopOf="@+id/bg3" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="45dp"
+                    android:text="Android Hhub version_1.3.2 \n최신 버전 입니다."
+                    android:textColor="#666666"
+                    app:layout_constraintStart_toStartOf="@+id/bg2"
+                    app:layout_constraintTop_toTopOf="@+id/bg2" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:text="개발자들"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/bg3"
-            app:layout_constraintTop_toTopOf="@+id/bg3" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="앱 업데이트"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/bg2"
+                    app:layout_constraintTop_toTopOf="@+id/bg2" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hyundai IT&amp;E 5기 - Android Project\n\n📞  02 - 6790 - 1284\n 📩 kcj1284@gmail.com"
-            android:textColor="#B5B3B3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.535"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bg3"
-            app:layout_constraintVertical_bias="0.241" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="45dp"
+                    android:text="Hyundai_IT&amp;E_5 김가희\nHyundai_IT&amp;E_5 김다빈\nHyundai_IT&amp;E_5 김찬중\nHyundai_IT&amp;E_5 박여명"
+                    android:textColor="#666666"
+                    app:layout_constraintStart_toStartOf="@+id/bg3"
+                    app:layout_constraintTop_toTopOf="@+id/bg3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="개발자들"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/bg3"
+                    app:layout_constraintTop_toTopOf="@+id/bg3" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="50dp"
+                    android:text="Hyundai IT&amp;E 5기 - Android Project\n\n📞  02 - 6790 - 1284\n 📩 kcj1284@gmail.com"
+                    android:textColor="#B5B3B3"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.535"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bg3"
+                    app:layout_constraintVertical_bias="0.241" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -185,8 +201,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/bg_light"
-        app:headerLayout="@layout/navi_header"
+        android:background="@color/bg_hd"
         app:itemTextColor="@color/bg_dark"
+        app:itemHorizontalPadding="20dp"
+        app:headerLayout="@layout/navi_header"
         app:menu="@menu/main_navigationmenu" />
 </androidx.drawerlayout.widget.DrawerLayout>

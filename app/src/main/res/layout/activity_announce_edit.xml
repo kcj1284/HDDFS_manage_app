@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light"
+    android:background="@color/bg_hd"
     tools:context=".AnnounceEdit">
 
     <TextView
@@ -115,12 +115,13 @@
 
     <Button
         android:id="@+id/editCompleteBtn"
-        android:layout_width="160dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/bg_green"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:text="수정"
-        android:textSize="10pt"
+        android:background="@color/bg_hd_beige"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.88"
@@ -130,13 +131,14 @@
 
     <Button
         android:id="@+id/addCancleBtn"
-        android:layout_width="160dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/bg_light2"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/bg_hd_green"
+        android:textColor="#FFFFFF"
         android:text="취소"
-        android:textSize="10pt"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.119"

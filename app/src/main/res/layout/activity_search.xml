@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light"
+    android:background="@color/bg_hd"
     android:fitsSystemWindows="false"
     tools:context=".SearchActivity">
 
@@ -17,8 +17,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:titleTextColor="#FFFFFF"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@color/bg_light"
+            android:background="@color/bg_hd_green"
             tools:ignore="MissingConstraints" />
 
         <androidx.appcompat.widget.SearchView
@@ -60,8 +61,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/bg_light"
-        app:headerLayout="@layout/navi_header"
+        android:background="@color/bg_hd"
         app:itemTextColor="@color/bg_dark"
+        app:itemHorizontalPadding="20dp"
+        app:headerLayout="@layout/navi_header"
         app:menu="@menu/main_navigationmenu" />
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -91,13 +91,6 @@
         </provider>
 
         <activity
-            android:name=".AnnounceContent"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Announce"
             android:exported="false">
             <meta-data
