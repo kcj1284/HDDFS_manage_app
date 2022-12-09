@@ -8,6 +8,6 @@ import java.io.Serializable
 @Entity(tableName="announce")
 data class AnnounceEntity(
     @PrimaryKey(autoGenerate=true) var annNo: Int? = null,
-    @ColumnInfo(name="annTitle") val annTitle: String,
-    @ColumnInfo(name="annContent") val annContent: String
+    @ColumnInfo(name="annTitle") var annTitle: String,
+    @ColumnInfo(name="annContent") var annContent: String
 ): Serializable

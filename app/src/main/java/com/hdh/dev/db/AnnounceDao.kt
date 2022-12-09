@@ -1,9 +1,6 @@
 package com.hdh.dev.db
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.hdh.dev.Announce
 
 
@@ -19,6 +16,10 @@ interface AnnounceDao {
 
     @Insert
     fun insertAnnounce(announce: AnnounceEntity)
+
+    //수정
+    @Update
+    fun updateAnnounce(announce: AnnounceEntity)
 
     @Delete
     fun deleteAnnounce(announce: AnnounceEntity)

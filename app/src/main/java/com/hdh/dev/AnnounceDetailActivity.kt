@@ -1,6 +1,7 @@
 package com.hdh.dev
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -26,10 +27,30 @@ class AnnounceDetailActivity : AppCompatActivity() {
         binding = ActivityAnnounceDetailBinding.inflate(layoutInflater)
         val announceData = intent.getSerializableExtra("announce") as AnnounceEntity
 
+        //관리자모드일 때만 수정버튼 보이도록
+        if (StartActivity.DEPARTMENT_INDEX == 3) {
+        binding.bntAnnounceEdit.visibility = View.VISIBLE
+        }
+
         binding.announceDetailSubject.text = announceData.annTitle.toString()
         binding.announceDetailContent.text = announceData.annContent.toString()
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        //수정버튼 눌리면 수정화면으로 이동
+        binding.bntAnnounceEdit.setOnClickListener {
+            val intentEdit = Intent(this, AnnounceEdit::class.java)
+            intentEdit.putExtra("no",announceData.annNo!!.toInt())
+            intentEdit.putExtra("title",announceData.annTitle.toString())
+            intentEdit.putExtra("content",announceData.annContent.toString())
+            startActivity(intentEdit)
+        }
+
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        val intent = Intent(this, Announce::class.java)
+        startActivity(intent)
     }
 }
