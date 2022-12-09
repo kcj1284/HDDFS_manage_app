@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.hdh.dev.StartActivity
 import com.hdh.dev.databinding.ItemAnnounceBinding
 import com.hdh.dev.db.AnnounceEntity
 
@@ -25,6 +26,13 @@ class AnnounceRecyclerViewAdapter(val announceList: ArrayList<AnnounceEntity>)
                 itemView.setOnClickListener {
                     listener?.onItemClick(itemView,announce,pos)
                 }
+            }
+            val departmentList = arrayOf("무역센터점", "목동점", "천호점","관리자모드")
+
+            //관리자모드일 때만 작성버튼 보이도록
+            binding.announceItemid.text = departmentList[StartActivity.DEPARTMENT_INDEX]//어느 지점인지 출력
+            if (binding.announceItemid.text == "관리자모드") {
+                binding.tvDeleteBtn.visibility = View.VISIBLE
             }
         }
 

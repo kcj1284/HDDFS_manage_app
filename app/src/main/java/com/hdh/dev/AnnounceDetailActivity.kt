@@ -15,13 +15,11 @@ import com.hdh.dev.db.AnnounceDao
 import com.hdh.dev.db.AnnounceEntity
 import com.hdh.dev.db.AppDatabase
 import com.hdh.dev.db.ProductEntity
-
-
 class AnnounceDetailActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityAnnounceDetailBinding
     private lateinit var db:AppDatabase
     private lateinit var announceDao:AnnounceDao
+    private lateinit var announceEntity:AnnounceEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityAnnounceDetailBinding.inflate(layoutInflater)
@@ -29,7 +27,8 @@ class AnnounceDetailActivity : AppCompatActivity() {
 
         //관리자모드일 때만 수정버튼 보이도록
         if (StartActivity.DEPARTMENT_INDEX == 3) {
-        binding.bntAnnounceEdit.visibility = View.VISIBLE
+            binding.bntAnnounceEdit.visibility = View.VISIBLE
+            binding.announceDetailDelete.visibility = View.VISIBLE
         }
 
         binding.announceDetailSubject.text = announceData.annTitle.toString()
@@ -45,7 +44,7 @@ class AnnounceDetailActivity : AppCompatActivity() {
             intentEdit.putExtra("content",announceData.annContent.toString())
             startActivity(intentEdit)
         }
-
+        
     }
 
     override fun onRestart() {

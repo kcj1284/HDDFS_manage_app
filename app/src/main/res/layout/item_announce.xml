@@ -9,12 +9,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
+    <TextView
+        android:id="@+id/announce_itemid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_delete_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="삭제"
+        android:visibility="gone"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        android:background="#FFDBEA8D"
+        android:padding="5dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_announce_list_subject"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginStart="200dp" />
+
+    <TextView
             android:id="@+id/tv_announce_list_subject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
             android:text=""
             android:textColor="@color/black"
             android:textSize="16sp"

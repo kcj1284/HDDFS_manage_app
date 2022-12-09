@@ -36,20 +36,6 @@
         app:layout_constraintStart_toStartOf="@+id/announce_content_title"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/announce_detail_delete"
-        android:layout_width="70dp"
-        android:layout_height="25dp"
-        android:gravity="center"
-        android:background="@color/bg_green"
-        android:layout_marginStart="130dp"
-        android:visibility="gone"
-        android:text="삭제하기"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/announce_detail_scrollview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/announce_content_title"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/announce_detail_scrollview"
@@ -115,17 +101,34 @@
 
     <Button
         android:id="@+id/bnt_announce_edit"
-        android:layout_width="150dp"
+        android:layout_width="160dp"
         android:layout_height="60dp"
         android:layout_marginTop="13dp"
         android:layout_marginBottom="16dp"
+        android:visibility="gone"
         android:text="수정"
         android:textSize="13pt"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.885"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/announce_detail_scrollview"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/announce_detail_delete"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        android:text="삭제"
+        android:textSize="13pt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/announce_detail_scrollview"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

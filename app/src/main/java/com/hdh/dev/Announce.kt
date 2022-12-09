@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import com.hdh.dev.adapter.AnnounceRecyclerViewAdapter
 import com.hdh.dev.databinding.ActivityAnnounceBinding
+import com.hdh.dev.databinding.ItemAnnounceBinding
 import com.hdh.dev.db.AnnounceDao
 import com.hdh.dev.db.AnnounceEntity
 import com.hdh.dev.db.AppDatabase
@@ -22,6 +23,7 @@ import java.security.AllPermission
 class Announce : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityAnnounceBinding
+    private lateinit var itembinding: ItemAnnounceBinding
     private lateinit var db : AppDatabase
     private lateinit var announceDao: AnnounceDao
     private lateinit var announceList: ArrayList<AnnounceEntity>
@@ -31,7 +33,6 @@ class Announce : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         super.onCreate(savedInstanceState)
         binding = ActivityAnnounceBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
 
         // 공지 추가 버튼
