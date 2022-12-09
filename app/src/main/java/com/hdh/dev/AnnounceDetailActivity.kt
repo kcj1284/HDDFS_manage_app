@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -24,6 +25,10 @@ class AnnounceDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityAnnounceDetailBinding.inflate(layoutInflater)
         val announceData = intent.getSerializableExtra("announce") as AnnounceEntity
+        announceEntity = intent.getSerializableExtra("announce") as AnnounceEntity
+
+        db = AppDatabase.getInstance(this)!!
+        announceDao = db.AnnounceDao()
 
         //관리자모드일 때만 수정버튼 보이도록
         if (StartActivity.DEPARTMENT_INDEX == 3) {
@@ -45,8 +50,34 @@ class AnnounceDetailActivity : AppCompatActivity() {
             startActivity(intentEdit)
         }
         
+        binding.announceDetailDelete.setOnClickListener {
+            isDeleted()
+        }
+        
+        
     }
 
+    private fun isDeleted() {
+        //다이얼로그창 띄우기
+        val builder : AlertDialog.Builder = AlertDialog.Builder(this)
+        builder.setTitle("공지사항 삭제")
+        builder.setMessage("정말 삭제하시겠습니까?")
+        builder.setNegativeButton("취소", null)
+        builder.setPositiveButton("삭제", object : DialogInterface.OnClickListener{
+            override fun onClick(p0: DialogInterface?, p1: Int) {
+                Thread{
+                    Log.i("라라라라",announceEntity.toString())
+                    announceDao.deleteAnnounce(announceEntity)
+                    runOnUiThread {
+                        Toast.makeText(this@AnnounceDetailActivity, "삭제 완료", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                }.start()
+            }
+        })
+        builder.show()
+    }
+    
     override fun onRestart() {
         super.onRestart()
         val intent = Intent(this, Announce::class.java)

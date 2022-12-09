@@ -10,7 +10,6 @@ interface AnnounceDao {
     @Query("SELECT * FROM announce")
     fun getAnnounceList():List<AnnounceEntity>
 
-
     @Insert
     fun insertAnnounceList(announce: List<AnnounceEntity>)
 

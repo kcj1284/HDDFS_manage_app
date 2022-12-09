@@ -2,13 +2,10 @@ package com.hdh.dev.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.hdh.dev.AnnounceContent
 import com.hdh.dev.OnItemLongClickListener
 import com.hdh.dev.ProductEdit
 import com.hdh.dev.databinding.FragmentProductListItemBinding
