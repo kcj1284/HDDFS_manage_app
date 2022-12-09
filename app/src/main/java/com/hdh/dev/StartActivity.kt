@@ -60,21 +60,18 @@ class StartActivity : AppCompatActivity() {
         }
     }//end onCreate...
 
-    private fun singletonDepartmentEntity(){
+    private fun singletonDepartmentEntity( ){
         val db : AppDatabase = AppDatabase.getInstance(this)!!
         val dao : DepartmentDao = db.getDepartmentDao()
 
         Thread{
             val count = dao.getDepartment().size
             if(count == 0){//아직 지점Entitiy가 생성이 안됐으므로 생성해주기 -> 어플리케이션이 처음 실행 되었을때를 위함
-                dao.insertDepartment(DepartmentEntity(1, "강남점"))
-                dao.insertDepartment(DepartmentEntity(2, "목동점"))
-                dao.insertDepartment(DepartmentEntity(3, "삼성점"))
+                dao.insertDepartment(DepartmentEntity(0, "무역센터점"))
+                dao.insertDepartment(DepartmentEntity(1, "목동점"))
+                dao.insertDepartment(DepartmentEntity(2, "천호점"))
                 dao.insertDepartment(DepartmentEntity(10, "관리자모드"))
             }
         }.start()
-
-
-
     }
 }

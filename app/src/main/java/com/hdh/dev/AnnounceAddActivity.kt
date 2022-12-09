@@ -1,5 +1,6 @@
 package com.hdh.dev
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -31,6 +32,7 @@ class AnnounceAddActivity : AppCompatActivity() {
         binding.announceAddCancleBtn.setOnClickListener{
             finish()
         }
+
     }
 
     /* 공지 추가 함수 */

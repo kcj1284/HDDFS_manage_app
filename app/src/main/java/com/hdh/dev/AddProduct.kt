@@ -165,7 +165,7 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                 }else{
                     //저장할 파일 이름 -> pcode로 이미지 저장
                     //차후 최종때는 확장자 jfif로 변경 필요
-                    val imageFileName : String = binding.addPcode.text.toString()+".jpg"
+                    val imageFileName : String = binding.addPcode.text.toString()+".jfif"
                     val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                     val photoFile = File(
                         File("${filesDir}/image").apply {
@@ -253,7 +253,7 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                     null,
                     binding.addPcode.text.toString(), //pcode
                     binding.addName.text.toString(), //제품이름
-                    binding.addPcode.text.toString() + ".jpg", // 제품이미지
+                    binding.addPcode.text.toString() + ".jfif", // 제품이미지
                     categoryList[CATEGORY_INDEX], // 제품 카테고리
                     binding.addPrice.text.toString().toInt(), // 제품가격
                     binding.addLoction.text.toString(), // 제품위치
@@ -290,6 +290,7 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
             }
         }
 
+        //외부저장소 이용가능 여부 확인
         val state = Environment.getExternalStorageState()
         if (Environment.MEDIA_MOUNTED == state) {
 
@@ -342,6 +343,7 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                 startActivity(intentAddProduct)
             }
             R.id.search_item_menu_btn->{
+                 Log.d("gahee","버튼눌림")
                 val intentSearch = Intent(this, SearchActivity::class.java)
                 startActivity(intentSearch)
             }
