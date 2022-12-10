@@ -164,7 +164,6 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                     requestMultiplePermission.launch(permissionList)//permissionList목록들의 권한을 받기
                 }else{
                     //저장할 파일 이름 -> pcode로 이미지 저장
-                    //차후 최종때는 확장자 jfif로 변경 필요
                     val imageFileName : String = binding.addPcode.text.toString()+".jfif"
                     val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                     val photoFile = File(
@@ -196,7 +195,7 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         }
         //재고추가버튼
         binding.addCompleteBtn.setOnClickListener {
-            imageExternalSave()
+            qrImageSave()
             insertTodoList()
         }
 
@@ -268,8 +267,9 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         }
     }
 
-    private fun imageExternalSave(): Boolean {
-
+    //재고추가 버튼 눌렀을때 qr코드를 bitmap 형식으로 qr_image 폴더에 저장
+    private fun qrImageSave(): Boolean {
+        //qr코드 생성을 위한 라이브러리
         val qrCode = QRCodeWriter()
         val bitMtx = qrCode.encode(binding.addPcode.text.toString(),
             BarcodeFormat.QR_CODE,
@@ -293,11 +293,11 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         //외부저장소 이용가능 여부 확인
         val state = Environment.getExternalStorageState()
         if (Environment.MEDIA_MOUNTED == state) {
-
+            //저장할 파일 이름 -> pcode로 이미지 저장
             val fileName = binding.addPcode.text.toString() + ".jfif"
             val file = File("${filesDir}/qr_image", fileName)
             if (file.exists()) file.delete()
-
+            //png 포멧으로 압축률 100%로 qr코드 이미지 저장
             try {
                 val out = FileOutputStream(file)
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)

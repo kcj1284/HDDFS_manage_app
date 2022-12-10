@@ -6,9 +6,9 @@ import androidx.camera.core.ImageProxy
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
 
-
-class QRCodeAnalyzer(val onDetectListener: OnDetectListener)  : ImageAnalysis.Analyzer{ // ❶
-
+//qr 코드 인식 기능
+class QRCodeAnalyzer(val onDetectListener: OnDetectListener)  : ImageAnalysis.Analyzer{
+    //바코드 스캐닝 객체 생성
     private val scanner = BarcodeScanning.getClient()
 
     @SuppressLint("UnsafeOptInUsageError")
