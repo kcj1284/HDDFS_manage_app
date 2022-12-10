@@ -106,7 +106,7 @@ class ProductList : AppCompatActivity() , OnItemLongClickListener, NavigationVie
         builder.show()
     }
 
-    // 물건 수정하고 돌아왔을때는 activity 다시 띄우자
+    // 물건 수정하고 돌아왔을때는 activity 다시 띄우기
     override fun onRestart() {
         super.onRestart()
         getProductList()

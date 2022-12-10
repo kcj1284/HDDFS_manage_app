@@ -21,7 +21,7 @@ class ProductEdit : AppCompatActivity() {
     private lateinit var db : AppDatabase
     private lateinit var productDao : ProductDao
 
-    private lateinit var productEntity : ProductEntity//업데이트에 사용될놈 처음 화면로드될때 초기화시킴
+    private lateinit var productEntity : ProductEntity//업데이트에 사용될 ProductEntity 처음 화면로드될때 초기화시킴
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,10 +34,8 @@ class ProductEdit : AppCompatActivity() {
         binding.tvItemStock.setOnClickListener {
             if(binding.otherDepartmentLayout.visibility == View.VISIBLE){
                 binding.otherDepartmentLayout.visibility = View.GONE
-                //binding.tvItemStock.animate().setDuration(200).rotation(180f)
             }else{
                 binding.otherDepartmentLayout.visibility = View.VISIBLE
-                //binding.tvItemStock.animate().setDuration(200).rotation(0f)
             }
         }
         getOtherDepartmentStock(StartActivity.DEPARTMENT_INDEX)
@@ -63,13 +61,13 @@ class ProductEdit : AppCompatActivity() {
     }
 
     private fun getOtherDepartmentStock(curDepartmentIndex: Int){
-        val departmentList = mutableListOf<String>("강남점", "목동점", "삼성점")
+        val departmentList = mutableListOf<String>("무역센터점", "목동점", "천호점")
         val didList = mutableListOf<Int>(0,1,2)
 
         val pcode = intent.getStringExtra("pcode")
 
-        departmentList.removeAt(curDepartmentIndex) //지금 백화점 지점을 목록에서 지워주기~
-        didList.removeAt(curDepartmentIndex) // 현 did말고 나머지만 남기기~
+        departmentList.removeAt(curDepartmentIndex) //지금 백화점 지점을 목록에서 지워주기
+        didList.removeAt(curDepartmentIndex) // 현 did말고 나머지만 남기기
         Thread{
             val productEntity1 = productDao.getDepartmentProductStock(pcode!!, didList[0])
             val productEntity2 = productDao.getDepartmentProductStock(pcode!!, didList[1])

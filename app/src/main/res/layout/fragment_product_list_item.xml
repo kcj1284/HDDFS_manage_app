@@ -27,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/product_Image"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="울~라라라라라랄라라라라랄" />
+        tools:text="상품명이 이곳에 나타난다" />
 
     <TextView
         android:id="@+id/price_fragitem"
