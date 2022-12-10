@@ -29,13 +29,11 @@ class AnnounceEdit : AppCompatActivity() {
         db = AppDatabase.getInstance(this)!!
         announceDao = db.AnnounceDao()
 
-        //val announceData = intent.getSerializableExtra("announce")
+        //수정하기 버튼을 누를때 intent에 담았던 해당게시글번호,제목,내용을 가져온다.
         val annNo = intent.getIntExtra("no",0)
         val annTitle = intent.getStringExtra("title")
         val annContent = intent.getStringExtra("content")
         annEntity = AnnounceEntity(annNo, annTitle.toString()!!,annContent.toString()!!)
-        Log.d("gahee", annTitle.toString())
-        Log.d("gahee", annContent.toString())
 
         //원래 입력되었던 값 불러오기
         binding.editSubject.setText(annTitle.toString())

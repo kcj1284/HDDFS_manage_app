@@ -30,16 +30,16 @@ class AnnounceDetailActivity : AppCompatActivity() {
         db = AppDatabase.getInstance(this)!!
         announceDao = db.AnnounceDao()
 
+        binding.announceDetailSubject.text = announceData.annTitle.toString()
+        binding.announceDetailContent.text = announceData.annContent.toString()
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+
         //관리자모드일 때만 수정버튼 보이도록
         if (StartActivity.DEPARTMENT_INDEX == 3) {
             binding.bntAnnounceEdit.visibility = View.VISIBLE
             binding.announceDetailDelete.visibility = View.VISIBLE
         }
-
-        binding.announceDetailSubject.text = announceData.annTitle.toString()
-        binding.announceDetailContent.text = announceData.annContent.toString()
-        super.onCreate(savedInstanceState)
-        setContentView(binding.root)
 
         //수정버튼 눌리면 수정화면으로 이동
         binding.bntAnnounceEdit.setOnClickListener {
@@ -66,7 +66,6 @@ class AnnounceDetailActivity : AppCompatActivity() {
         builder.setPositiveButton("삭제", object : DialogInterface.OnClickListener{
             override fun onClick(p0: DialogInterface?, p1: Int) {
                 Thread{
-                    Log.i("라라라라",announceEntity.toString())
                     announceDao.deleteAnnounce(announceEntity)
                     runOnUiThread {
                         Toast.makeText(this@AnnounceDetailActivity, "삭제 완료", Toast.LENGTH_SHORT).show()
