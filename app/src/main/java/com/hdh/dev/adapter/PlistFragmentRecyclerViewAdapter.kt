@@ -26,7 +26,7 @@ class PlistFragmentRecyclerViewAdapter(
 
         //val hd_binding = binding
         val root = binding.root
-        val context = cont//이 context는 FragmentActivity 타입이라그런지 Toast 메시지를 쓸수가 없네 ..?
+        val context = cont
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -52,7 +52,7 @@ class PlistFragmentRecyclerViewAdapter(
             intent.putExtra("location", productList[position].loction)
             intent.putExtra("stock", productList[position].stock.toString())
             intent.putExtra("did", productList[position].did.toString())
-            it.context.startActivity(intent) //아래와 무슨차인지 잘 모르겠네 .!?!
+            it.context.startActivity(intent)
             //holder.context.startActivity(intent)
         }
         //길게 누르면 삭제 할 수 있게 다이알로그창 띄우기!

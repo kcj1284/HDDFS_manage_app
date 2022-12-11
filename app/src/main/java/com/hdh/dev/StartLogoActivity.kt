@@ -25,5 +25,4 @@ class StartLogoActivity : AppCompatActivity() {
 
         }, 2000) // 2초 이후 실행
     }
-
 }

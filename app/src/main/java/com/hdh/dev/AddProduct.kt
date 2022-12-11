@@ -209,7 +209,6 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
 
             if(result.resultCode == Activity.RESULT_OK && result.data != null){
                 Toast.makeText(this@AddProduct, "카메라 잘 찍었습니다.", Toast.LENGTH_SHORT).show()
-                Log.i("files위치!", filesDir.toString())
                 //val extras = result.data!!.extras
                 //bitmap = extras?.get("data") as Bitmap
                 //binding.addedPicture.setImageBitmap(bitmap)
@@ -277,7 +276,8 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
             1000
         )
         //bitmap 생성
-        val bitmap: Bitmap = Bitmap.createBitmap(bitMtx.width, bitMtx.height, Bitmap.Config.RGB_565)
+        val bitmap: Bitmap
+        = Bitmap.createBitmap(bitMtx.width, bitMtx.height, Bitmap.Config.RGB_565)
         for(i in 0 .. bitMtx.width-1){
             for(j in 0 .. bitMtx.height-1){
                 var color = 0
@@ -343,7 +343,6 @@ class AddProduct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                 startActivity(intentAddProduct)
             }
             R.id.search_item_menu_btn->{
-                 Log.d("gahee","버튼눌림")
                 val intentSearch = Intent(this, SearchActivity::class.java)
                 startActivity(intentSearch)
             }
